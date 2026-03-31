@@ -841,9 +841,11 @@ nav {
 .about-section {
   padding: 120px 48px 160px;
   border-top: 1px solid var(--color-border);
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 72px;
+}
+
+.about-story {
+  max-width: 680px;
+  margin-bottom: 56px;
 }
 
 .about-section p {
@@ -860,8 +862,8 @@ nav {
 }
 
 .about-details {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   gap: 16px;
 }
 
@@ -1178,76 +1180,6 @@ footer {
 
 
 /* ============================================
-   VIDEO OVERLAY
-   Full-screen with skip + progress
-   ============================================ */
-.video-overlay {
-  display: none;
-  position: fixed;
-  inset: 0;
-  background: rgba(8, 7, 6, 0.95);
-  backdrop-filter: blur(16px);
-  z-index: 200;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-}
-
-.video-overlay.active {
-  display: flex;
-}
-
-.video-container {
-  width: 85%;
-  max-width: 760px;
-  aspect-ratio: 16 / 9;
-  background: var(--color-bg-card);
-  border-radius: 16px;
-  border: 1px solid var(--color-border);
-  overflow: hidden;
-}
-
-.video-container iframe {
-  width: 100%;
-  height: 100%;
-  border: none;
-}
-
-.video-progress-track {
-  width: 85%;
-  max-width: 760px;
-  height: 3px;
-  background: var(--color-border);
-  border-radius: 2px;
-  margin-top: 16px;
-  overflow: hidden;
-}
-
-.video-progress-bar {
-  height: 100%;
-  background: var(--color-accent);
-  border-radius: 2px;
-  width: 0%;
-  transition: width 0.3s;
-}
-
-.video-skip-button {
-  margin-top: 20px;
-  font-size: 13px;
-  color: var(--color-text-muted);
-  background: none;
-  border: none;
-  cursor: pointer;
-  font-family: var(--font-body);
-  transition: color 0.3s;
-}
-
-.video-skip-button:hover {
-  color: var(--color-text-secondary);
-}
-
-
-/* ============================================
    ANIMATIONS
    ============================================ */
 @keyframes fade-up {
@@ -1288,6 +1220,7 @@ footer {
   .hero-avatar { display: none; }
   .hero { grid-template-columns: 1fr; }
   .about-section { grid-template-columns: 1fr; gap: 48px; }
+  .about-details { grid-template-columns: 1fr; }
   .approach-section { grid-template-columns: 1fr; gap: 40px; }
   .agent-panel { width: calc(100vw - 32px); right: 16px; bottom: 88px; }
 }
@@ -1304,6 +1237,7 @@ footer {
   .ai-work-section { padding: 80px 20px 100px; }
   .ai-work-grid { grid-template-columns: 1fr; }
   .about-section { padding: 80px 20px 100px; }
+  .about-details { grid-template-columns: 1fr; }
   footer { padding: 32px 20px; flex-direction: column; gap: 14px; }
   .hero-buttons { flex-direction: column; align-items: flex-start; }
 }
@@ -1327,20 +1261,6 @@ footer {
 
 
 <!-- ==========================================
-     VIDEO OVERLAY
-     ========================================== -->
-<div class="video-overlay" id="videoOverlay">
-  <div class="video-container">
-    <iframe id="videoFrame" src="" allow="autoplay" allowfullscreen></iframe>
-  </div>
-  <div class="video-progress-track">
-    <div class="video-progress-bar" id="videoProgressBar"></div>
-  </div>
-  <button class="video-skip-button" onclick="closeVideo()">Skip intro &rarr;</button>
-</div>
-
-
-<!-- ==========================================
      HERO
      ========================================== -->
 <section class="hero">
@@ -1358,10 +1278,6 @@ footer {
         See my work
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
       </a>
-      <button class="button-secondary" onclick="openVideo()">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"/></svg>
-        Watch intro
-      </button>
       <a href="https://docs.google.com/document/d/1IOjT-wF86OSrs5iM10r8wKxUIfSMo5Jx/edit" target="_blank" class="button-secondary">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
         Download resume
@@ -1585,19 +1501,12 @@ footer {
     <div class="approach-step">
       <div class="step-num">02</div>
       <div class="step-text">
-        <div class="step-title">Test the obvious approach</div>
-        <div class="step-desc">Cold outreach, email campaigns, paid ads. If they work, great. If they don't, you've learned who your audience really is.</div>
-      </div>
-    </div>
-    <div class="approach-step">
-      <div class="step-num">03</div>
-      <div class="step-text">
         <div class="step-title">Build the education engine</div>
         <div class="step-desc">Events with speakers your audience trusts. Content that teaches, not sells. Let the community become the distribution.</div>
       </div>
     </div>
     <div class="approach-step">
-      <div class="step-num">04</div>
+      <div class="step-num">03</div>
       <div class="step-text">
         <div class="step-title">Automate and scale</div>
         <div class="step-desc">AI tools as infrastructure, not novelty. One person running 8+ channels. Measure everything, kill what doesn't convert, double down on what does.</div>
@@ -1639,7 +1548,7 @@ footer {
      ABOUT SECTION
      ========================================== -->
 <section class="about-section" id="about">
-  <div class="scroll-reveal">
+  <div class="about-story scroll-reveal">
     <div class="section-tag">About</div>
     <h2 class="section-heading">A bit about me.</h2>
     <p>I studied economics, taught students, and ended up building GTM engines for technical products. Every step made the next one possible.</p>
@@ -1795,42 +1704,6 @@ document.querySelectorAll('.scroll-reveal').forEach((element) => {
 });
 
 
-// ---- Video Overlay (Google Drive) ----
-const VIDEO_URL = 'https://www.youtube.com/embed/Xd-SXNHDAdQ?autoplay=1&rel=0&modestbranding=1';
-const VIDEO_DURATION = 45; // seconds - adjust to your actual video length
-let progressInterval = null;
-
-function openVideo() {
-  const overlay = document.getElementById('videoOverlay');
-  const frame = document.getElementById('videoFrame');
-  overlay.classList.add('active');
-  document.body.style.overflow = 'hidden';
-  frame.src = VIDEO_URL;
-
-  let elapsed = 0;
-  const bar = document.getElementById('videoProgressBar');
-  clearInterval(progressInterval);
-  progressInterval = setInterval(function() {
-    elapsed += 0.3;
-    bar.style.width = Math.min((elapsed / VIDEO_DURATION) * 100, 100) + '%';
-    if (elapsed >= VIDEO_DURATION) {
-      clearInterval(progressInterval);
-      setTimeout(closeVideo, 500);
-    }
-  }, 300);
-}
-
-function closeVideo() {
-  var overlay = document.getElementById('videoOverlay');
-  var frame = document.getElementById('videoFrame');
-  overlay.classList.remove('active');
-  document.body.style.overflow = '';
-  frame.src = '';
-  clearInterval(progressInterval);
-  document.getElementById('videoProgressBar').style.width = '0%';
-}
-
-
 // ---- AI Agent ----
 function toggleAgent() {
   var panel = document.getElementById('agentPanel');
@@ -1870,7 +1743,7 @@ function sendAgentMessage() {
   .catch(function() {
     var el = document.getElementById(typingId);
     if (el) {
-      el.textContent = 'Agent is waking up. Meanwhile, reach out at harshakalbalia@gmail.com';
+      el.textContent = 'The AI agent needs setup. Please check that the API key is configured on Vercel, or reach out directly at harshakalbalia@gmail.com';
       el.style.opacity = '1';
     }
     messages.scrollTop = messages.scrollHeight;
@@ -1881,7 +1754,6 @@ function sendAgentMessage() {
 // ---- Keyboard Shortcuts ----
 document.addEventListener('keydown', function(event) {
   if (event.key === 'Escape') {
-    closeVideo();
     var panel = document.getElementById('agentPanel');
     if (panel.classList.contains('open')) { toggleAgent(); }
   }
