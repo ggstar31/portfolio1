@@ -332,7 +332,7 @@ nav {
 
 /* Waving hand animation */
 .avatar-svg .waving-hand {
-  transform-origin: 300px 170px;
+  transform-origin: 242px 225px;
   animation: wave 2.5s ease-in-out infinite;
 }
 
@@ -656,9 +656,12 @@ nav {
   padding: 120px 48px;
   border-top: 1px solid var(--color-border);
   position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: start;
 }
 
-/* Subtle gradient on right side */
 .approach-section::before {
   content: '';
   position: absolute;
@@ -698,6 +701,55 @@ nav {
   border-left: 3px solid var(--color-accent);
   background: var(--color-accent-glow);
   border-radius: 0 10px 10px 0;
+}
+
+/* Methodology steps on the right */
+.approach-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding-top: 60px;
+}
+
+.approach-step {
+  background: var(--color-bg-raised);
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  padding: 22px 24px;
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  transition: all 0.3s;
+}
+
+.approach-step:hover {
+  border-color: var(--color-border-light);
+  background: var(--color-bg-card);
+}
+
+.step-num {
+  font-family: var(--font-heading);
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--color-accent);
+  min-width: 32px;
+  line-height: 1;
+}
+
+.step-text {
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.step-title {
+  font-weight: 600;
+  color: var(--color-text-primary);
+  margin-bottom: 4px;
+}
+
+.step-desc {
+  color: var(--color-text-secondary);
+  font-weight: 300;
 }
 
 
@@ -810,7 +862,20 @@ nav {
 .about-details {
   display: flex;
   flex-direction: column;
-  gap: 28px;
+  gap: 16px;
+}
+
+.about-block {
+  background: var(--color-bg-raised);
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  padding: 24px 28px;
+  transition: all 0.3s;
+}
+
+.about-block:hover {
+  border-color: var(--color-border-light);
+  background: var(--color-bg-card);
 }
 
 .about-block-title {
@@ -819,7 +884,19 @@ nav {
   text-transform: uppercase;
   color: var(--color-accent);
   font-weight: 600;
-  margin-bottom: 10px;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.about-block-title::before {
+  content: '';
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--color-accent);
+  display: inline-block;
 }
 
 .about-block-content {
@@ -1127,11 +1204,13 @@ footer {
   background: var(--color-bg-card);
   border-radius: 16px;
   border: 1px solid var(--color-border);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--color-text-muted);
-  font-size: 14px;
+  overflow: hidden;
+}
+
+.video-container iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
 }
 
 .video-progress-track {
@@ -1209,6 +1288,7 @@ footer {
   .hero-avatar { display: none; }
   .hero { grid-template-columns: 1fr; }
   .about-section { grid-template-columns: 1fr; gap: 48px; }
+  .approach-section { grid-template-columns: 1fr; gap: 40px; }
   .agent-panel { width: calc(100vw - 32px); right: 16px; bottom: 88px; }
 }
 
@@ -1220,7 +1300,7 @@ footer {
   .metrics-grid { grid-template-columns: repeat(2, 1fr); }
   .work-section { padding: 0 20px 100px; }
   .work-card { grid-template-columns: 1fr; gap: 24px; padding: 28px; }
-  .approach-section { padding: 80px 20px; }
+  .approach-section { padding: 80px 20px; grid-template-columns: 1fr; gap: 40px; }
   .ai-work-section { padding: 80px 20px 100px; }
   .ai-work-grid { grid-template-columns: 1fr; }
   .about-section { padding: 80px 20px 100px; }
@@ -1242,7 +1322,7 @@ footer {
     <li><a href="#ai-work">AI Work</a></li>
     <li><a href="#about">About</a></li>
   </ul>
-  <a href="mailto:harshakalbalia@gmail.com" class="nav-contact">Get in touch</a>
+  <a href="https://zcal.co/harshakalbalia/30min" target="_blank" class="nav-contact">Get in touch</a>
 </nav>
 
 
@@ -1250,7 +1330,9 @@ footer {
      VIDEO OVERLAY
      ========================================== -->
 <div class="video-overlay" id="videoOverlay">
-  <div class="video-container">Your 45s video intro</div>
+  <div class="video-container">
+    <iframe id="videoFrame" src="" allow="autoplay" allowfullscreen></iframe>
+  </div>
   <div class="video-progress-track">
     <div class="video-progress-bar" id="videoProgressBar"></div>
   </div>
@@ -1274,12 +1356,16 @@ footer {
     <div class="hero-buttons">
       <a href="#work" class="button-primary">
         See my work
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
       </a>
       <button class="button-secondary" onclick="openVideo()">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"/></svg>
         Watch intro
       </button>
+      <a href="https://docs.google.com/document/d/1IOjT-wF86OSrs5iM10r8wKxUIfSMo5Jx/edit" target="_blank" class="button-secondary">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+        Download resume
+      </a>
     </div>
   </div>
 
@@ -1342,14 +1428,21 @@ footer {
         <!-- Smile -->
         <path d="M188 183 C192 189, 208 189, 212 183" stroke="#a0724a" stroke-width="2" stroke-linecap="round" fill="none"/>
 
-        <!-- Waving right arm (animated) -->
+        <!-- Waving right arm (animated from shoulder) -->
         <g class="waving-hand">
-          <path d="M240 230 C260 215, 285 195, 300 170" stroke="#d4a574" stroke-width="22" stroke-linecap="round" fill="none"/>
-          <circle cx="304" cy="162" r="16" fill="#d4a574"/>
-          <path d="M296 150 L292 138" stroke="#d4a574" stroke-width="5" stroke-linecap="round"/>
-          <path d="M302 148 L300 135" stroke="#d4a574" stroke-width="5" stroke-linecap="round"/>
-          <path d="M308 148 L310 135" stroke="#d4a574" stroke-width="5" stroke-linecap="round"/>
-          <path d="M314 152 L319 140" stroke="#d4a574" stroke-width="5" stroke-linecap="round"/>
+          <!-- Shoulder connection -->
+          <circle cx="242" cy="225" r="12" fill="#c2602a"/>
+          <!-- Upper arm -->
+          <path d="M242 225 C255 215, 270 200, 280 185" stroke="#d4a574" stroke-width="20" stroke-linecap="round" fill="none"/>
+          <!-- Forearm -->
+          <path d="M280 185 C288 175, 295 168, 300 162" stroke="#d4a574" stroke-width="16" stroke-linecap="round" fill="none"/>
+          <!-- Hand -->
+          <circle cx="302" cy="158" r="14" fill="#d4a574"/>
+          <!-- Fingers spread (waving) -->
+          <path d="M294 148 L291 138" stroke="#d4a574" stroke-width="4.5" stroke-linecap="round"/>
+          <path d="M300 146 L298 134" stroke="#d4a574" stroke-width="4.5" stroke-linecap="round"/>
+          <path d="M306 146 L308 134" stroke="#d4a574" stroke-width="4.5" stroke-linecap="round"/>
+          <path d="M312 149 L316 139" stroke="#d4a574" stroke-width="4.5" stroke-linecap="round"/>
         </g>
 
         <!-- Left arm on laptop -->
@@ -1481,6 +1574,36 @@ footer {
     <div class="approach-quote">"I don't run campaigns. I build systems. The kind that keep working after I stop pushing."</div>
     <p class="approach-text">It starts the same way every time: <strong>100+ conversations before a single landing page.</strong> Events, Slack groups, Discord, Reddit, LinkedIn. The market tells you what to build if you ask the right questions.</p>
   </div>
+  <div class="approach-steps scroll-reveal">
+    <div class="approach-step">
+      <div class="step-num">01</div>
+      <div class="step-text">
+        <div class="step-title">Listen first, build second</div>
+        <div class="step-desc">100+ conversations with real users before touching a landing page. Events, communities, Reddit, Slack groups.</div>
+      </div>
+    </div>
+    <div class="approach-step">
+      <div class="step-num">02</div>
+      <div class="step-text">
+        <div class="step-title">Test the obvious approach</div>
+        <div class="step-desc">Cold outreach, email campaigns, paid ads. If they work, great. If they don't, you've learned who your audience really is.</div>
+      </div>
+    </div>
+    <div class="approach-step">
+      <div class="step-num">03</div>
+      <div class="step-text">
+        <div class="step-title">Build the education engine</div>
+        <div class="step-desc">Events with speakers your audience trusts. Content that teaches, not sells. Let the community become the distribution.</div>
+      </div>
+    </div>
+    <div class="approach-step">
+      <div class="step-num">04</div>
+      <div class="step-text">
+        <div class="step-title">Automate and scale</div>
+        <div class="step-desc">AI tools as infrastructure, not novelty. One person running 8+ channels. Measure everything, kill what doesn't convert, double down on what does.</div>
+      </div>
+    </div>
+  </div>
 </section>
 
 
@@ -1523,10 +1646,14 @@ footer {
     <p><strong>Economics taught me how incentives actually work.</strong> Teaching taught me how to explain complex things simply. Both turned out more useful in tech than any technical degree.</p>
     <p>I've worked across crypto, fintech, and data infrastructure. Each time building from zero, each time in a market where traditional playbooks didn't apply.</p>
     <p>What excites me now: <strong>AI-native companies where the product is brilliant but the GTM treats developers like enterprise buyers.</strong> The companies that win won't be the ones with the best models. They'll be the ones that earn trust first.</p>
+    <div style="margin-top:32px;padding:24px;background:var(--color-accent-glow);border:1px solid rgba(194,96,42,0.2);border-radius:12px">
+      <p style="font-size:14px;color:var(--color-accent-light);font-weight:500;margin-bottom:8px">Currently exploring</p>
+      <p style="margin:0;font-size:15px">AI product marketing, developer ecosystem growth, community-led GTM, and how trust scales in technical markets.</p>
+    </div>
   </div>
 
   <div class="about-details scroll-reveal">
-    <div>
+    <div class="about-block">
       <p class="about-block-title">Education</p>
       <p class="about-block-content">
         <strong>B.Sc. Economics Honors</strong><br>
@@ -1535,7 +1662,14 @@ footer {
         CGPA: 8.2/10 | Languages: Stata, SQL, Python
       </p>
     </div>
-    <div>
+    <div class="about-block">
+      <p class="about-block-title">Research Papers</p>
+      <p class="about-block-content">
+        Expiration-Day Effects on Index Futures: Evidence from Indian Market<br>
+        The Cause of Unemployment in Current Market Scenario
+      </p>
+    </div>
+    <div class="about-block">
       <p class="about-block-title">Achievements &amp; Courses</p>
       <p class="about-block-content">
         <strong>Harvard Business School</strong> Peek Class: Selected in cohort of 90, case study "Monetizing Prediction in the Age of AI" using 5-C analysis<br>
@@ -1544,16 +1678,25 @@ footer {
         <strong>Symbiosis International (Australia):</strong> Consulting apprenticeship, analyzed 13 grants, improved fund management 2.5x
       </p>
     </div>
-    <div>
+    <div class="about-block">
+      <p class="about-block-title">College Achievements</p>
+      <p class="about-block-content">
+        Coordinator, Economics Annual Fest, Sponsorship &amp; Media Head<br>
+        Initiator of E-cell, Loreto College<br>
+        Winner of Essay Competition | Cryptocurrencies<br>
+        Society Memberships: NSS, Debate, Leadership Training Service
+      </p>
+    </div>
+    <div class="about-block">
       <p class="about-block-title">Community &amp; Early Leadership</p>
       <p class="about-block-content">
         <strong>East India Head, Yuvaa:</strong> Led 75-person team for India's largest GenZ community (600K+ members), executed 3 offline events with 200+ attendees<br>
         <strong>International Relations Manager, AIESEC:</strong> Built partnerships in Japan, Malaysia, and Taiwan, enabled 50+ students in international exchange programs<br>
         <strong>Fellow Teacher, Teach for India:</strong> Taught English to 30 students at Sarvodaya Vidyalaya, Delhi<br>
-        <strong>NABARD Representative:</strong> Field research in West Bengal interviewing female workers on financial needs (Class 11)
+        <strong>NABARD Representative:</strong> Field research in West Bengal interviewing female workers on financial needs
       </p>
     </div>
-    <div>
+    <div class="about-block">
       <p class="about-block-title">AI tools I build with</p>
       <div class="tools-list">
         <span class="tool-pill">Claude</span>
@@ -1570,16 +1713,17 @@ footer {
         <span class="tool-pill">Figma</span>
       </div>
     </div>
-    <div>
+    <div class="about-block">
       <p class="about-block-title">Speaking</p>
       <p class="about-block-content">Guest speaker on product marketing at industry events. Hosted India's first official Apache Iceberg event with Apache Foundation.</p>
     </div>
-    <div>
+    <div class="about-block">
       <p class="about-block-title">Get in touch</p>
       <p class="about-block-content">
         <a href="mailto:harshakalbalia@gmail.com">harshakalbalia@gmail.com</a><br>
         <a href="https://www.linkedin.com/in/harshakalbalia/" target="_blank">LinkedIn</a> &middot;
-        <a href="#" download>Download Resume</a>
+        <a href="https://zcal.co/harshakalbalia/30min" target="_blank">Book a call</a> &middot;
+        <a href="https://docs.google.com/document/d/1IOjT-wF86OSrs5iM10r8wKxUIfSMo5Jx/edit" target="_blank">Download Resume</a>
       </p>
     </div>
   </div>
@@ -1594,7 +1738,7 @@ footer {
   <div class="footer-links">
     <a href="https://www.linkedin.com/in/harshakalbalia/" target="_blank">LinkedIn</a>
     <a href="mailto:harshakalbalia@gmail.com">Email</a>
-    <a href="#" download>Resume</a>
+    <a href="https://docs.google.com/document/d/1IOjT-wF86OSrs5iM10r8wKxUIfSMo5Jx/edit" target="_blank">Resume</a>
   </div>
 </footer>
 
@@ -1651,74 +1795,103 @@ document.querySelectorAll('.scroll-reveal').forEach((element) => {
 });
 
 
-// ---- Video Overlay ----
-function openVideo() {
-  document.getElementById('videoOverlay').classList.add('active');
-  document.body.style.overflow = 'hidden';
+// ---- Video Overlay (Google Drive) ----
+const VIDEO_URL = 'https://www.youtube.com/embed/Xd-SXNHDAdQ?autoplay=1&rel=0&modestbranding=1';
+const VIDEO_DURATION = 45; // seconds - adjust to your actual video length
+let progressInterval = null;
 
-  let progress = 0;
-  const progressBar = document.getElementById('videoProgressBar');
-  const interval = setInterval(() => {
-    progress += 0.5;
-    progressBar.style.width = progress + '%';
-    if (progress >= 100) {
-      clearInterval(interval);
-      setTimeout(closeVideo, 400);
+function openVideo() {
+  const overlay = document.getElementById('videoOverlay');
+  const frame = document.getElementById('videoFrame');
+  overlay.classList.add('active');
+  document.body.style.overflow = 'hidden';
+  frame.src = VIDEO_URL;
+
+  let elapsed = 0;
+  const bar = document.getElementById('videoProgressBar');
+  clearInterval(progressInterval);
+  progressInterval = setInterval(function() {
+    elapsed += 0.3;
+    bar.style.width = Math.min((elapsed / VIDEO_DURATION) * 100, 100) + '%';
+    if (elapsed >= VIDEO_DURATION) {
+      clearInterval(progressInterval);
+      setTimeout(closeVideo, 500);
     }
-  }, 225);
+  }, 300);
 }
 
 function closeVideo() {
-  document.getElementById('videoOverlay').classList.remove('active');
+  var overlay = document.getElementById('videoOverlay');
+  var frame = document.getElementById('videoFrame');
+  overlay.classList.remove('active');
   document.body.style.overflow = '';
+  frame.src = '';
+  clearInterval(progressInterval);
+  document.getElementById('videoProgressBar').style.width = '0%';
 }
 
 
 // ---- AI Agent ----
 function toggleAgent() {
-  const panel = document.getElementById('agentPanel');
-  const button = document.getElementById('agentToggleButton');
-
+  var panel = document.getElementById('agentPanel');
+  var button = document.getElementById('agentToggleButton');
   panel.classList.toggle('open');
   button.style.display = panel.classList.contains('open') ? 'none' : 'flex';
 }
 
 function sendAgentMessage() {
-  const input = document.getElementById('agentInput');
-  const text = input.value.trim();
+  var input = document.getElementById('agentInput');
+  var text = input.value.trim();
   if (!text) return;
 
-  const messages = document.getElementById('agentMessages');
-
-  // Add user message
-  messages.innerHTML += `<div class="agent-message user">${text}</div>`;
+  var messages = document.getElementById('agentMessages');
+  messages.innerHTML += '<div class="agent-message user">' + text + '</div>';
   input.value = '';
   messages.scrollTop = messages.scrollHeight;
 
-  // Placeholder bot response (replace with Anthropic API call)
-  setTimeout(() => {
-    messages.innerHTML += `<div class="agent-message bot">Thanks for the question! The full AI agent is coming soon. In the meantime, reach out at harshakalbalia@gmail.com</div>`;
+  var typingId = 'typing-' + Date.now();
+  messages.innerHTML += '<div class="agent-message bot" id="' + typingId + '" style="opacity:0.5">Thinking...</div>';
+  messages.scrollTop = messages.scrollHeight;
+
+  fetch('/api/chat', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ message: text })
+  })
+  .then(function(response) { return response.json(); })
+  .then(function(data) {
+    var el = document.getElementById(typingId);
+    if (el) {
+      el.textContent = data.reply || 'Something went wrong. Reach out at harshakalbalia@gmail.com';
+      el.style.opacity = '1';
+    }
     messages.scrollTop = messages.scrollHeight;
-  }, 800);
+  })
+  .catch(function() {
+    var el = document.getElementById(typingId);
+    if (el) {
+      el.textContent = 'Agent is waking up. Meanwhile, reach out at harshakalbalia@gmail.com';
+      el.style.opacity = '1';
+    }
+    messages.scrollTop = messages.scrollHeight;
+  });
 }
 
 
 // ---- Keyboard Shortcuts ----
-document.addEventListener('keydown', (event) => {
+document.addEventListener('keydown', function(event) {
   if (event.key === 'Escape') {
     closeVideo();
-    const panel = document.getElementById('agentPanel');
-    if (panel.classList.contains('open')) {
-      toggleAgent();
-    }
+    var panel = document.getElementById('agentPanel');
+    if (panel.classList.contains('open')) { toggleAgent(); }
   }
 });
 
 
-// ---- Smooth Scroll for Anchor Links ----
-document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-  anchor.addEventListener('click', (event) => {
-    const target = document.querySelector(anchor.getAttribute('href'));
+// ---- Smooth Scroll ----
+document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
+  anchor.addEventListener('click', function(event) {
+    var target = document.querySelector(anchor.getAttribute('href'));
     if (target) {
       event.preventDefault();
       target.scrollIntoView({ behavior: 'smooth' });
