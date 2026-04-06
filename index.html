@@ -7,1643 +7,552 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-
 <style>
-/* ============================================
-   DESIGN TOKENS
-   Dark mode + terracotta accent palette
-   ============================================ */
 :root {
-  /* Backgrounds (darkest to lightest) */
-  --color-bg-base: #0a0908;
-  --color-bg-raised: #111010;
-  --color-bg-card: #181514;
-  --color-bg-card-hover: #1f1b18;
-  --color-bg-elevated: #272220;
-
-  /* Borders */
-  --color-border: #2a2520;
-  --color-border-light: #3a3430;
-
-  /* Text */
-  --color-text-primary: #eae6e0;
-  --color-text-secondary: #9a938a;
-  --color-text-muted: #5e5851;
-
-  /* Accent - Terracotta */
-  --color-accent: #c2602a;
-  --color-accent-light: #d97b48;
-  --color-accent-dark: #a04d1e;
-  --color-accent-glow: rgba(194, 96, 42, 0.12);
-  --color-accent-glow-strong: rgba(194, 96, 42, 0.15);
-
-  /* Typography */
-  --font-heading: 'Poppins', sans-serif;
-  --font-body: 'Inter', sans-serif;
-}
-
-
-/* ============================================
-   RESET & BASE
-   ============================================ */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-::selection {
-  background: rgba(194, 96, 42, 0.35);
-  color: #fff;
-}
-
-html {
-  scroll-behavior: smooth;
-}
-
-body {
-  font-family: var(--font-body);
-  background: var(--color-bg-base);
-  color: var(--color-text-primary);
-  -webkit-font-smoothing: antialiased;
-  overflow-x: hidden;
-}
-
-/* Subtle grain texture overlay */
-body::after {
-  content: '';
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  z-index: 9999;
-  opacity: 0.025;
-  background: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-}
-
-
-/* ============================================
-   NAVIGATION
-   Fixed top bar with blur backdrop
-   ============================================ */
-nav {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 100;
-  padding: 16px 48px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background: rgba(10, 9, 8, 0.75);
-  backdrop-filter: blur(28px);
-  border-bottom: 1px solid rgba(42, 37, 32, 0.4);
-}
-
-.nav-logo {
-  width: 38px;
-  height: 38px;
-  border-radius: 10px;
-  background: linear-gradient(135deg, var(--color-accent), var(--color-accent-dark));
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: var(--font-heading);
-  font-weight: 700;
-  font-size: 15px;
-  color: #fff;
-  letter-spacing: -0.02em;
-  text-decoration: none;
-}
-
-.nav-links {
-  display: flex;
-  gap: 32px;
-  list-style: none;
-}
-
-.nav-links a {
-  font-size: 13px;
-  color: var(--color-text-secondary);
-  text-decoration: none;
-  letter-spacing: 0.01em;
-  transition: color 0.3s;
-  font-weight: 400;
-}
-
-.nav-links a:hover {
-  color: var(--color-accent);
-}
-
-.nav-contact {
-  font-size: 13px;
-  padding: 9px 22px;
-  background: var(--color-accent-glow);
-  border: 1px solid rgba(194, 96, 42, 0.25);
-  border-radius: 8px;
-  color: var(--color-accent-light);
-  text-decoration: none;
-  transition: all 0.3s;
-  font-weight: 500;
-}
-
-.nav-contact:hover {
-  background: var(--color-accent);
-  color: #fff;
-  border-color: var(--color-accent);
-}
-
-
-/* ============================================
-   HERO SECTION
-   Two-column: text left, avatar right
-   ============================================ */
-.hero {
-  min-height: 100vh;
-  display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
-  align-items: center;
-  padding: 0 48px;
-  gap: 40px;
-  position: relative;
-  overflow: hidden;
-}
-
-/* Ambient glow behind hero */
-.hero::before {
-  content: '';
-  position: absolute;
-  top: -100px;
-  right: 200px;
-  width: 600px;
-  height: 600px;
-  background: radial-gradient(circle, rgba(194, 96, 42, 0.1) 0%, transparent 65%);
-  pointer-events: none;
-  animation: ambient-pulse 6s ease-in-out infinite alternate;
-}
-
-.hero::after {
-  content: '';
-  position: absolute;
-  bottom: -150px;
-  left: -100px;
-  width: 500px;
-  height: 500px;
-  background: radial-gradient(circle, rgba(194, 96, 42, 0.06) 0%, transparent 65%);
-  pointer-events: none;
-}
-
-@keyframes ambient-pulse {
-  from { opacity: 0.6; transform: scale(1); }
-  to { opacity: 1; transform: scale(1.15); }
-}
-
-.hero-text {
-  z-index: 2;
-}
-
-.hero-name {
-  font-family: var(--font-heading);
-  font-size: clamp(48px, 6.5vw, 76px);
-  font-weight: 700;
-  line-height: 1.05;
-  letter-spacing: -0.035em;
-  margin-bottom: 14px;
-  opacity: 0;
-  animation: fade-up 0.6s ease forwards 0.15s;
-}
-
-.hero-name .name-accent {
-  color: var(--color-accent);
-}
-
-.hero-role {
-  font-size: 15px;
-  color: var(--color-text-secondary);
-  letter-spacing: 0.02em;
-  margin-bottom: 32px;
-  font-weight: 400;
-  opacity: 0;
-  animation: fade-up 0.6s ease forwards 0.3s;
-}
-
-.hero-role .separator {
-  color: var(--color-text-muted);
-  margin: 0 12px;
-}
-
-.hero-subtitle {
-  font-size: 19px;
-  line-height: 1.65;
-  color: var(--color-text-secondary);
-  max-width: 540px;
-  margin-bottom: 44px;
-  font-weight: 300;
-  opacity: 0;
-  animation: fade-up 0.6s ease forwards 0.45s;
-}
-
-.hero-subtitle strong {
-  color: var(--color-text-primary);
-  font-weight: 500;
-}
-
-.hero-buttons {
-  display: flex;
-  gap: 14px;
-  align-items: center;
-  opacity: 0;
-  animation: fade-up 0.6s ease forwards 0.6s;
-}
-
-/* Primary button (terracotta fill) */
-.button-primary {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 14px 28px;
-  background: var(--color-accent);
-  color: #fff;
-  border: none;
-  border-radius: 8px;
-  font-size: 14px;
-  font-weight: 500;
-  font-family: var(--font-body);
-  cursor: pointer;
-  transition: all 0.3s;
-  text-decoration: none;
-}
-
-.button-primary:hover {
-  background: var(--color-accent-dark);
-  transform: translateY(-2px);
-  box-shadow: 0 8px 30px rgba(194, 96, 42, 0.3);
-}
-
-/* Secondary button (ghost/outline) */
-.button-secondary {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 14px 28px;
-  background: var(--color-bg-card);
-  color: var(--color-text-secondary);
-  border: 1px solid var(--color-border-light);
-  border-radius: 8px;
-  font-size: 14px;
-  font-weight: 400;
-  font-family: var(--font-body);
-  cursor: pointer;
-  transition: all 0.3s;
-  text-decoration: none;
-}
-
-.button-secondary:hover {
-  border-color: var(--color-accent);
-  color: var(--color-accent-light);
-  background: var(--color-bg-card-hover);
-}
-
-
-/* ============================================
-   HERO AVATAR (right side)
-   SVG illustration with floating cards
-   ============================================ */
-.hero-avatar {
-  z-index: 2;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  opacity: 0;
-  animation: fade-in 1s ease forwards 0.5s;
-}
-
-.avatar-scene {
-  position: relative;
-  width: 400px;
-  height: 480px;
-}
-
-.avatar-svg {
-  width: 100%;
-  height: 100%;
-  filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.3));
-}
-
-/* Waving hand animation */
-.avatar-svg .waving-hand {
-  transform-origin: 242px 225px;
-  animation: wave 2.5s ease-in-out infinite;
-}
-
-@keyframes wave {
-  0%, 100% { transform: rotate(0deg); }
-  15% { transform: rotate(14deg); }
-  30% { transform: rotate(-6deg); }
-  45% { transform: rotate(10deg); }
-  60% { transform: rotate(0deg); }
-}
-
-/* Speech bubble */
-.speech-bubble {
-  position: absolute;
-  top: 20px;
-  left: -20px;
-  background: var(--color-bg-card-hover);
-  border: 1px solid var(--color-border-light);
-  border-radius: 14px 14px 14px 4px;
-  padding: 14px 18px;
-  font-size: 14px;
-  font-weight: 500;
-  color: var(--color-text-primary);
-  z-index: 4;
-  animation: float 4s ease-in-out infinite 0.5s;
-  max-width: 220px;
-  line-height: 1.5;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
-}
-
-.speech-bubble .bubble-subtext {
-  display: block;
-  font-size: 12px;
-  color: var(--color-text-secondary);
-  font-weight: 300;
-  margin-top: 4px;
-}
-
-/* Floating stat cards around avatar */
-.floating-card {
-  position: absolute;
-  background: var(--color-bg-card);
-  border: 1px solid var(--color-border-light);
-  border-radius: 10px;
-  padding: 10px 14px;
-  font-size: 12px;
-  color: var(--color-text-secondary);
-  font-weight: 500;
-  z-index: 3;
-  backdrop-filter: blur(8px);
-}
-
-.floating-card.card-left {
-  bottom: 60px;
-  left: -30px;
-  animation: float 4s ease-in-out infinite;
-}
-
-.floating-card.card-right {
-  top: 100px;
-  right: -20px;
-  animation: float 4s ease-in-out infinite 1s;
-}
-
-.floating-card .card-number {
-  font-family: var(--font-heading);
-  font-size: 18px;
-  font-weight: 700;
-  color: var(--color-accent);
-  display: block;
-}
-
-@keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-8px); }
-}
-
-
-/* ============================================
-   METRICS BAR
-   4-column grid of key numbers
-   ============================================ */
-.metrics-section {
-  padding: 0 48px;
-  margin-bottom: 140px;
-}
-
-.metrics-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 2px;
-  border-radius: 14px;
-  overflow: hidden;
-}
-
-.metric-item {
-  padding: 36px 28px;
-  text-align: center;
-  background: var(--color-bg-raised);
-  transition: all 0.4s;
-  position: relative;
-  overflow: hidden;
-}
-
-/* Terracotta underline on hover */
-.metric-item::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  width: 0;
-  height: 2px;
-  background: var(--color-accent);
-  transition: all 0.4s;
-  transform: translateX(-50%);
-}
-
-.metric-item:hover {
-  background: var(--color-bg-card);
-}
-
-.metric-item:hover::after {
-  width: 60%;
-}
-
-.metric-number {
-  font-family: var(--font-heading);
-  font-size: 38px;
-  font-weight: 700;
-  color: var(--color-text-primary);
-  letter-spacing: -0.02em;
-  margin-bottom: 6px;
-}
-
-.metric-label {
-  font-size: 11px;
-  color: var(--color-text-secondary);
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  font-weight: 500;
-  line-height: 1.5;
-}
-
-
-/* ============================================
-   SHARED SECTION STYLES
-   Tag, heading, description
-   ============================================ */
-.section-tag {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  font-size: 11px;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--color-accent);
-  font-weight: 600;
-  margin-bottom: 20px;
-  padding: 5px 12px;
-  background: var(--color-accent-glow);
-  border-radius: 5px;
-}
-
-.section-heading {
-  font-family: var(--font-heading);
-  font-size: clamp(30px, 3.8vw, 46px);
-  font-weight: 700;
-  line-height: 1.15;
-  letter-spacing: -0.025em;
-  margin-bottom: 20px;
-}
-
-.section-description {
-  font-size: 16px;
-  color: var(--color-text-secondary);
-  line-height: 1.7;
-  max-width: 580px;
-  font-weight: 300;
-}
-
-
-/* ============================================
-   WORK SECTION
-   Three cards: OLake, Money Club, Mudrex
-   ============================================ */
-.work-section {
-  padding: 0 48px 160px;
-}
-
-.work-cards {
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
-  margin-top: 56px;
-}
-
-.work-card {
-  background: var(--color-bg-raised);
-  border: 1px solid var(--color-border);
-  border-radius: 16px;
-  padding: 44px;
-  display: grid;
-  grid-template-columns: 1.15fr 1fr;
-  gap: 48px;
-  transition: all 0.4s;
-  cursor: pointer;
-  text-decoration: none;
-  color: inherit;
-  position: relative;
-  overflow: hidden;
-}
-
-/* Gradient wash on hover */
-.work-card::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  border-radius: 16px;
-  background: linear-gradient(135deg, rgba(194, 96, 42, 0.04), transparent 60%);
-  opacity: 0;
-  transition: opacity 0.4s;
-}
-
-.work-card:hover {
-  border-color: var(--color-border-light);
-  transform: translateY(-3px);
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-}
-
-.work-card:hover::before {
-  opacity: 1;
-}
-
-.work-company {
-  font-size: 12px;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  color: var(--color-accent);
-  font-weight: 600;
-  margin-bottom: 14px;
-}
-
-.work-title {
-  font-family: var(--font-heading);
-  font-size: 23px;
-  font-weight: 600;
-  line-height: 1.35;
-  letter-spacing: -0.01em;
-  margin-bottom: 14px;
-}
-
-.work-narrative {
-  font-size: 14px;
-  color: var(--color-text-secondary);
-  line-height: 1.7;
-  font-weight: 300;
-  margin-bottom: 18px;
-}
-
-.work-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
-}
-
-.work-tag {
-  font-size: 10px;
-  padding: 4px 10px;
-  background: var(--color-accent-glow);
-  color: var(--color-accent-light);
-  border-radius: 4px;
-  font-weight: 600;
-  letter-spacing: 0.03em;
-  text-transform: uppercase;
-}
-
-/* Right-side metrics within work card */
-.work-metrics {
-  display: flex;
-  flex-direction: column;
-  gap: 18px;
-  justify-content: center;
-}
-
-.work-metric {
-  display: flex;
-  align-items: baseline;
-  gap: 14px;
-  padding: 14px 16px;
-  background: var(--color-bg-card);
-  border-radius: 10px;
-  border: 1px solid rgba(42, 37, 32, 0.5);
-  transition: border-color 0.3s;
-}
-
-.work-metric:hover {
-  border-color: var(--color-accent);
-}
-
-.work-metric-value {
-  font-family: var(--font-heading);
-  font-size: 26px;
-  font-weight: 700;
-  color: var(--color-accent);
-  letter-spacing: -0.02em;
-  white-space: nowrap;
-  min-width: 70px;
-}
-
-.work-metric-context {
-  font-size: 12px;
-  color: var(--color-text-secondary);
-  line-height: 1.5;
-}
-
-
-/* ============================================
-   APPROACH SECTION
-   ============================================ */
-.approach-section {
-  padding: 120px 48px;
-  border-top: 1px solid var(--color-border);
-  position: relative;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 64px;
-  align-items: start;
-}
-
-.approach-section::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 50%;
-  height: 100%;
-  background: linear-gradient(270deg, rgba(194, 96, 42, 0.03), transparent);
-  pointer-events: none;
-}
-
-.approach-content {
-  max-width: 620px;
-}
-
-.approach-text {
-  font-size: 17px;
-  line-height: 1.8;
-  color: var(--color-text-secondary);
-  font-weight: 300;
-  margin-bottom: 24px;
-}
-
-.approach-text strong {
-  color: var(--color-text-primary);
-  font-weight: 500;
-}
-
-.approach-quote {
-  font-family: var(--font-heading);
-  font-size: 22px;
-  font-weight: 600;
-  color: var(--color-accent-light);
-  line-height: 1.5;
-  margin: 36px 0;
-  padding: 20px 24px;
-  border-left: 3px solid var(--color-accent);
-  background: var(--color-accent-glow);
-  border-radius: 0 10px 10px 0;
-}
-
-/* Methodology steps on the right */
-.approach-steps {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-  padding-top: 60px;
-}
-
-.approach-step {
-  background: var(--color-bg-raised);
-  border: 1px solid var(--color-border);
-  border-radius: 12px;
-  padding: 22px 24px;
-  display: flex;
-  gap: 16px;
-  align-items: flex-start;
-  transition: all 0.3s;
-}
-
-.approach-step:hover {
-  border-color: var(--color-border-light);
-  background: var(--color-bg-card);
-}
-
-.step-num {
-  font-family: var(--font-heading);
-  font-size: 24px;
-  font-weight: 700;
-  color: var(--color-accent);
-  min-width: 32px;
-  line-height: 1;
-}
-
-.step-text {
-  font-size: 14px;
-  line-height: 1.6;
-}
-
-.step-title {
-  font-weight: 600;
-  color: var(--color-text-primary);
-  margin-bottom: 4px;
-}
-
-.step-desc {
-  color: var(--color-text-secondary);
-  font-weight: 300;
-}
-
-
-/* ============================================
-   AI WORK SECTION
-   Three project cards
-   ============================================ */
-.ai-work-section {
-  padding: 120px 48px 160px;
-  border-top: 1px solid var(--color-border);
-}
-
-.ai-work-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 16px;
-  margin-top: 56px;
-}
-
-.ai-work-card {
-  background: var(--color-bg-raised);
-  border: 1px solid var(--color-border);
-  border-radius: 14px;
-  padding: 32px 28px;
-  transition: all 0.4s;
-  cursor: pointer;
-  position: relative;
-  overflow: hidden;
-}
-
-/* Top border glow on hover */
-.ai-work-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 2px;
-  background: linear-gradient(90deg, transparent, var(--color-accent), transparent);
-  opacity: 0;
-  transition: opacity 0.4s;
-}
-
-.ai-work-card:hover {
-  background: var(--color-bg-card);
-  border-color: var(--color-border-light);
-  transform: translateY(-2px);
-}
-
-.ai-work-card:hover::before {
-  opacity: 1;
-}
-
-.ai-work-icon {
-  width: 42px;
-  height: 42px;
-  border-radius: 12px;
-  background: linear-gradient(135deg, var(--color-accent-glow), rgba(194, 96, 42, 0.05));
-  border: 1px solid rgba(194, 96, 42, 0.2);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 18px;
-  color: var(--color-accent);
-  font-size: 18px;
-  font-weight: 600;
-}
-
-.ai-work-title {
-  font-family: var(--font-heading);
-  font-size: 16px;
-  font-weight: 600;
-  margin-bottom: 10px;
-  line-height: 1.4;
-}
-
-.ai-work-description {
-  font-size: 13px;
-  color: var(--color-text-secondary);
-  line-height: 1.65;
-  font-weight: 300;
-}
-
-
-/* ============================================
-   ABOUT SECTION
-   Two-column: story + details
-   ============================================ */
-.about-section {
-  padding: 120px 48px 160px;
-  border-top: 1px solid var(--color-border);
-}
-
-.about-story {
-  max-width: 680px;
-  margin-bottom: 56px;
-}
-
-.about-section p {
-  font-size: 15px;
-  color: var(--color-text-secondary);
-  line-height: 1.8;
-  font-weight: 300;
-  margin-bottom: 18px;
-}
-
-.about-section p strong {
-  color: var(--color-text-primary);
-  font-weight: 500;
-}
-
-.about-details {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 16px;
-}
-
-.about-block {
-  background: var(--color-bg-raised);
-  border: 1px solid var(--color-border);
-  border-radius: 12px;
-  padding: 24px 28px;
-  transition: all 0.3s;
-}
-
-.about-block:hover {
-  border-color: var(--color-border-light);
-  background: var(--color-bg-card);
-}
-
-.about-block-title {
-  font-size: 10px;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--color-accent);
-  font-weight: 600;
-  margin-bottom: 12px;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.about-block-title::before {
-  content: '';
-  width: 4px;
-  height: 4px;
-  border-radius: 50%;
-  background: var(--color-accent);
-  display: inline-block;
-}
-
-.about-block-content {
-  font-size: 13px;
-  color: var(--color-text-secondary);
-  line-height: 1.7;
-}
-
-.about-block-content a {
-  color: var(--color-accent-light);
-  text-decoration: none;
-  transition: color 0.3s;
-}
-
-.about-block-content a:hover {
-  color: var(--color-accent);
-}
-
-/* Tool pills */
-.tools-list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
-  margin-top: 8px;
-}
-
-.tool-pill {
-  font-size: 10px;
-  padding: 5px 10px;
-  background: var(--color-bg-card);
-  border: 1px solid var(--color-border);
-  border-radius: 6px;
-  color: var(--color-text-secondary);
-  font-weight: 500;
-  transition: all 0.3s;
-}
-
-.tool-pill:hover {
-  border-color: var(--color-accent);
-  color: var(--color-accent-light);
-}
-
-
-/* ============================================
-   FOOTER
-   ============================================ */
-footer {
-  padding: 44px 48px;
-  border-top: 1px solid var(--color-border);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.footer-copyright {
-  font-size: 12px;
-  color: var(--color-text-muted);
-}
-
-.footer-links {
-  display: flex;
-  gap: 24px;
-}
-
-.footer-links a {
-  font-size: 12px;
-  color: var(--color-text-secondary);
-  text-decoration: none;
-  transition: color 0.3s;
-}
-
-.footer-links a:hover {
-  color: var(--color-accent);
-}
-
-
-/* ============================================
-   AI AGENT CHAT WIDGET
-   Floating button + expandable panel
-   ============================================ */
-.agent-toggle-button {
-  position: fixed;
-  bottom: 28px;
-  right: 28px;
-  z-index: 90;
-  width: 56px;
-  height: 56px;
-  border-radius: 16px;
-  background: linear-gradient(135deg, var(--color-accent), var(--color-accent-dark));
-  border: none;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 8px 32px rgba(194, 96, 42, 0.35);
-  transition: all 0.3s;
-  color: #fff;
-}
-
-.agent-toggle-button:hover {
-  transform: scale(1.08);
-  box-shadow: 0 12px 40px rgba(194, 96, 42, 0.45);
-}
-
-.agent-toggle-button svg {
-  width: 24px;
-  height: 24px;
-}
-
-.agent-panel {
-  position: fixed;
-  bottom: 96px;
-  right: 28px;
-  z-index: 90;
-  width: 380px;
-  height: 520px;
-  background: var(--color-bg-raised);
-  border: 1px solid var(--color-border-light);
-  border-radius: 18px;
-  display: none;
-  flex-direction: column;
-  overflow: hidden;
-  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.6);
-}
-
-.agent-panel.open {
-  display: flex;
-}
-
-.agent-header {
-  padding: 18px 20px;
-  border-bottom: 1px solid var(--color-border);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.agent-header-left {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.agent-avatar {
-  width: 32px;
-  height: 32px;
-  border-radius: 10px;
-  background: linear-gradient(135deg, var(--color-accent), var(--color-accent-dark));
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: var(--font-heading);
-  font-size: 12px;
-  font-weight: 700;
-  color: #fff;
-}
-
-.agent-name {
-  font-family: var(--font-heading);
-  font-size: 14px;
-  font-weight: 600;
-}
-
-.agent-status {
-  font-size: 11px;
-  color: var(--color-accent);
-  font-weight: 500;
-  display: flex;
-  align-items: center;
-  gap: 4px;
-}
-
-.agent-status::before {
-  content: '';
-  width: 5px;
-  height: 5px;
-  border-radius: 50%;
-  background: var(--color-accent);
-  display: inline-block;
-}
-
-.agent-close-button {
-  background: none;
-  border: none;
-  color: var(--color-text-muted);
-  cursor: pointer;
-  font-size: 18px;
-  transition: color 0.3s;
-  width: 28px;
-  height: 28px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 6px;
-}
-
-.agent-close-button:hover {
-  color: var(--color-text-primary);
-  background: var(--color-bg-card-hover);
-}
-
-.agent-messages {
-  flex: 1;
-  padding: 20px;
-  overflow-y: auto;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-
-.agent-message {
-  max-width: 85%;
-  padding: 12px 16px;
-  border-radius: 14px;
-  font-size: 13px;
-  line-height: 1.6;
-}
-
-.agent-message.bot {
-  background: var(--color-bg-card-hover);
-  color: var(--color-text-primary);
-  align-self: flex-start;
-  border-bottom-left-radius: 4px;
-}
-
-.agent-message.user {
-  background: var(--color-accent);
-  color: #fff;
-  align-self: flex-end;
-  border-bottom-right-radius: 4px;
-}
-
-.agent-input-area {
-  padding: 14px 16px;
-  border-top: 1px solid var(--color-border);
-  display: flex;
-  gap: 10px;
-  align-items: center;
-}
-
-.agent-text-input {
-  flex: 1;
-  background: var(--color-bg-card-hover);
-  border: 1px solid var(--color-border);
-  border-radius: 10px;
-  padding: 10px 14px;
-  font-size: 13px;
-  color: var(--color-text-primary);
-  font-family: var(--font-body);
-  outline: none;
-  transition: border-color 0.3s;
-}
-
-.agent-text-input:focus {
-  border-color: var(--color-accent);
-}
-
-.agent-text-input::placeholder {
-  color: var(--color-text-muted);
-}
-
-.agent-send-button {
-  width: 36px;
-  height: 36px;
-  border-radius: 10px;
-  background: var(--color-accent);
-  border: none;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #fff;
-  transition: all 0.3s;
-}
-
-.agent-send-button:hover {
-  background: var(--color-accent-dark);
-}
-
-
-/* ============================================
-   ANIMATIONS
-   ============================================ */
-@keyframes fade-up {
-  from { opacity: 0; transform: translateY(26px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes fade-in {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-
-/* Scroll-triggered reveal class */
-.scroll-reveal {
-  opacity: 0;
-  transform: translateY(22px);
-  transition: all 0.75s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.scroll-reveal.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* Safety net: if JS fails, show everything after 2 seconds */
-@keyframes force-visible {
-  to { opacity: 1; transform: translateY(0); }
-}
-.scroll-reveal {
-  animation: force-visible 0s 2s forwards;
-}
-
-
-/* ============================================
-   RESPONSIVE
-   ============================================ */
-@media (max-width: 1024px) {
-  .hero-avatar { display: none; }
-  .hero { grid-template-columns: 1fr; }
-  .about-section { grid-template-columns: 1fr; gap: 48px; }
-  .about-details { grid-template-columns: 1fr; }
-  .approach-section { grid-template-columns: 1fr; gap: 40px; }
-  .agent-panel { width: calc(100vw - 32px); right: 16px; bottom: 88px; }
-}
-
-@media (max-width: 768px) {
-  nav { padding: 14px 20px; }
-  .nav-links { gap: 18px; }
-  .hero { padding: 0 20px; }
-  .metrics-section { padding: 0 20px; }
-  .metrics-grid { grid-template-columns: repeat(2, 1fr); }
-  .work-section { padding: 0 20px 100px; }
-  .work-card { grid-template-columns: 1fr; gap: 24px; padding: 28px; }
-  .approach-section { padding: 80px 20px; grid-template-columns: 1fr; gap: 40px; }
-  .ai-work-section { padding: 80px 20px 100px; }
-  .ai-work-grid { grid-template-columns: 1fr; }
-  .about-section { padding: 80px 20px 100px; }
-  .about-details { grid-template-columns: 1fr; }
-  footer { padding: 32px 20px; flex-direction: column; gap: 14px; }
-  .hero-buttons { flex-direction: column; align-items: flex-start; }
+  --bg: #0a0908;
+  --bg2: #111010;
+  --bg3: #181514;
+  --bg4: #1f1b18;
+  --bg5: #272220;
+  --bdr: #2a2520;
+  --bdr2: #3a3430;
+  --tx: #eae6e0;
+  --tx2: #9a938a;
+  --tx3: #5e5851;
+  --terra: #c2602a;
+  --tg: rgba(194,96,42,0.12);
+  --tl: #d97b48;
+  --td: #a04d1e;
+  --hd: 'Poppins', sans-serif;
+  --bd: 'Inter', sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+::selection{background:rgba(194,96,42,.35);color:#fff}
+html{scroll-behavior:smooth}
+body{font-family:var(--bd);background:var(--bg);color:var(--tx);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9999;opacity:.025;background:url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:16px 48px;display:flex;justify-content:space-between;align-items:center;background:rgba(10,9,8,.75);backdrop-filter:blur(28px);border-bottom:1px solid rgba(42,37,32,.4)}
+.nav-logo{width:38px;height:38px;border-radius:10px;background:linear-gradient(135deg,var(--terra),var(--td));display:flex;align-items:center;justify-content:center;font-family:var(--hd);font-weight:700;font-size:15px;color:#fff;letter-spacing:-.02em;text-decoration:none}
+.nav-links{display:flex;gap:32px;list-style:none}
+.nav-links a{font-size:13px;color:var(--tx2);text-decoration:none;letter-spacing:.01em;transition:color .3s}
+.nav-links a:hover{color:var(--terra)}
+.nav-contact{font-size:13px;padding:9px 22px;background:var(--tg);border:1px solid rgba(194,96,42,.25);border-radius:8px;color:var(--tl);text-decoration:none;transition:all .3s;font-weight:500}
+.nav-contact:hover{background:var(--terra);color:#fff;border-color:var(--terra)}
+.nav-hamburger{display:none;background:none;border:none;color:var(--tx2);cursor:pointer;padding:8px}
+
+/* HERO */
+.hero{min-height:100vh;display:grid;grid-template-columns:1.1fr .9fr;align-items:center;padding:0 48px;gap:40px;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:-100px;right:200px;width:600px;height:600px;background:radial-gradient(circle,rgba(194,96,42,.1) 0%,transparent 65%);pointer-events:none;animation:pulse 6s ease-in-out infinite alternate}
+.hero::after{content:'';position:absolute;bottom:-150px;left:-100px;width:500px;height:500px;background:radial-gradient(circle,rgba(194,96,42,.06) 0%,transparent 65%);pointer-events:none}
+@keyframes pulse{from{opacity:.6;transform:scale(1)}to{opacity:1;transform:scale(1.15)}}
+.hero-text{z-index:2}
+.hero-name{font-family:var(--hd);font-size:clamp(44px,6.5vw,76px);font-weight:700;line-height:1.05;letter-spacing:-.035em;margin-bottom:14px;opacity:0;animation:fu .6s ease forwards .15s}
+.hero-name .accent{color:var(--terra)}
+.hero-role{font-size:15px;color:var(--tx2);letter-spacing:.02em;margin-bottom:32px;font-weight:400;opacity:0;animation:fu .6s ease forwards .3s}
+.hero-role span{color:var(--tx3);margin:0 12px}
+.hero-sub{font-size:19px;line-height:1.65;color:var(--tx2);max-width:540px;margin-bottom:44px;font-weight:300;opacity:0;animation:fu .6s ease forwards .45s}
+.hero-sub strong{color:var(--tx);font-weight:500}
+.hero-buttons{display:flex;gap:14px;align-items:center;opacity:0;animation:fu .6s ease forwards .6s}
+.btn-p{display:inline-flex;align-items:center;gap:8px;padding:14px 28px;background:var(--terra);color:#fff;border:none;border-radius:8px;font-size:14px;font-weight:500;font-family:var(--bd);cursor:pointer;transition:all .3s;text-decoration:none}
+.btn-p:hover{background:var(--td);transform:translateY(-2px);box-shadow:0 8px 30px rgba(194,96,42,.3)}
+.btn-s{display:inline-flex;align-items:center;gap:8px;padding:14px 28px;background:var(--bg3);color:var(--tx2);border:1px solid var(--bdr2);border-radius:8px;font-size:14px;font-weight:400;font-family:var(--bd);cursor:pointer;transition:all .3s;text-decoration:none}
+.btn-s:hover{border-color:var(--terra);color:var(--tl);background:var(--bg4)}
+
+/* AVATAR */
+.hero-avatar{z-index:2;display:flex;justify-content:center;align-items:center;opacity:0;animation:fi 1s ease forwards .5s}
+.avatar-scene{position:relative;width:400px;height:480px}
+.avatar-svg{width:100%;height:100%;filter:drop-shadow(0 20px 40px rgba(0,0,0,.3))}
+.avatar-svg .waving-hand{transform-origin:242px 225px;animation:wave 2.5s ease-in-out infinite}
+@keyframes wave{0%,100%{transform:rotate(0deg)}15%{transform:rotate(14deg)}30%{transform:rotate(-6deg)}45%{transform:rotate(10deg)}60%{transform:rotate(0deg)}}
+.speech-bubble{position:absolute;top:20px;left:-20px;background:var(--bg4);border:1px solid var(--bdr2);border-radius:14px 14px 14px 4px;padding:14px 18px;font-size:14px;font-weight:500;color:var(--tx);z-index:4;animation:float 4s ease-in-out infinite .5s;max-width:220px;line-height:1.5;box-shadow:0 8px 24px rgba(0,0,0,.3)}
+.speech-bubble span{display:block;font-size:12px;color:var(--tx2);font-weight:300;margin-top:4px}
+.floating-card{position:absolute;background:var(--bg3);border:1px solid var(--bdr2);border-radius:10px;padding:10px 14px;font-size:12px;color:var(--tx2);font-weight:500;z-index:3;backdrop-filter:blur(8px)}
+.floating-card.f1{bottom:60px;left:-30px;animation:float 4s ease-in-out infinite}
+.floating-card.f2{top:100px;right:-20px;animation:float 4s ease-in-out infinite 1s}
+.floating-card .num{font-family:var(--hd);font-size:18px;font-weight:700;color:var(--terra);display:block}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+
+/* METRICS */
+.metrics-section{padding:0 48px;margin-bottom:140px}
+.metrics-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;border-radius:14px;overflow:hidden}
+.metric-item{padding:36px 28px;text-align:center;background:var(--bg2);transition:all .4s;position:relative;overflow:hidden}
+.metric-item::after{content:'';position:absolute;bottom:0;left:50%;width:0;height:2px;background:var(--terra);transition:all .4s;transform:translateX(-50%)}
+.metric-item:hover{background:var(--bg3)}.metric-item:hover::after{width:60%}
+.metric-num{font-family:var(--hd);font-size:38px;font-weight:700;color:var(--tx);letter-spacing:-.02em;margin-bottom:6px}
+.metric-label{font-size:11px;color:var(--tx2);letter-spacing:.06em;text-transform:uppercase;font-weight:500;line-height:1.5}
+
+/* SECTION COMMON */
+.s-tag{display:inline-flex;align-items:center;gap:6px;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--terra);font-weight:600;margin-bottom:20px;padding:5px 12px;background:var(--tg);border-radius:5px}
+.s-hd{font-family:var(--hd);font-size:clamp(30px,3.8vw,46px);font-weight:700;line-height:1.15;letter-spacing:-.025em;margin-bottom:20px}
+.s-desc{font-size:16px;color:var(--tx2);line-height:1.7;max-width:580px;font-weight:300}
+
+/* WORK */
+.work-section{padding:0 48px 160px}
+.work-cards{display:flex;flex-direction:column;gap:24px;margin-top:56px}
+.work-card{background:var(--bg2);border:1px solid var(--bdr);border-radius:16px;padding:44px;display:grid;grid-template-columns:1.15fr 1fr;gap:48px;transition:all .4s;cursor:pointer;text-decoration:none;color:inherit;position:relative;overflow:hidden}
+.work-card::before{content:'';position:absolute;inset:0;border-radius:16px;background:linear-gradient(135deg,rgba(194,96,42,.04),transparent 60%);opacity:0;transition:opacity .4s}
+.work-card:hover{border-color:var(--bdr2);transform:translateY(-3px);box-shadow:0 20px 60px rgba(0,0,0,.3)}.work-card:hover::before{opacity:1}
+.work-company{font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--terra);font-weight:600;margin-bottom:4px}
+.work-timeline{font-size:12px;color:var(--tx3);font-weight:400;margin-bottom:14px}
+.work-title{font-family:var(--hd);font-size:23px;font-weight:600;line-height:1.35;letter-spacing:-.01em;margin-bottom:14px}
+.work-narrative{font-size:14px;color:var(--tx2);line-height:1.7;font-weight:300;margin-bottom:18px}
+.work-tags{display:flex;flex-wrap:wrap;gap:6px}
+.work-tag{font-size:10px;padding:4px 10px;background:var(--tg);color:var(--tl);border-radius:4px;font-weight:600;letter-spacing:.03em;text-transform:uppercase}
+.work-metrics{display:flex;flex-direction:column;gap:18px;justify-content:center}
+.work-metric{display:flex;align-items:baseline;gap:14px;padding:14px 16px;background:var(--bg3);border-radius:10px;border:1px solid rgba(42,37,32,.5);transition:border-color .3s}
+.work-metric:hover{border-color:var(--terra)}
+.work-metric-value{font-family:var(--hd);font-size:26px;font-weight:700;color:var(--terra);letter-spacing:-.02em;white-space:nowrap;min-width:70px}
+.work-metric-ctx{font-size:12px;color:var(--tx2);line-height:1.5}
+
+/* APPROACH */
+.approach-section{padding:120px 48px;border-top:1px solid var(--bdr);position:relative;display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start}
+.approach-section::before{content:'';position:absolute;top:0;right:0;width:50%;height:100%;background:linear-gradient(270deg,rgba(194,96,42,.03),transparent);pointer-events:none}
+.approach-content{max-width:620px}
+.approach-text{font-size:17px;line-height:1.8;color:var(--tx2);font-weight:300;margin-bottom:24px}
+.approach-text strong{color:var(--tx);font-weight:500}
+.approach-quote{font-family:var(--hd);font-size:22px;font-weight:600;color:var(--tl);line-height:1.5;margin:36px 0;padding:20px 24px;border-left:3px solid var(--terra);background:var(--tg);border-radius:0 10px 10px 0}
+.approach-right{display:flex;flex-direction:column;gap:16px;padding-top:60px}
+/* Playbook visual */
+.playbook-visual{background:var(--bg2);border:1px solid var(--bdr);border-radius:14px;padding:32px;margin-bottom:16px}
+.playbook-title{font-family:var(--hd);font-size:14px;font-weight:600;color:var(--terra);margin-bottom:24px;text-transform:uppercase;letter-spacing:.06em}
+.playbook-flow{display:flex;gap:12px;align-items:stretch}
+.playbook-stage{flex:1;background:var(--bg3);border:1px solid var(--bdr);border-radius:10px;padding:16px 14px;text-align:center;transition:all .3s}
+.playbook-stage:hover{border-color:var(--terra);background:var(--bg4)}
+.playbook-stage-num{color:var(--terra);margin-bottom:8px;display:flex;justify-content:center}
+.playbook-stage-title{font-size:13px;font-weight:600;color:var(--tx);margin-bottom:6px}
+.playbook-stage-desc{font-size:11px;color:var(--tx2);line-height:1.5}
+.playbook-arrow{display:flex;align-items:center;color:var(--terra);font-size:18px;padding:0 2px}
+/* Steps */
+.approach-step{background:var(--bg2);border:1px solid var(--bdr);border-radius:12px;padding:22px 24px;display:flex;gap:16px;align-items:flex-start;transition:all .3s}
+.approach-step:hover{border-color:var(--bdr2);background:var(--bg3)}
+.step-icon{width:40px;height:40px;min-width:40px;border-radius:10px;background:var(--tg);border:1px solid rgba(194,96,42,.2);display:flex;align-items:center;justify-content:center;color:var(--terra)}
+.step-title{font-weight:600;color:var(--tx);margin-bottom:4px;font-size:14px}
+.step-desc{color:var(--tx2);font-weight:300;font-size:14px;line-height:1.6}
+
+/* AI WORK */
+.ai-section{padding:120px 48px 80px;border-top:1px solid var(--bdr);position:relative;background:linear-gradient(180deg,rgba(194,96,42,.04) 0%,transparent 40%)}
+.ai-section::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,transparent 10%,var(--terra) 50%,transparent 90%);opacity:.6}
+.ai-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:56px}
+.ai-card{background:var(--bg2);border:1px solid rgba(194,96,42,.15);border-radius:14px;padding:32px 28px;transition:all .4s;cursor:pointer;position:relative;overflow:hidden}
+.ai-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--terra),transparent);opacity:.4;transition:opacity .4s}
+.ai-card:hover{background:var(--bg3);border-color:rgba(194,96,42,.35);transform:translateY(-2px);box-shadow:0 12px 40px rgba(194,96,42,.08)}.ai-card:hover::before{opacity:1}
+.ai-icon{width:42px;height:42px;border-radius:12px;background:linear-gradient(135deg,var(--tg),rgba(194,96,42,.05));border:1px solid rgba(194,96,42,.2);display:flex;align-items:center;justify-content:center;margin-bottom:18px;color:var(--terra);font-size:18px;font-weight:600}
+.ai-title{font-family:var(--hd);font-size:16px;font-weight:600;margin-bottom:10px;line-height:1.4}
+.ai-desc{font-size:13px;color:var(--tx2);line-height:1.65;font-weight:300}
+
+/* Tool scroll */
+.tool-scroll-section{padding:32px 48px 80px;overflow:hidden;position:relative}
+.tool-scroll-label{font-size:13px;color:var(--tx);letter-spacing:.08em;text-transform:uppercase;font-weight:600;margin-bottom:20px;text-align:center}
+.tool-scroll-wrap{background:var(--bg2);border:1px solid rgba(217,184,75,.2);border-radius:14px;padding:24px 0;overflow:hidden;box-shadow:0 0 40px rgba(217,184,75,.06),inset 0 0 30px rgba(217,184,75,.03)}
+.tool-scroll-track{display:flex;gap:40px;animation:scroll-left 25s linear infinite;width:max-content;padding:0 20px}
+.tool-scroll-track:hover{animation-play-state:paused}
+.tool-scroll-item{font-size:15px;color:#d9b84b;font-weight:600;white-space:nowrap;transition:all .3s;padding:8px 16px;border-radius:8px;letter-spacing:.01em}
+.tool-scroll-item:hover{color:#f0d060;background:rgba(217,184,75,.1);box-shadow:0 0 16px rgba(217,184,75,.15)}
+@keyframes scroll-left{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+
+/* ABOUT */
+.about-section{padding:120px 48px 100px;border-top:1px solid var(--bdr)}
+.about-intro{max-width:680px;margin-bottom:48px}
+.about-intro p{font-size:16px;color:var(--tx2);line-height:1.8;font-weight:300}
+.about-intro p strong{color:var(--tx);font-weight:500}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.about-item{background:var(--bg2);border:1px solid var(--bdr);border-radius:10px;padding:20px 24px;transition:all .3s}
+.about-item:hover{border-color:var(--bdr2);background:var(--bg3)}
+.about-item-title{font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--terra);font-weight:600;margin-bottom:8px}
+.about-item-content{font-size:13px;color:var(--tx2);line-height:1.6}
+.about-item-content strong{color:var(--tx);font-weight:500}
+.about-item-content a{color:var(--tl);text-decoration:none;transition:color .3s}
+.about-item-content a:hover{color:var(--terra)}
+.about-contact{margin-top:32px;padding-top:24px;border-top:1px solid var(--bdr);display:flex;gap:24px;flex-wrap:wrap}
+.about-contact a{font-size:14px;color:var(--tl);text-decoration:none;transition:color .3s;font-weight:500}
+.about-contact a:hover{color:var(--terra)}
+
+/* TOOLS PILLS */
+.tools-list{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.tool-pill{font-size:10px;padding:5px 10px;background:var(--bg3);border:1px solid var(--bdr);border-radius:6px;color:var(--tx2);font-weight:500;transition:all .3s}
+.tool-pill:hover{border-color:var(--terra);color:var(--tl)}
+
+/* FOOTER */
+footer{padding:44px 48px;border-top:1px solid var(--bdr);display:flex;justify-content:space-between;align-items:center}
+.footer-left{font-size:12px;color:var(--tx3)}
+.footer-links{display:flex;gap:24px}
+.footer-links a{font-size:12px;color:var(--tx2);text-decoration:none;transition:color .3s}
+.footer-links a:hover{color:var(--terra)}
+
+/* AGENT */
+.agent-btn{position:fixed;bottom:28px;right:28px;z-index:90;width:56px;height:56px;border-radius:16px;background:linear-gradient(135deg,var(--terra),var(--td));border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 32px rgba(194,96,42,.35);transition:all .3s;color:#fff}
+.agent-btn:hover{transform:scale(1.08);box-shadow:0 12px 40px rgba(194,96,42,.45)}
+.agent-btn svg{width:24px;height:24px}
+.agent-panel{position:fixed;bottom:96px;right:28px;z-index:90;width:380px;height:520px;background:var(--bg2);border:1px solid var(--bdr2);border-radius:18px;display:none;flex-direction:column;overflow:hidden;box-shadow:0 24px 80px rgba(0,0,0,.6)}
+.agent-panel.open{display:flex}
+.agent-head{padding:18px 20px;border-bottom:1px solid var(--bdr);display:flex;align-items:center;justify-content:space-between}
+.agent-head-left{display:flex;align-items:center;gap:10px}
+.agent-avatar{width:32px;height:32px;border-radius:10px;background:linear-gradient(135deg,var(--terra),var(--td));display:flex;align-items:center;justify-content:center;font-family:var(--hd);font-size:12px;font-weight:700;color:#fff}
+.agent-name{font-family:var(--hd);font-size:14px;font-weight:600}
+.agent-status{font-size:11px;color:var(--terra);font-weight:500;display:flex;align-items:center;gap:4px}
+.agent-status::before{content:'';width:5px;height:5px;border-radius:50%;background:var(--terra)}
+.agent-close{background:none;border:none;color:var(--tx3);cursor:pointer;font-size:18px;transition:color .3s;width:28px;height:28px;display:flex;align-items:center;justify-content:center;border-radius:6px}
+.agent-close:hover{color:var(--tx);background:var(--bg4)}
+.agent-msgs{flex:1;padding:20px;overflow-y:auto;display:flex;flex-direction:column;gap:12px}
+.agent-msg{max-width:85%;padding:12px 16px;border-radius:14px;font-size:13px;line-height:1.6}
+.agent-msg.bot{background:var(--bg4);color:var(--tx);align-self:flex-start;border-bottom-left-radius:4px}
+.agent-msg.user{background:var(--terra);color:#fff;align-self:flex-end;border-bottom-right-radius:4px}
+.agent-input-wrap{padding:14px 16px;border-top:1px solid var(--bdr);display:flex;gap:10px;align-items:center}
+.agent-input{flex:1;background:var(--bg4);border:1px solid var(--bdr);border-radius:10px;padding:10px 14px;font-size:13px;color:var(--tx);font-family:var(--bd);outline:none;transition:border-color .3s}
+.agent-input:focus{border-color:var(--terra)}
+.agent-input::placeholder{color:var(--tx3)}
+.agent-send{width:36px;height:36px;border-radius:10px;background:var(--terra);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;color:#fff;transition:all .3s}
+.agent-send:hover{background:var(--td)}
+
+/* ANIMATIONS */
+@keyframes fu{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fi{from{opacity:0}to{opacity:1}}
+.scroll-reveal{opacity:0;transform:translateY(22px);transition:all .75s cubic-bezier(.16,1,.3,1)}
+.scroll-reveal.visible{opacity:1;transform:translateY(0)}
+@keyframes force-visible{to{opacity:1;transform:translateY(0)}}
+.scroll-reveal{animation:force-visible 0s 2s forwards}
+
+/* RESPONSIVE */
+@media(max-width:1024px){
+  .hero{grid-template-columns:1fr}
+  .hero-avatar{margin-top:20px}
+  .avatar-scene{width:280px;height:340px}
+  .speech-bubble{font-size:12px;padding:10px 14px;top:10px;left:0}
+  .floating-card.f1{bottom:30px;left:0}.floating-card.f2{top:60px;right:0}
+  .approach-section{grid-template-columns:1fr;gap:40px}
+  .about-grid{grid-template-columns:1fr}
+  .agent-panel{width:calc(100vw - 32px);right:16px;bottom:88px}
+}
+@media(max-width:768px){
+  nav{padding:14px 20px}
+  .nav-links{display:none}
+  .nav-hamburger{display:block}
+  nav.nav-open .nav-links{display:flex;position:absolute;top:100%;left:0;right:0;background:rgba(10,9,8,.95);flex-direction:column;padding:20px;gap:16px;border-bottom:1px solid var(--bdr)}
+  .hero{padding:100px 20px 40px;min-height:auto;gap:20px}
+  .hero-name{font-size:40px}
+  .hero-sub{font-size:16px}
+  .metrics-section{padding:0 20px}
+  .metrics-grid{grid-template-columns:repeat(2,1fr)}
+  .work-section{padding:0 20px 100px}
+  .work-card{grid-template-columns:1fr;gap:24px;padding:28px}
+  .approach-section{padding:80px 20px;grid-template-columns:1fr;gap:40px}
+  .playbook-flow{flex-direction:column}
+  .playbook-arrow{transform:rotate(90deg);justify-content:center}
+  .ai-section{padding:80px 20px 60px}
+  .ai-grid{grid-template-columns:1fr}
+  .tool-scroll-section{padding:20px 20px 60px}
+  .about-section{padding:80px 20px 80px}
+  .about-grid{grid-template-columns:1fr}
+  footer{padding:32px 20px;flex-direction:column;gap:14px}
+  .hero-buttons{flex-direction:column;align-items:flex-start}
 }
 </style>
 </head>
 <body>
 
-<!-- ==========================================
-     NAVIGATION
-     ========================================== -->
-<nav>
+<!-- NAV -->
+<nav id="mainNav">
   <a href="#" class="nav-logo">HK</a>
+  <button class="nav-hamburger" onclick="document.getElementById('mainNav').classList.toggle('nav-open')">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+  </button>
   <ul class="nav-links">
     <li><a href="#work">Work</a></li>
     <li><a href="#approach">Approach</a></li>
-    <li><a href="#ai-work">AI Work</a></li>
+    <li><a href="#ai">Experiments</a></li>
     <li><a href="#about">About</a></li>
   </ul>
   <a href="https://zcal.co/harshakalbalia/30min" target="_blank" class="nav-contact">Get in touch</a>
 </nav>
 
-
-<!-- ==========================================
-     HERO
-     ========================================== -->
+<!-- HERO -->
 <section class="hero">
   <div class="hero-text">
-    <h1 class="hero-name">Hi, I am<br><span class="name-accent">Harsha!</span></h1>
-    <p class="hero-role">
-      0-to-1 GTM<span class="separator">&middot;</span>Developer Ecosystems<span class="separator">&middot;</span>Community-Led Growth
-    </p>
-    <p class="hero-subtitle">
-      <strong>Three fast-scaling, VC-backed startups. Three industries.</strong>
-      Same playbook: find the truth, build trust, then build the engine.
-    </p>
+    <h1 class="hero-name">Hi, I am<br><span class="accent">Harsha!</span></h1>
+    <p class="hero-role">0-to-1 GTM<span>&middot;</span>Developer Ecosystems<span>&middot;</span>Community-Led Growth</p>
+    <p class="hero-sub"><strong>Three fast-scaling, VC-backed startups. Three industries.</strong> Same playbook: find the truth, build trust, then build the engine.</p>
     <div class="hero-buttons">
-      <a href="#work" class="button-primary">
-        See my work
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
-      </a>
-      <a href="https://docs.google.com/document/d/1IOjT-wF86OSrs5iM10r8wKxUIfSMo5Jx/edit" target="_blank" class="button-secondary">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
-        Download resume
-      </a>
+      <a href="#work" class="btn-p">See my work <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12l7 7 7-7"/></svg></a>
+      <a href="https://docs.google.com/document/d/1IOjT-wF86OSrs5iM10r8wKxUIfSMo5Jx/edit" target="_blank" class="btn-s"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg> Download resume</a>
     </div>
   </div>
-
   <div class="hero-avatar">
     <div class="avatar-scene">
-      <div class="speech-bubble">
-        Hey, I'm Harsha!
-        <span class="bubble-subtext">Welcome to my corner of the internet.</span>
-      </div>
-
+      <div class="speech-bubble">Hey, I'm Harsha!<span>Welcome to my corner of the internet.</span></div>
       <svg class="avatar-svg" viewBox="0 0 400 480" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <!-- Desk -->
         <rect x="60" y="340" width="280" height="12" rx="6" fill="#2a2520"/>
         <rect x="80" y="352" width="8" height="80" rx="2" fill="#1f1b18"/>
         <rect x="312" y="352" width="8" height="80" rx="2" fill="#1f1b18"/>
-
-        <!-- Laptop -->
         <rect x="130" y="300" width="140" height="42" rx="4" fill="#3a3430"/>
         <rect x="138" y="306" width="124" height="30" rx="2" fill="#1c1916"/>
         <rect x="142" y="309" width="116" height="24" rx="1" fill="rgba(194,96,42,0.15)"/>
-        <!-- Code lines on screen -->
         <rect x="148" y="314" width="40" height="2" rx="1" fill="rgba(194,96,42,0.5)"/>
         <rect x="148" y="319" width="60" height="2" rx="1" fill="rgba(194,96,42,0.3)"/>
         <rect x="148" y="324" width="35" height="2" rx="1" fill="rgba(194,96,42,0.4)"/>
         <rect x="192" y="314" width="20" height="2" rx="1" fill="rgba(234,230,224,0.2)"/>
         <rect x="212" y="319" width="30" height="2" rx="1" fill="rgba(234,230,224,0.15)"/>
-        <!-- Laptop base -->
         <rect x="110" y="342" width="180" height="8" rx="3" fill="#3a3430"/>
-
-        <!-- Body -->
         <path d="M160 220 C160 220, 155 280, 155 310 L245 310 C245 280, 240 220, 240 220" fill="#c2602a"/>
-
-        <!-- Neck -->
         <rect x="185" y="195" width="30" height="28" rx="4" fill="#d4a574"/>
-
-        <!-- Head -->
         <ellipse cx="200" cy="170" rx="48" ry="52" fill="#d4a574"/>
-
-        <!-- Hair -->
         <path d="M152 160 C152 120, 170 100, 200 98 C230 100, 248 120, 248 160 L248 210 C260 240, 258 270, 250 290 L248 290 C255 265, 252 240, 248 210 L248 165 C248 135, 235 115, 200 113 C165 115, 152 135, 152 165 L152 210 C148 240, 142 265, 148 290 L146 290 C138 270, 140 240, 152 210 Z" fill="#1a1510"/>
         <path d="M155 155 C155 130, 168 112, 200 110 C232 112, 245 130, 245 155 L242 148 C240 132, 228 118, 200 116 C172 118, 160 132, 158 148 Z" fill="#2c2015"/>
-
-        <!-- Glasses -->
         <rect x="172" y="160" width="24" height="18" rx="9" fill="none" stroke="#3a3430" stroke-width="2.5"/>
         <rect x="204" y="160" width="24" height="18" rx="9" fill="none" stroke="#3a3430" stroke-width="2.5"/>
         <line x1="196" y1="168" x2="204" y2="168" stroke="#3a3430" stroke-width="2"/>
         <line x1="172" y1="168" x2="164" y2="166" stroke="#3a3430" stroke-width="2"/>
         <line x1="228" y1="168" x2="236" y2="166" stroke="#3a3430" stroke-width="2"/>
-
-        <!-- Eyes -->
         <ellipse cx="184" cy="169" rx="3.5" ry="4" fill="#1a1510"/>
         <ellipse cx="216" cy="169" rx="3.5" ry="4" fill="#1a1510"/>
         <ellipse cx="185" cy="168" rx="1.2" ry="1.2" fill="#fff"/>
         <ellipse cx="217" cy="168" rx="1.2" ry="1.2" fill="#fff"/>
-
-        <!-- Eyebrows -->
         <path d="M174 155 C178 152, 188 152, 192 155" stroke="#1a1510" stroke-width="2" stroke-linecap="round" fill="none"/>
         <path d="M208 155 C212 152, 222 152, 226 155" stroke="#1a1510" stroke-width="2" stroke-linecap="round" fill="none"/>
-
-        <!-- Smile -->
         <path d="M188 183 C192 189, 208 189, 212 183" stroke="#a0724a" stroke-width="2" stroke-linecap="round" fill="none"/>
-
-        <!-- Waving right arm (animated from shoulder) -->
         <g class="waving-hand">
-          <!-- Shoulder connection -->
           <circle cx="242" cy="225" r="12" fill="#c2602a"/>
-          <!-- Upper arm -->
           <path d="M242 225 C255 215, 270 200, 280 185" stroke="#d4a574" stroke-width="20" stroke-linecap="round" fill="none"/>
-          <!-- Forearm -->
           <path d="M280 185 C288 175, 295 168, 300 162" stroke="#d4a574" stroke-width="16" stroke-linecap="round" fill="none"/>
-          <!-- Hand -->
           <circle cx="302" cy="158" r="14" fill="#d4a574"/>
-          <!-- Fingers spread (waving) -->
           <path d="M294 148 L291 138" stroke="#d4a574" stroke-width="4.5" stroke-linecap="round"/>
           <path d="M300 146 L298 134" stroke="#d4a574" stroke-width="4.5" stroke-linecap="round"/>
           <path d="M306 146 L308 134" stroke="#d4a574" stroke-width="4.5" stroke-linecap="round"/>
           <path d="M312 149 L316 139" stroke="#d4a574" stroke-width="4.5" stroke-linecap="round"/>
         </g>
-
-        <!-- Left arm on laptop -->
         <path d="M160 230 C148 260, 140 290, 155 310" stroke="#c2602a" stroke-width="18" stroke-linecap="round" fill="none"/>
         <ellipse cx="155" cy="315" rx="12" ry="8" fill="#d4a574"/>
-
-        <!-- Earrings -->
         <circle cx="153" cy="185" r="3" fill="#c2602a"/>
         <circle cx="247" cy="185" r="3" fill="#c2602a"/>
       </svg>
-
-      <div class="floating-card card-left">
-        <span class="card-number">3</span>GTM engines
-      </div>
-      <div class="floating-card card-right">
-        <span class="card-number">50+</span>Events globally
-      </div>
+      <div class="floating-card f1"><span class="num">3</span>GTM engines</div>
+      <div class="floating-card f2"><span class="num">50+</span>Events globally</div>
     </div>
   </div>
 </section>
 
-
-<!-- ==========================================
-     METRICS BAR
-     ========================================== -->
+<!-- METRICS -->
 <div class="metrics-section scroll-reveal">
   <div class="metrics-grid">
-    <div class="metric-item">
-      <div class="metric-number">3</div>
-      <div class="metric-label">GTM engines from zero</div>
+    <div class="metric-item"><div class="metric-num">3</div><div class="metric-label">GTM engines from zero</div></div>
+    <div class="metric-item"><div class="metric-num">50+</div><div class="metric-label">Events &amp; webinars globally</div></div>
+    <div class="metric-item"><div class="metric-num">1M+</div><div class="metric-label">Users acquired for B2C fintech platform</div></div>
+    <div class="metric-item"><div class="metric-num">5,000+</div><div class="metric-label">Unique event registrants</div></div>
+  </div>
+</div>
+
+<!-- WORK -->
+<section class="work-section" id="work">
+  <div class="s-tag scroll-reveal">Work</div>
+  <h2 class="s-hd scroll-reveal">Three engines. Three markets.<br>One playbook.</h2>
+  <p class="s-desc scroll-reveal">Each role, a different industry and audience. The approach stayed the same.</p>
+
+  <div class="work-cards">
+    <div class="work-card scroll-reveal"><div>
+      <p class="work-company">OLake by Datazip | Founding Member, GTM</p>
+      <p class="work-timeline">July 2024 to Present</p>
+      <h3 class="work-title">Built a developer ecosystem from zero where cold outreach failed. Education-led growth worked.</h3>
+      <p class="work-narrative">Standard B2B playbook yielded no adequate results. So I built an education-led engine instead: partnered with Apache Foundation for India's first official Iceberg event, executed 15 webinars and 7 large-scale global events featuring speakers from Google, Meta, Netflix, Snowflake with zero budget. 100+ discovery conversations shaped the product direction and contributed to closing the seed round. Led the Product Hunt launch (#3 ranking).</p>
+      <div class="work-tags"><span class="work-tag">Open Source</span><span class="work-tag">Developer GTM</span><span class="work-tag">Data Infrastructure</span><span class="work-tag">Community</span></div>
+    </div><div class="work-metrics">
+      <div class="work-metric"><span class="work-metric-value">35+</span><span class="work-metric-ctx">POC conversions, 22 clients in production in 5 months</span></div>
+      <div class="work-metric"><span class="work-metric-value">3,500+</span><span class="work-metric-ctx">Registrations across 22 events and webinars globally</span></div>
+      <div class="work-metric"><span class="work-metric-value">1,500+</span><span class="work-metric-ctx">GitHub stars, 600+ Slack, zero paid</span></div>
+    </div></div>
+
+    <div class="work-card scroll-reveal"><div>
+      <p class="work-company">The Money Club | Founder's Office, Growth</p>
+      <p class="work-timeline">September 2023 to July 2024</p>
+      <h3 class="work-title">Designed for real India. Tier 2 city research to brochures that closed 100+ leads at one event.</h3>
+      <p class="work-narrative">Travelled across Tier 2 cities to understand what people actually need from financial products. 75+ user interviews revealed the gap between what fintechs build and what users need. Led 0-to-1 B2B product launch end-to-end. Designed collateral that turned heads at fintech events in Singapore, UAE, and India, pulling 100+ inbound leads from a single set of brochures.</p>
+      <div class="work-tags"><span class="work-tag">Fintech</span><span class="work-tag">B2B + B2C</span><span class="work-tag">Product Design</span><span class="work-tag">0-to-1</span></div>
+    </div><div class="work-metrics">
+      <div class="work-metric"><span class="work-metric-value">$30M→$48M+</span><span class="work-metric-ctx">Capital pooled via redesigned referral systems</span></div>
+      <div class="work-metric"><span class="work-metric-value">200+</span><span class="work-metric-ctx">Users in under 2 months for new B2B product</span></div>
+      <div class="work-metric"><span class="work-metric-value">CNBC 200</span><span class="work-metric-ctx">Top Global Fintechs recognition</span></div>
+    </div></div>
+
+    <div class="work-card scroll-reveal"><div>
+      <p class="work-company">Mudrex (YC'19) | Growth Manager</p>
+      <p class="work-timeline">April 2022 to September 2023</p>
+      <h3 class="work-title">Built a community that started running itself. First lesson in systems that scale without you.</h3>
+      <p class="work-narrative">Built WAGMI, India's largest student Web3 community, closing partnerships with every major institution. The moment it clicked: students started running it themselves. Also ran guerrilla user research, shot marketing videos, BTL activations across Bengaluru, and managed integrated campaigns with Zepto, Zomato, and CRED.</p>
+      <div class="work-tags"><span class="work-tag">Crypto</span><span class="work-tag">Consumer</span><span class="work-tag">Community</span><span class="work-tag">Partnerships</span></div>
+    </div><div class="work-metrics">
+      <div class="work-metric"><span class="work-metric-value">1M+</span><span class="work-metric-ctx">User acquisitions through campaigns</span></div>
+      <div class="work-metric"><span class="work-metric-value">5,000+</span><span class="work-metric-ctx">WAGMI members, all IITs, ISB, IIMs</span></div>
+      <div class="work-metric"><span class="work-metric-value">$70K</span><span class="work-metric-ctx">Partnership opportunities in 6 months</span></div>
+    </div></div>
+  </div>
+</section>
+
+<!-- APPROACH -->
+<section class="approach-section" id="approach">
+  <div class="approach-content scroll-reveal">
+    <div class="s-tag">Approach</div>
+    <h2 class="s-hd">My playbook starts with people. The channels come after.</h2>
+    <p class="approach-text">Every audience is different. Developers distrust outreach. Crypto users need social proof. Fintech consumers in Tier 2 India need education before a product pitch. <strong>The surface changes every time. The foundation doesn't.</strong></p>
+    <p class="approach-text">At Mudrex, I walked into offices unannounced to talk to real users. I built a student community of 5,000+ that eventually ran itself because the ambassadors believed in it. That taught me the most important thing I know: <strong>if people feel ownership, they become your distribution.</strong></p>
+    <p class="approach-text">At OLake, I took that same principle into a completely different market. Developers don't want to be sold to, so I built an education-led engine: 15 webinars and 7 global events in 6 months, featuring practitioners from Google, Meta, Netflix, and Snowflake. Zero budget. All through relationships.</p>
+    <p class="approach-text">At Money Club, it was Tier 2 India. I travelled to understand what people actually need from financial products. The collateral I designed from those insights generated 100+ leads at a single event.</p>
+    <div class="approach-quote">"The playbook personalises on top. The first principles stay the same: understand the pain deeply enough that the solution feels obvious."</div>
+    <p class="approach-text">Every GTM engine I've built started the same way: <strong>conversations before campaigns.</strong> I get into the communities, the Slack groups, the events, the Discord servers where my audience actually talks. I listen first. Then I build the system.</p>
+  </div>
+  <div class="approach-right scroll-reveal">
+    <div class="playbook-visual">
+      <div class="playbook-title">The Engine I Build Every Time</div>
+      <div class="playbook-flow">
+        <div class="playbook-stage">
+          <div class="playbook-stage-num"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg></div>
+          <div class="playbook-stage-title">Listen</div>
+          <div class="playbook-stage-desc">100+ conversations across channels. Find the real pain.</div>
+        </div>
+        <div class="playbook-arrow">→</div>
+        <div class="playbook-stage">
+          <div class="playbook-stage-num"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div>
+          <div class="playbook-stage-title">Educate</div>
+          <div class="playbook-stage-desc">Events, content, practitioners. Earn trust first.</div>
+        </div>
+        <div class="playbook-arrow">→</div>
+        <div class="playbook-stage">
+          <div class="playbook-stage-num"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 20V10"/><path d="M12 20V4"/><path d="M6 20v-6"/></svg></div>
+          <div class="playbook-stage-title">Scale</div>
+          <div class="playbook-stage-desc">Community runs itself. Growth compounds.</div>
+        </div>
+      </div>
     </div>
-    <div class="metric-item">
-      <div class="metric-number">50+</div>
-      <div class="metric-label">Events &amp; webinars globally</div>
+    <div class="approach-step">
+      <div class="step-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg></div>
+      <div><div class="step-title">Understand the pain first</div>
+      <div class="step-desc">Get into the rooms where your audience talks. Events, communities, Slack, Discord. Listen before you build.</div></div>
     </div>
-    <div class="metric-item">
-      <div class="metric-number">1M+</div>
-      <div class="metric-label">Users acquired for B2C fintech platform</div>
+    <div class="approach-step">
+      <div class="step-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></div>
+      <div><div class="step-title">Earn trust through education</div>
+      <div class="step-desc">Events with practitioners. Content that teaches. Give value before asking for anything.</div></div>
     </div>
-    <div class="metric-item">
-      <div class="metric-number">5,000+</div>
-      <div class="metric-label">Unique event registrants</div>
+    <div class="approach-step">
+      <div class="step-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+      <div><div class="step-title">Build systems that scale without you</div>
+      <div class="step-desc">From WAGMI running itself to OLake's community growing organically. The best engines don't need you pushing.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- AI WORK -->
+<section class="ai-section" id="ai">
+  <div class="s-tag scroll-reveal">Experiments with AI</div>
+  <h2 class="s-hd scroll-reveal">I don't just use AI tools.<br>I build with them.</h2>
+  <p class="s-desc scroll-reveal">Independent projects at the intersection of AI and go-to-market.</p>
+  <div class="ai-grid">
+    <div class="ai-card scroll-reveal">
+      <div class="ai-icon">&lambda;</div>
+      <h3 class="ai-title">GTM playbook for a voice-to-text AI startup</h3>
+      <p class="ai-desc">Researched and orchestrated a positioning pivot from voice-to-text to AI governance for BFSI companies. Defined product use cases, messaging, positioning. Built SME sales enablement. PR strategy securing 3 industry accolades in the Middle East.</p>
+    </div>
+    <div class="ai-card scroll-reveal">
+      <div class="ai-icon">&gt;_</div>
+      <h3 class="ai-title">Autonomous AI agent for founder engagement</h3>
+      <p class="ai-desc">Built with Claude + Claude Code, deployed on Vercel. Identifies AI-native founders, generates sponsor proposals, qualifies leads via conversational AI.</p>
+    </div>
+    <div class="ai-card scroll-reveal">
+      <div class="ai-icon">&#9670;</div>
+      <h3 class="ai-title">HSR Founder's Club platform</h3>
+      <p class="ai-desc">Website and web app built end-to-end using AI tools. Full deployment pipeline. Community platform for Bangalore founders.</p>
+    </div>
+    <div class="ai-card scroll-reveal">
+      <div class="ai-icon">&#9749;</div>
+      <h3 class="ai-title">CafeKasol: proximity-based cafe discovery</h3>
+      <p class="ai-desc">Built a web app in Himachal for nearby cafe discovery with filters: open now, wifi, riverview, menu, veg/non-veg, food cravings. Active in Kasol, tested with early users at local hostels.</p>
+    </div>
+  </div>
+</section>
+
+<!-- TOOL SCROLL -->
+<div class="tool-scroll-section">
+  <div class="tool-scroll-label">Tools I build with</div>
+  <div class="tool-scroll-wrap">
+    <div class="tool-scroll-track">
+      <span class="tool-scroll-item">Claude</span>
+      <span class="tool-scroll-item">Claude Code</span>
+      <span class="tool-scroll-item">Cursor</span>
+      <span class="tool-scroll-item">n8n</span>
+      <span class="tool-scroll-item">Wispr Flow</span>
+      <span class="tool-scroll-item">ElevenLabs</span>
+      <span class="tool-scroll-item">Perplexity</span>
+      <span class="tool-scroll-item">Gemini</span>
+      <span class="tool-scroll-item">SuperDemo</span>
+      <span class="tool-scroll-item">VEED.io</span>
+      <span class="tool-scroll-item">Canva</span>
+      <span class="tool-scroll-item">Figma</span>
+      <span class="tool-scroll-item">Vercel</span>
+      <span class="tool-scroll-item">GitHub</span>
+      <span class="tool-scroll-item">Happenstance.ai</span>
+      <span class="tool-scroll-item">Numerous.ai</span>
+      <span class="tool-scroll-item">Claude</span>
+      <span class="tool-scroll-item">Claude Code</span>
+      <span class="tool-scroll-item">Cursor</span>
+      <span class="tool-scroll-item">n8n</span>
+      <span class="tool-scroll-item">Wispr Flow</span>
+      <span class="tool-scroll-item">ElevenLabs</span>
+      <span class="tool-scroll-item">Perplexity</span>
+      <span class="tool-scroll-item">Gemini</span>
+      <span class="tool-scroll-item">SuperDemo</span>
+      <span class="tool-scroll-item">VEED.io</span>
+      <span class="tool-scroll-item">Canva</span>
+      <span class="tool-scroll-item">Figma</span>
+      <span class="tool-scroll-item">Vercel</span>
+      <span class="tool-scroll-item">GitHub</span>
+      <span class="tool-scroll-item">Happenstance.ai</span>
+      <span class="tool-scroll-item">Numerous.ai</span>
     </div>
   </div>
 </div>
 
-
-<!-- ==========================================
-     WORK SECTION
-     ========================================== -->
-<section class="work-section" id="work">
-  <div class="section-tag scroll-reveal">Work</div>
-  <h2 class="section-heading scroll-reveal">Three engines. Three markets.<br>One playbook.</h2>
-  <p class="section-description scroll-reveal">Each role, a different industry and audience. The approach stayed the same.</p>
-
-  <div class="work-cards">
-    <!-- OLake -->
-    <div class="work-card scroll-reveal">
-      <div>
-        <p class="work-company">OLake by Datazip &middot; Founding Member, GTM</p>
-        <h3 class="work-title">Built a developer ecosystem from zero where cold outreach failed. Education-led growth worked.</h3>
-        <p class="work-narrative">Standard B2B playbook failed immediately. So I built an education-led engine instead: partnered with Apache Foundation for India's first official Iceberg event, brought in speakers from Google, Meta, Netflix, Snowflake with zero budget. 100+ discovery conversations shaped the product direction and contributed to closing the seed round. Led the Product Hunt launch (#3 ranking).</p>
-        <div class="work-tags">
-          <span class="work-tag">Open Source</span>
-          <span class="work-tag">Developer GTM</span>
-          <span class="work-tag">Data Infrastructure</span>
-          <span class="work-tag">Community</span>
-        </div>
-      </div>
-      <div class="work-metrics">
-        <div class="work-metric"><span class="work-metric-value">35+</span><span class="work-metric-context">POC conversions, 22 clients in production in 5 months</span></div>
-        <div class="work-metric"><span class="work-metric-value">3,500+</span><span class="work-metric-context">Registrations across 22 events and webinars globally</span></div>
-        <div class="work-metric"><span class="work-metric-value">1,500+</span><span class="work-metric-context">GitHub stars, 600+ Slack, zero paid</span></div>
-      </div>
-    </div>
-
-    <!-- Money Club -->
-    <div class="work-card scroll-reveal">
-      <div>
-        <p class="work-company">The Money Club &middot; Founder's Office, Growth</p>
-        <h3 class="work-title">Designed for real India. Tier 2 city research to brochures that closed 100+ leads at one event.</h3>
-        <p class="work-narrative">Travelled across Tier 2 cities to understand what people actually need from financial products. 75+ user interviews revealed the gap between what fintechs build and what users need. Led 0-to-1 B2B product launch end-to-end. Designed collateral that turned heads at fintech events in Singapore, UAE, and India, pulling 100+ inbound leads from a single set of brochures.</p>
-        <div class="work-tags">
-          <span class="work-tag">Fintech</span>
-          <span class="work-tag">B2B + B2C</span>
-          <span class="work-tag">Product Design</span>
-          <span class="work-tag">0-to-1</span>
-        </div>
-      </div>
-      <div class="work-metrics">
-        <div class="work-metric"><span class="work-metric-value">$30M&rarr;$48M+</span><span class="work-metric-context">Capital pooled via redesigned referral systems</span></div>
-        <div class="work-metric"><span class="work-metric-value">200+</span><span class="work-metric-context">Users in under 2 months for new B2B product</span></div>
-        <div class="work-metric"><span class="work-metric-value">CNBC 200</span><span class="work-metric-context">Top Global Fintechs recognition</span></div>
-      </div>
-    </div>
-
-    <!-- Mudrex -->
-    <div class="work-card scroll-reveal">
-      <div>
-        <p class="work-company">Mudrex (YC'19) &middot; Growth Manager</p>
-        <h3 class="work-title">Built a community that started running itself. First lesson in systems that scale without you.</h3>
-        <p class="work-narrative">Built WAGMI, India's largest student Web3 community, closing partnerships with every major institution. The moment it clicked: students started running it themselves. Also ran guerrilla user research, shot marketing videos, BTL activations across Bengaluru, and managed integrated campaigns with Zepto, Zomato, and CRED.</p>
-        <div class="work-tags">
-          <span class="work-tag">Crypto</span>
-          <span class="work-tag">Consumer</span>
-          <span class="work-tag">Community</span>
-          <span class="work-tag">Partnerships</span>
-        </div>
-      </div>
-      <div class="work-metrics">
-        <div class="work-metric"><span class="work-metric-value">1M+</span><span class="work-metric-context">User acquisitions through campaigns</span></div>
-        <div class="work-metric"><span class="work-metric-value">5,000+</span><span class="work-metric-context">WAGMI members, all IITs, ISB, IIMs</span></div>
-        <div class="work-metric"><span class="work-metric-value">$70K</span><span class="work-metric-context">Partnership opportunities in 6 months</span></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-<!-- ==========================================
-     APPROACH SECTION
-     ========================================== -->
-<section class="approach-section" id="approach">
-  <div class="approach-content scroll-reveal">
-    <div class="section-tag">Approach</div>
-    <h2 class="section-heading">I tried the standard playbook first. It didn't work.</h2>
-    <p class="approach-text">Cold calls, email campaigns, paid ads. With developer audiences, <strong>they actively backfire.</strong></p>
-    <p class="approach-text">So I build something different: <strong>education-led ecosystems</strong> where the community does the selling. Events with practitioners. Content that teaches. Communities that sustain themselves.</p>
-    <div class="approach-quote">"I don't run campaigns. I build systems. The kind that keep working after I stop pushing."</div>
-    <p class="approach-text">It starts the same way every time: <strong>100+ conversations before a single landing page.</strong> Events, Slack groups, Discord, Reddit, LinkedIn. The market tells you what to build if you ask the right questions.</p>
-  </div>
-  <div class="approach-steps scroll-reveal">
-    <div class="approach-step">
-      <div class="step-num">01</div>
-      <div class="step-text">
-        <div class="step-title">Listen first, build second</div>
-        <div class="step-desc">100+ conversations with real users before touching a landing page. Events, communities, Reddit, Slack groups.</div>
-      </div>
-    </div>
-    <div class="approach-step">
-      <div class="step-num">02</div>
-      <div class="step-text">
-        <div class="step-title">Build the education engine</div>
-        <div class="step-desc">Events with speakers your audience trusts. Content that teaches, not sells. Let the community become the distribution.</div>
-      </div>
-    </div>
-    <div class="approach-step">
-      <div class="step-num">03</div>
-      <div class="step-text">
-        <div class="step-title">Automate and scale</div>
-        <div class="step-desc">AI tools as infrastructure, not novelty. One person running 8+ channels. Measure everything, kill what doesn't convert, double down on what does.</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-<!-- ==========================================
-     AI WORK SECTION
-     ========================================== -->
-<section class="ai-work-section" id="ai-work">
-  <div class="section-tag scroll-reveal">AI Work</div>
-  <h2 class="section-heading scroll-reveal">I don't just use AI tools.<br>I build with them.</h2>
-  <p class="section-description scroll-reveal">Independent projects at the intersection of AI and go-to-market.</p>
-
-  <div class="ai-work-grid">
-    <div class="ai-work-card scroll-reveal">
-      <div class="ai-work-icon">&lambda;</div>
-      <h3 class="ai-work-title">GTM playbook for AI governance startup</h3>
-      <p class="ai-work-description">Product use cases, messaging, positioning. SME sales enablement. PR strategy securing 3 industry accolades in the Middle East.</p>
-    </div>
-    <div class="ai-work-card scroll-reveal">
-      <div class="ai-work-icon">&gt;_</div>
-      <h3 class="ai-work-title">Autonomous AI agent for founder engagement</h3>
-      <p class="ai-work-description">Built with Claude + Claude Code, deployed on Vercel. Identifies AI-native founders, generates sponsor proposals, qualifies leads via conversational AI.</p>
-    </div>
-    <div class="ai-work-card scroll-reveal">
-      <div class="ai-work-icon">&#9670;</div>
-      <h3 class="ai-work-title">HSR Founder's Club platform</h3>
-      <p class="ai-work-description">Website and web app built end-to-end using AI tools. Full deployment pipeline. Community platform for Bangalore founders.</p>
-    </div>
-  </div>
-</section>
-
-
-<!-- ==========================================
-     ABOUT SECTION
-     ========================================== -->
+<!-- ABOUT -->
 <section class="about-section" id="about">
-  <div class="about-story scroll-reveal">
-    <div class="section-tag">About</div>
-    <h2 class="section-heading">A bit about me.</h2>
-    <p>I studied economics, taught students, and ended up building GTM engines for technical products. Every step made the next one possible.</p>
-    <p><strong>Economics taught me how incentives actually work.</strong> Teaching taught me how to explain complex things simply. Both turned out more useful in tech than any technical degree.</p>
-    <p>I've worked across crypto, fintech, and data infrastructure. Each time building from zero, each time in a market where traditional playbooks didn't apply.</p>
-    <p>What excites me now: <strong>AI-native companies where the product is brilliant but the GTM treats developers like enterprise buyers.</strong> The companies that win won't be the ones with the best models. They'll be the ones that earn trust first.</p>
-    <div style="margin-top:32px;padding:24px;background:var(--color-accent-glow);border:1px solid rgba(194,96,42,0.2);border-radius:12px">
-      <p style="font-size:14px;color:var(--color-accent-light);font-weight:500;margin-bottom:8px">Currently exploring</p>
-      <p style="margin:0;font-size:15px">AI product marketing, developer ecosystem growth, community-led GTM, and how trust scales in technical markets.</p>
+  <div class="about-intro scroll-reveal">
+    <div class="s-tag">About</div>
+    <h2 class="s-hd">A bit about me.</h2>
+    <p>I studied economics, taught students, built communities, and ended up running GTM for technical products across three industries. Every role started from zero. Every market needed a different playbook. <strong>The constant: understanding people well enough to build something they actually trust.</strong></p>
+  </div>
+  <div class="about-grid scroll-reveal">
+    <div class="about-item">
+      <div class="about-item-title">Education</div>
+      <div class="about-item-content"><strong>B.Sc. Economics Honors</strong>, Loreto College, University of Calcutta (2022)<br>CGPA: 8.2/10 | Stata, SQL, Python</div>
+    </div>
+    <div class="about-item">
+      <div class="about-item-title">Research</div>
+      <div class="about-item-content">Expiration-Day Effects on Index Futures: Evidence from Indian Market<br>The Cause of Unemployment in Current Market Scenario</div>
+    </div>
+    <div class="about-item">
+      <div class="about-item-title">Achievements</div>
+      <div class="about-item-content"><strong>HBS</strong> Peek Class (cohort of 90) | <strong>Stanford CME295:</strong> Transformers &amp; LLMs | <strong>Anthropic:</strong> Claude Code in Action, Introduction to MCP | <strong>Symbiosis International:</strong> Consulting, fund management improved 2.5x</div>
+    </div>
+    <div class="about-item">
+      <div class="about-item-title">Early Leadership</div>
+      <div class="about-item-content"><strong>Yuvaa</strong> East India Head (600K+ community) | <strong>AIESEC</strong> International Relations (Japan, Malaysia, Taiwan) | <strong>Teach for India</strong> Fellow | <strong>NABARD</strong> field research, West Bengal</div>
+    </div>
+    <div class="about-item">
+      <div class="about-item-title">College</div>
+      <div class="about-item-content">E-cell Initiator | Economics Fest Coordinator | Essay Winner (Cryptocurrencies) | NSS, Debate, Leadership Training Service</div>
+    </div>
+    <div class="about-item">
+      <div class="about-item-title">Speaking</div>
+      <div class="about-item-content">Guest speaker on product marketing. Hosted India's first official Apache Iceberg event with Apache Foundation.</div>
     </div>
   </div>
-
-  <div class="about-details scroll-reveal">
-    <div class="about-block">
-      <p class="about-block-title">Education</p>
-      <p class="about-block-content">
-        <strong>B.Sc. Economics Honors</strong><br>
-        Loreto College, University of Calcutta (2022)<br>
-        Core: Financial Economics, Public Finance, Econometrics<br>
-        CGPA: 8.2/10 | Languages: Stata, SQL, Python
-      </p>
-    </div>
-    <div class="about-block">
-      <p class="about-block-title">Research Papers</p>
-      <p class="about-block-content">
-        Expiration-Day Effects on Index Futures: Evidence from Indian Market<br>
-        The Cause of Unemployment in Current Market Scenario
-      </p>
-    </div>
-    <div class="about-block">
-      <p class="about-block-title">Achievements &amp; Courses</p>
-      <p class="about-block-content">
-        <strong>Harvard Business School</strong> Peek Class: Selected in cohort of 90, case study "Monetizing Prediction in the Age of AI" using 5-C analysis<br>
-        <strong>Stanford CME295:</strong> Transformers &amp; LLMs<br>
-        <strong>Anthropic:</strong> Claude Code in Action, Introduction to MCP<br>
-        <strong>Symbiosis International (Australia):</strong> Consulting apprenticeship, analyzed 13 grants, improved fund management 2.5x
-      </p>
-    </div>
-    <div class="about-block">
-      <p class="about-block-title">College Achievements</p>
-      <p class="about-block-content">
-        Coordinator, Economics Annual Fest, Sponsorship &amp; Media Head<br>
-        Initiator of E-cell, Loreto College<br>
-        Winner of Essay Competition | Cryptocurrencies<br>
-        Society Memberships: NSS, Debate, Leadership Training Service
-      </p>
-    </div>
-    <div class="about-block">
-      <p class="about-block-title">Community &amp; Early Leadership</p>
-      <p class="about-block-content">
-        <strong>East India Head, Yuvaa:</strong> Led 75-person team for India's largest GenZ community (600K+ members), executed 3 offline events with 200+ attendees<br>
-        <strong>International Relations Manager, AIESEC:</strong> Built partnerships in Japan, Malaysia, and Taiwan, enabled 50+ students in international exchange programs<br>
-        <strong>Fellow Teacher, Teach for India:</strong> Taught English to 30 students at Sarvodaya Vidyalaya, Delhi<br>
-        <strong>NABARD Representative:</strong> Field research in West Bengal interviewing female workers on financial needs
-      </p>
-    </div>
-    <div class="about-block">
-      <p class="about-block-title">AI tools I build with</p>
-      <div class="tools-list">
-        <span class="tool-pill">Claude</span>
-        <span class="tool-pill">Claude Code</span>
-        <span class="tool-pill">Cursor</span>
-        <span class="tool-pill">n8n</span>
-        <span class="tool-pill">Wispr Flow</span>
-        <span class="tool-pill">ElevenLabs</span>
-        <span class="tool-pill">Perplexity</span>
-        <span class="tool-pill">Gemini</span>
-        <span class="tool-pill">SuperDemo</span>
-        <span class="tool-pill">VEED.io</span>
-        <span class="tool-pill">Canva</span>
-        <span class="tool-pill">Figma</span>
-      </div>
-    </div>
-    <div class="about-block">
-      <p class="about-block-title">Speaking</p>
-      <p class="about-block-content">Guest speaker on product marketing at industry events. Hosted India's first official Apache Iceberg event with Apache Foundation.</p>
-    </div>
-    <div class="about-block">
-      <p class="about-block-title">Get in touch</p>
-      <p class="about-block-content">
-        <a href="mailto:harshakalbalia@gmail.com">harshakalbalia@gmail.com</a><br>
-        <a href="https://www.linkedin.com/in/harshakalbalia/" target="_blank">LinkedIn</a> &middot;
-        <a href="https://zcal.co/harshakalbalia/30min" target="_blank">Book a call</a> &middot;
-        <a href="https://docs.google.com/document/d/1IOjT-wF86OSrs5iM10r8wKxUIfSMo5Jx/edit" target="_blank">Download Resume</a>
-      </p>
-    </div>
+  <div class="about-contact scroll-reveal">
+    <a href="mailto:harshakalbalia@gmail.com">harshakalbalia@gmail.com</a>
+    <a href="https://www.linkedin.com/in/harshakalbalia/" target="_blank">LinkedIn</a>
+    <a href="https://zcal.co/harshakalbalia/30min" target="_blank">Book a call</a>
+    <a href="https://docs.google.com/document/d/1IOjT-wF86OSrs5iM10r8wKxUIfSMo5Jx/edit" target="_blank">Download Resume</a>
   </div>
 </section>
 
-
-<!-- ==========================================
-     FOOTER
-     ========================================== -->
 <footer>
-  <div class="footer-copyright">Harsha Kalbalia &copy; 2026</div>
+  <div class="footer-left">Harsha Kalbalia &copy; 2026</div>
   <div class="footer-links">
     <a href="https://www.linkedin.com/in/harshakalbalia/" target="_blank">LinkedIn</a>
     <a href="mailto:harshakalbalia@gmail.com">Email</a>
@@ -1651,81 +560,58 @@ footer {
   </div>
 </footer>
 
-
-<!-- ==========================================
-     AI AGENT WIDGET
-     ========================================== -->
-<button class="agent-toggle-button" onclick="toggleAgent()" id="agentToggleButton">
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
-  </svg>
+<!-- AGENT -->
+<button class="agent-btn" onclick="toggleAgent()" id="agentBtn">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
 </button>
-
 <div class="agent-panel" id="agentPanel">
-  <div class="agent-header">
-    <div class="agent-header-left">
+  <div class="agent-head">
+    <div class="agent-head-left">
       <div class="agent-avatar">HK</div>
       <div>
         <div class="agent-name">Ask Harsha's AI</div>
         <div class="agent-status">Online</div>
       </div>
     </div>
-    <button class="agent-close-button" onclick="toggleAgent()">&times;</button>
+    <button class="agent-close" onclick="toggleAgent()">&times;</button>
   </div>
-  <div class="agent-messages" id="agentMessages">
-    <div class="agent-message bot">Hey! I'm Harsha's AI assistant. I know everything about her work, approach, and experience. Ask me anything.</div>
+  <div class="agent-msgs" id="agentMsgs">
+    <div class="agent-msg bot">Hey! I'm Harsha's AI assistant. I know everything about her work, approach, and experience. Ask me anything.</div>
   </div>
-  <div class="agent-input-area">
-    <input class="agent-text-input" id="agentInput" placeholder="Ask about my work, approach, tools..." onkeydown="if(event.key==='Enter')sendAgentMessage()">
-    <button class="agent-send-button" onclick="sendAgentMessage()">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-        <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/>
-      </svg>
-    </button>
+  <div class="agent-input-wrap">
+    <input class="agent-input" id="agentInput" placeholder="Ask about my work, approach, tools..." onkeydown="if(event.key==='Enter')sendAgentMessage()">
+    <button class="agent-send" onclick="sendAgentMessage()"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg></button>
   </div>
 </div>
 
-
-<!-- ==========================================
-     JAVASCRIPT
-     ========================================== -->
 <script>
-// ---- Scroll Reveal ----
-const scrollObserver = new IntersectionObserver((entries) => {
-  entries.forEach((entry) => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('visible');
-    }
+// Scroll reveal
+var ob = new IntersectionObserver(function(entries) {
+  entries.forEach(function(entry) {
+    if (entry.isIntersecting) entry.target.classList.add('visible');
   });
 }, { threshold: 0.08 });
+document.querySelectorAll('.scroll-reveal').forEach(function(el) { ob.observe(el); });
 
-document.querySelectorAll('.scroll-reveal').forEach((element) => {
-  scrollObserver.observe(element);
-});
-
-
-// ---- AI Agent ----
+// Agent
 function toggleAgent() {
   var panel = document.getElementById('agentPanel');
-  var button = document.getElementById('agentToggleButton');
+  var btn = document.getElementById('agentBtn');
   panel.classList.toggle('open');
-  button.style.display = panel.classList.contains('open') ? 'none' : 'flex';
+  btn.style.display = panel.classList.contains('open') ? 'none' : 'flex';
 }
 
 function sendAgentMessage() {
   var input = document.getElementById('agentInput');
   var text = input.value.trim();
   if (!text) return;
-
-  var messages = document.getElementById('agentMessages');
-  messages.innerHTML += '<div class="agent-message user">' + text + '</div>';
+  var msgs = document.getElementById('agentMsgs');
+  msgs.innerHTML += '<div class="agent-msg user">' + text + '</div>';
   input.value = '';
-  messages.scrollTop = messages.scrollHeight;
-
+  msgs.scrollTop = msgs.scrollHeight;
   var typingId = 'typing-' + Date.now();
-  messages.innerHTML += '<div class="agent-message bot" id="' + typingId + '" style="opacity:0.5">Thinking...</div>';
-  messages.scrollTop = messages.scrollHeight;
-
+  msgs.innerHTML += '<div class="agent-msg bot" id="' + typingId + '" style="opacity:0.5">Thinking...</div>';
+  msgs.scrollTop = msgs.scrollHeight;
   fetch('/api/chat', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
@@ -1734,40 +620,30 @@ function sendAgentMessage() {
   .then(function(response) { return response.json(); })
   .then(function(data) {
     var el = document.getElementById(typingId);
-    if (el) {
-      el.textContent = data.reply || 'Something went wrong. Reach out at harshakalbalia@gmail.com';
-      el.style.opacity = '1';
-    }
-    messages.scrollTop = messages.scrollHeight;
+    if (el) { el.textContent = data.reply || 'Something went wrong. Reach out at harshakalbalia@gmail.com'; el.style.opacity = '1'; }
+    msgs.scrollTop = msgs.scrollHeight;
   })
   .catch(function() {
     var el = document.getElementById(typingId);
-    if (el) {
-      el.textContent = 'The AI agent needs setup. Please check that the API key is configured on Vercel, or reach out directly at harshakalbalia@gmail.com';
-      el.style.opacity = '1';
-    }
-    messages.scrollTop = messages.scrollHeight;
+    if (el) { el.textContent = 'The AI agent needs setup. Please check that the API key is configured on Vercel, or reach out directly at harshakalbalia@gmail.com'; el.style.opacity = '1'; }
+    msgs.scrollTop = msgs.scrollHeight;
   });
 }
 
-
-// ---- Keyboard Shortcuts ----
-document.addEventListener('keydown', function(event) {
-  if (event.key === 'Escape') {
+// Keyboard
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') {
     var panel = document.getElementById('agentPanel');
-    if (panel.classList.contains('open')) { toggleAgent(); }
+    if (panel.classList.contains('open')) toggleAgent();
   }
 });
 
-
-// ---- Smooth Scroll ----
-document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
-  anchor.addEventListener('click', function(event) {
-    var target = document.querySelector(anchor.getAttribute('href'));
-    if (target) {
-      event.preventDefault();
-      target.scrollIntoView({ behavior: 'smooth' });
-    }
+// Smooth scr
+// Smooth scroll
+document.querySelectorAll('a[href^="#"]').forEach(function(a) {
+  a.addEventListener('click', function(e) {
+    var target = document.querySelector(a.getAttribute('href'));
+    if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth' }); }
   });
 });
 </script>
