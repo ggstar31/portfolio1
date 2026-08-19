@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&amp;family=Inter:wght@300;400;500;600&amp;family=Caveat:wght@500;600&amp;display=swap" rel="stylesheet">
+<script src="./image-slot.js"></script>
+<style>
+html,body{margin:0;background:#0D0916;color:#F5F1EC;font-family:'Inter',sans-serif;}
+a{color:#F5F1EC;text-decoration:none;} a:hover{color:#FF6B4A;}
+::selection{background:#FF6B4A;color:#0D0916;}
+@keyframes drift{0%,100%{transform:translateY(0) rotate(var(--r,0deg))}50%{transform:translateY(-8px) rotate(var(--r,0deg))}}
+@media (prefers-reduced-motion: reduce){*{transition:none !important;animation:none !important;}}
+</style>
+</helmet>
+<div style="background:radial-gradient(1400px 900px at 75% -10%, rgba(199,79,180,0.16), transparent 60%), radial-gradient(1100px 800px at -5% 40%, rgba(255,107,74,0.12), transparent 55%), #0D0916; min-height:100vh; overflow-x:hidden">
+
+<nav style="position:fixed;top:0;left:0;right:0;z-index:60;display:flex;justify-content:flex-end;align-items:center;gap:34px;padding:20px 44px;background:linear-gradient(rgba(13,9,22,0.92),rgba(13,9,22,0));font-size:14px;font-weight:500">
+  <a href="#work" style="opacity:0.85" style-hover="opacity:1">Proof of Work</a>
+  <a href="#offbooks" style="opacity:0.85" style-hover="opacity:1">Off the Books</a>
+  <a href="#origin" style="opacity:0.85" style-hover="opacity:1">Origin Story</a>
+  <a href="#contact" style="padding:10px 22px;border-radius:100px;background:linear-gradient(120deg,#FFB454,#FF6B4A 45%,#C74FB4);color:#160D08;font-weight:600;transition:box-shadow .25s,transform .25s" style-hover="box-shadow:0 8px 30px rgba(255,107,74,0.45);transform:translateY(-1px);color:#160D08">Get in Touch</a>
+</nav>
+
+<header style="position:relative;min-height:max(100vh,820px);display:grid;background:radial-gradient(900px 500px at 50% 108%, rgba(199,79,180,0.22), transparent 60%), radial-gradient(700px 420px at 50% -8%, rgba(255,107,74,0.16), transparent 60%);grid-template-columns:minmax(180px,26vw) minmax(0,1fr) minmax(180px,26vw);gap:clamp(20px,3vw,56px);align-items:center;padding:120px clamp(16px,3vw,44px) 70px;box-sizing:border-box;overflow:hidden">
+  <div style="position:absolute;left:50%;top:50%;width:760px;height:520px;margin:-260px 0 0 -380px;background:conic-gradient(from 210deg at 50% 50%, rgba(255,180,84,0.14), rgba(255,107,74,0.10), rgba(199,79,180,0.16), rgba(255,180,84,0.14));filter:blur(90px);border-radius:50%;pointer-events:none"></div>
+  <div style="display:flex;flex-direction:column;gap:30px;justify-content:center;min-width:0">
+    <div style="--r:-6deg;transform:rotate(-6deg);animation:drift 9s ease-in-out infinite;background:#FBF7EF;padding:11px 11px 36px;box-shadow:0 24px 60px rgba(0,0,0,0.5);transition:all .35s ease;filter:saturate(0.8) brightness(0.88);position:relative" style-hover="filter:none;transform:rotate(-3deg) scale(1.05);box-shadow:0 30px 80px rgba(255,107,74,0.35);z-index:10">
+      <div style="position:absolute;top:-12px;left:50%;width:84px;height:24px;margin-left:-42px;background:rgba(255,214,140,0.5);transform:rotate(3deg)"></div>
+      <img src="uploads/olake%206.jpeg" alt="" style="display: block; width: 100%; height: 180px; object-fit: cover">
+      <div style="font-family:'Caveat',cursive;font-size:19px;color:#4A3B33;padding:7px 4px 0">full house, Bengaluru</div>
+    </div>
+    <div style="--r:4deg;transform:rotate(4deg);animation:drift 10.5s ease-in-out infinite;background:#FBF7EF;padding:11px 11px 36px;box-shadow:0 24px 60px rgba(0,0,0,0.5);transition:all .35s ease;filter:saturate(0.8) brightness(0.88);position:relative" style-hover="filter:none;transform:rotate(6deg) scale(1.05);box-shadow:0 30px 80px rgba(255,180,84,0.3);z-index:10">
+      
+      <img src="uploads/olake%20event%204.jpeg" alt="" style="display:block;width:100%;height:150px;object-fit:cover;object-position:center 88%">
+      <div style="font-family:'Caveat',cursive;font-size:19px;color:#4A3B33;padding:7px 4px 0">community night</div>
+    </div>
+    <div style="--r:-3deg;transform:rotate(-3deg);animation:drift 11s ease-in-out infinite;background:#FBF7EF;padding:11px 11px 36px;box-shadow:0 24px 60px rgba(0,0,0,0.5);transition:all .35s ease;filter:saturate(0.8) brightness(0.88);position:relative" style-hover="filter:none;transform:rotate(-1deg) scale(1.05);box-shadow:0 30px 80px rgba(199,79,180,0.35);z-index:10">
+      <div style="position:absolute;top:-12px;left:50%;width:84px;height:24px;margin-left:-42px;background:rgba(255,214,140,0.5);transform:rotate(-4deg)"></div>
+      <img src="uploads/Screenshot%202026-08-19%20at%2010.08.39.png" alt="" style="display:block;width:100%;height:165px;object-fit:cover;object-position:center 30%"><div style="font-family:'Caveat',cursive;font-size:19px;color:#4A3B33;padding:7px 4px 0">London, Product Launch</div>
+    </div>
+  </div>
+  <div style="text-align:center;min-width:0;padding:0 8px">
+    <div style="font-size:12px;font-weight:600;letter-spacing:0.3em;text-transform:uppercase;color:#FFB454;margin-bottom:26px">Harsha Kalbalia</div>
+    <h1 style="font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(32px,4vw,78px);line-height:1.04;margin:0 0 18px;white-space:nowrap;letter-spacing:-0.01em">Engineering <em style="background:linear-gradient(120deg,#FFB454,#FF6B4A 45%,#C74FB4);-webkit-background-clip:text;background-clip:text;color:transparent">Equilibrium</em></h1>
+    <p style="font-family:'Instrument Serif',serif;font-style:italic;font-size:clamp(19px,2vw,26px);color:#E8DFF2;margin:0 0 24px">Supply meets demand, compounded by trust.</p>
+    <p style="font-size:15.5px;line-height:1.8;font-weight:300;color:#B8AFC4;max-width:540px;margin:0 auto 28px">I learned marketing from microeconomics: every market clears where what people want meets what is supplied. My job is finding that point for new products, and earning the credibility that gets them believed.</p>
+    <div style="display:flex;gap:16px;justify-content:center;margin-bottom:30px">
+      <a href="#" style="padding:13px 30px;border-radius:100px;background:linear-gradient(120deg,#FFB454,#FF6B4A 45%,#C74FB4);color:#160D08;font-weight:600;font-size:14.5px;transition:all .25s" style-hover="box-shadow:0 10px 34px rgba(255,107,74,0.5);transform:translateY(-2px);color:#160D08">Resume</a>
+      <a href="#" style="padding:13px 30px;border-radius:100px;border:1px solid rgba(245,241,236,0.35);font-weight:600;font-size:14.5px;transition:all .25s" style-hover="border-color:#FF6B4A;color:#FF6B4A;transform:translateY(-2px)">LinkedIn</a>
+    </div>
+    <div style="display:flex;flex-wrap:wrap;justify-content:center;column-gap:14px;row-gap:8px;font-size:10.5px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:#9C93A8;align-items:center"><span>0 to 1</span><span style="color:#FF6B4A">·</span><span>Positioning &amp; Messaging</span><span style="color:#FF6B4A">·</span><span>Tech Product Launches</span><span style="color:#FF6B4A">·</span><span>GTM &amp; Operations</span><span style="color:#FF6B4A">·</span><span>Community-led</span></div>
+  </div>
+  <div style="display:flex;flex-direction:column;gap:30px;justify-content:center;min-width:0">
+    <div style="--r:5deg;transform:rotate(5deg);animation:drift 10s ease-in-out infinite;background:#FBF7EF;padding:11px 11px 36px;box-shadow:0 24px 60px rgba(0,0,0,0.5);transition:all .35s ease;filter:saturate(0.8) brightness(0.88);position:relative" style-hover="filter:none;transform:rotate(2deg) scale(1.05);box-shadow:0 30px 80px rgba(255,107,74,0.35);z-index:10">
+      <div style="position:absolute;top:-12px;left:50%;width:84px;height:24px;margin-left:-42px;background:rgba(255,214,140,0.5);transform:rotate(-3deg)"></div>
+      
+      <img src="uploads/olake%20event.jpeg" alt="" style="display:block;width:100%;height:180px;object-fit:cover;object-position:center 78%"><div style="font-family:'Caveat',cursive;font-size:19px;color:#4A3B33;padding:7px 4px 0">Apache Iceberg meetup, BLR</div>
+    </div>
+    <div style="--r:-4deg;transform:rotate(-4deg);animation:drift 12s ease-in-out infinite;background:#FBF7EF;padding:11px 11px 36px;box-shadow:0 24px 60px rgba(0,0,0,0.5);transition:all .35s ease;filter:saturate(0.8) brightness(0.88);position:relative" style-hover="filter:none;transform:rotate(-6deg) scale(1.05);box-shadow:0 30px 80px rgba(255,180,84,0.3);z-index:10">
+      
+      
+      <img src="uploads/olake%20meetup%202.jpeg" alt="" style="display:block;width:100%;height:150px;object-fit:cover;object-position:center 80%"><div style="font-family:'Caveat',cursive;font-size:19px;color:#4A3B33;padding:7px 4px 0">standing room only</div>
+    </div>
+    <div style="--r:3deg;transform:rotate(3deg);animation:drift 9.5s ease-in-out infinite;background:#FBF7EF;padding:11px 11px 36px;box-shadow:0 24px 60px rgba(0,0,0,0.5);transition:all .35s ease;filter:saturate(0.8) brightness(0.88);position:relative" style-hover="filter:none;transform:rotate(1deg) scale(1.05);box-shadow:0 30px 80px rgba(199,79,180,0.35);z-index:10">
+      <div style="position:absolute;top:-12px;left:50%;width:84px;height:24px;margin-left:-42px;background:rgba(255,214,140,0.5);transform:rotate(4deg)"></div>
+      
+      <div style="font-family:'Caveat',cursive;font-size:19px;color:#4A3B33;padding:7px 4px 0">San Francisco meetup</div><img src="uploads/olake%20event%20san%20fransisco.jpeg" alt="" style="display:block;width:100%;height:165px;object-fit:cover">
+    </div>
+  </div>
+</header>
+
+<div style="text-align:center;padding:26px 44px 70px"><span style="font-family:'Caveat',cursive;font-weight:500;font-size:clamp(26px,3vw,38px);background:linear-gradient(120deg,#FFB454,#FF6B4A 50%,#C74FB4);-webkit-background-clip:text;background-clip:text;color:transparent">Started in economics classrooms. Ended up making markets. Full story below.</span></div>
+
+<main style="max-width:1240px;margin:0 auto;padding:0 44px">
+
+  <section id="work" style="padding:40px 0 60px">
+    <div style="display:flex;align-items:baseline;gap:16px;margin-bottom:8px">
+      <h2 style="font-weight:600;font-size:13px;letter-spacing:0.28em;text-transform:uppercase;color:#FFB454;margin:0">Proof of Work</h2>
+      <span style="font-size:13px;color:#9C93A8;font-weight:300">Experience</span>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:26px;margin-top:30px">
+      <a href="#" style="display:grid;grid-template-columns:340px 1fr auto;gap:34px;align-items:center;padding:26px;border-radius:24px;background:linear-gradient(135deg,rgba(255,107,74,0.10),rgba(199,79,180,0.06) 55%,rgba(255,255,255,0.02));border:1px solid rgba(255,255,255,0.08);transition:all .3s ease" style-hover="border-color:rgba(255,107,74,0.5);box-shadow:0 24px 70px rgba(255,107,74,0.18);transform:translateY(-3px);color:#F5F1EC">
+        <div style="border-radius:16px;overflow:hidden;height:190px"><img src="uploads/olake%206.jpeg" alt="" style="display:block;width:100%;height:100%;object-fit:cover"></div>
+        <div>
+          <div style="font-size:11px;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:#FFB454;margin-bottom:10px">01 · Founding Member</div>
+          <h3 style="font-family:'Instrument Serif',serif;font-weight:400;font-size:34px;margin:0 0 8px">Developer GTM</h3>
+          <div style="font-size:13.5px;color:#9C93A8;margin-bottom:12px">OLake by Datazip · Backed by Elevation Capital</div>
+          <p style="font-family:'Instrument Serif',serif;font-style:italic;font-size:19px;color:#E8DFF2;margin:0">Open source that grows on trust, not spend.</p>
+        </div>
+        <span style="font-size:26px;color:#FF6B4A;padding-right:8px">→</span>
+      </a>
+      <a href="#" style="display:grid;grid-template-columns:340px 1fr auto;gap:34px;align-items:center;padding:26px;border-radius:24px;background:linear-gradient(135deg,rgba(255,180,84,0.10),rgba(255,107,74,0.06) 55%,rgba(255,255,255,0.02));border:1px solid rgba(255,255,255,0.08);transition:all .3s ease" style-hover="border-color:rgba(255,180,84,0.5);box-shadow:0 24px 70px rgba(255,180,84,0.16);transform:translateY(-3px);color:#F5F1EC">
+        <div style="border-radius:16px;overflow:hidden;height:190px"><img src="uploads/Screenshot%202026-08-17%20at%2017.39.04.png" alt="" style="display:block;width:100%;height:100%;object-fit:cover"></div>
+        <div>
+          <div style="font-size:11px;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:#FFB454;margin-bottom:10px">02 · Founder's Office</div>
+          <h3 style="font-family:'Instrument Serif',serif;font-weight:400;font-size:34px;margin:0 0 8px">Fintech PMM</h3>
+          <div style="font-size:13.5px;color:#9C93A8;margin-bottom:12px">The Money Club · Backed by Blume Ventures</div>
+          <p style="font-family:'Instrument Serif',serif;font-style:italic;font-size:19px;color:#E8DFF2;margin:0">Trust is the product when money is the category.</p>
+        </div>
+        <span style="font-size:26px;color:#FFB454;padding-right:8px">→</span>
+      </a>
+      <a href="#" style="display:grid;grid-template-columns:340px 1fr auto;gap:34px;align-items:center;padding:26px;border-radius:24px;background:linear-gradient(135deg,rgba(199,79,180,0.12),rgba(255,107,74,0.05) 55%,rgba(255,255,255,0.02));border:1px solid rgba(255,255,255,0.08);transition:all .3s ease" style-hover="border-color:rgba(199,79,180,0.55);box-shadow:0 24px 70px rgba(199,79,180,0.2);transform:translateY(-3px);color:#F5F1EC">
+        <div style="border-radius:16px;overflow:hidden;height:190px"><img src="uploads/Screenshot%202026-08-19%20at%2009.21.37.png" alt="" style="display:block;width:100%;height:100%;object-fit:cover"></div>
+        <div>
+          <div style="font-size:11px;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:#FFB454;margin-bottom:10px">03 · Growth Manager</div>
+          <h3 style="font-family:'Instrument Serif',serif;font-weight:400;font-size:34px;margin:0 0 8px">Crypto Growth</h3>
+          <div style="font-size:13.5px;color:#9C93A8;margin-bottom:12px">Mudrex · Backed by YC'19, Nexus Ventures</div>
+          <p style="font-family:'Instrument Serif',serif;font-style:italic;font-size:19px;color:#E8DFF2;margin:0">A community built to outgrow its builder.</p>
+        </div>
+        <span style="font-size:26px;color:#C74FB4;padding-right:8px">→</span>
+      </a>
+    </div>
+  </section><section id="offbooks" style="padding:60px 0">
+    <div style="display:flex;align-items:baseline;gap:16px;margin-bottom:8px">
+      <h2 style="font-weight:600;font-size:13px;letter-spacing:0.28em;text-transform:uppercase;color:#FFB454;margin:0">Off the Books</h2>
+      <span style="font-size:13px;color:#9C93A8;font-weight:300">Fractional &amp; Independent</span>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;grid-auto-rows:1fr;gap:26px;margin-top:30px">
+      <div style="position:relative;overflow:hidden;border-radius:24px;border:1px solid rgba(255,255,255,0.08);min-height:280px;transition:all .3s ease" style-hover="border-color:rgba(255,107,74,0.5);transform:translateY(-3px)">
+        <img src="uploads/Screenshot%202026-08-19%20at%2009.10.55.png" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 20%;opacity:0.5">
+        <div style="position:absolute;inset:0;background:linear-gradient(100deg,rgba(13,9,22,0.96) 30%,rgba(13,9,22,0.55) 70%,rgba(13,9,22,0.25))"></div>
+        <div style="position:relative;padding:36px;max-width:65%">
+          <h3 style="font-family:'Instrument Serif',serif;font-weight:400;font-size:28px;margin:0 0 12px">The <em style="color:#FF6B4A">Pivot</em></h3>
+          <p style="font-size:15px;line-height:1.75;font-weight:300;color:#CFC7DA;margin:0">A voice-to-text AI startup repositioned into AI governance for BFSI, Middle East. Three industry accolades followed.</p>
+          <p style="font-size:12.5px;line-height:1.6;color:#9C93A8;margin:16px 0 0"><span style="font-weight:600;letter-spacing:0.08em;text-transform:uppercase;font-size:10.5px;color:#FF6B4A">Tools</span> · Claude AI, for designing and brainstorming</p>
+        </div>
+      </div>
+      <div style="position:relative;overflow:hidden;border-radius:24px;border:1px solid rgba(255,255,255,0.08);background:linear-gradient(160deg,rgba(199,79,180,0.16),rgba(13,9,22,0.6) 70%);min-height:280px;display:flex;flex-direction:column;justify-content:center;padding:36px;box-sizing:border-box;transition:all .3s ease" style-hover="border-color:rgba(199,79,180,0.55);transform:translateY(-3px)">
+        <span style="position:absolute;right:18px;bottom:-30px;font-family:'Instrument Serif',serif;font-style:italic;font-size:150px;color:rgba(199,79,180,0.14);pointer-events:none">a.</span>
+        <h3 style="font-family:'Instrument Serif',serif;font-weight:400;font-size:28px;margin:0 0 12px">The <em style="color:#C74FB4">Agent</em></h3>
+        <p style="font-size:15px;line-height:1.75;font-weight:300;color:#CFC7DA;margin:0;max-width:85%">Autonomous founder-to-investor engagement agent for an early-stage VC: finds AI-native founders, drafts sponsor proposals for events, qualifies leads in conversation.</p>
+        <p style="font-size:12.5px;line-height:1.6;color:#9C93A8;margin:16px 0 0"><span style="font-weight:600;letter-spacing:0.08em;text-transform:uppercase;font-size:10.5px;color:#C74FB4">Tools</span> · Claude AI for master doc, Claude Code and Cursor for agent code, Github, Vercel for deploying</p>
+      </div>
+      <div style="position: relative; overflow: hidden; border-radius: 24px; border: 1px solid rgba(255,255,255,0.08); background: linear-gradient(160deg,rgba(255,180,84,0.14),rgba(13,9,22,0.6) 70%); min-height:280px; display: flex; flex-direction: column; justify-content: center; padding: 36px; box-sizing: border-box; transition: all .3s ease" style-hover="border-color:rgba(255,180,84,0.55);transform:translateY(-3px)">
+        <span style="position:absolute;right:18px;bottom:-30px;font-family:'Instrument Serif',serif;font-style:italic;font-size:150px;color:rgba(255,180,84,0.13);pointer-events:none">p.</span>
+        <h3 style="font-family:'Instrument Serif',serif;font-weight:400;font-size:28px;margin:0 0 12px">The <em style="color:#FFB454">Platform</em></h3>
+        <p style="font-size:15px;line-height:1.75;font-weight:300;color:#CFC7DA;margin:0;max-width:85%">A founders' community platform, designed, built and deployed end to end with AI tools.</p>
+        <p style="font-size:12.5px;line-height:1.6;color:#9C93A8;margin:16px 0 0"><span style="font-weight:600;letter-spacing:0.08em;text-transform:uppercase;font-size:10.5px;color:#FFB454">Tools</span> · Claude, Vercel, Luma AI, Figma</p>
+      </div>
+      <div style="position: relative; overflow: hidden; border-radius: 24px; border: 1px solid rgba(255,255,255,0.08); background: linear-gradient(160deg,rgba(255,107,74,0.10),rgba(199,79,180,0.10) 60%,rgba(13,9,22,0.6)); min-height:280px; padding: 32px; box-sizing: border-box; transition: all .3s ease" style-hover="border-color:rgba(255,107,74,0.5);transform:translateY(-3px)">
+        <div style="position:relative;z-index:1;max-width:72%">
+          <h3 style="font-family:'Instrument Serif',serif;font-weight:400;font-size:28px;margin:0 0 12px">The <em style="background:linear-gradient(120deg,#FF6B4A,#C74FB4);-webkit-background-clip:text;background-clip:text;color:transparent">App</em></h3>
+          <p style="font-size:15px;line-height:1.75;font-weight:300;color:#CFC7DA;margin:0">ReadAloud narrates any article, gamified into quizzes and scores you every few paragraphs. Built because I kept zoning out while reading.</p>
+          <p style="font-size:12.5px;line-height:1.6;color:#9C93A8;margin:16px 0 0"><span style="font-weight:600;letter-spacing:0.08em;text-transform:uppercase;font-size:10.5px;color:#FF6B4A">Tools</span> · Claude for brainstorming, Codex for Code, Firecrawl for API, ElevenLabs for Voice, Wisprflow for Vibecoding, Vercel to deploy, Gitlab for code management</p>
+        </div>
+        <figure style="margin:0;position:absolute;right:-26px;bottom:-70px;width:200px;transform:rotate(8deg);border-radius:18px;overflow:hidden;border:1px solid rgba(255,255,255,0.18);box-shadow:0 20px 60px rgba(0,0,0,0.55);pointer-events:none"><img src="assets/readaloud-mobile.png" alt="" style="display:block;width:100%"></figure>
+      </div>
+    </div>
+  </section>
+
+  
+</main>
+
+<section style="padding:60px 0">
+  <div style="max-width:1240px;margin:0 auto;padding:0 44px">
+    <h2 style="font-weight:600;font-size:13px;letter-spacing:0.28em;text-transform:uppercase;color:#FFB454;margin:0 0 30px">The Record</h2>
+  </div>
+  <div ref="{{ recordRef }}" style="display:flex;gap:20px;overflow-x:auto;padding:6px 44px 18px;scrollbar-width:none">
+    <figure style="margin:0;flex-shrink:0;width:420px">
+      <div style="border-radius:16px;overflow:hidden;height:270px"><img src="uploads/olake%20event.jpeg" alt="" style="display:block;width:100%;height:100%;object-fit:cover;object-position:center 78%"></div>
+      <figcaption style="font-size:12.5px;color:#9C93A8;padding:12px 4px 0;line-height:1.5">Apache Iceberg meetup, Bengaluru — full house</figcaption>
+    </figure>
+    <figure style="margin:0;flex-shrink:0;width:420px">
+      <div style="border-radius:16px;overflow:hidden;height:270px"><img src="uploads/olake%20meetup%202.jpeg" alt="" style="display:block;width:100%;height:100%;object-fit:cover;object-position:center 80%"></div>
+      <figcaption style="font-size:12.5px;color:#9C93A8;padding:12px 4px 0;line-height:1.5">Apache Iceberg meetup, Bengaluru — standing room only</figcaption>
+    </figure>
+    <figure style="margin:0;flex-shrink:0;width:420px">
+      <div style="border-radius:16px;overflow:hidden;height:270px"><img src="uploads/olake%206.jpeg" alt="" style="display:block;width:100%;height:100%;object-fit:cover"></div>
+      <figcaption style="font-size:12.5px;color:#9C93A8;padding:12px 4px 0;line-height:1.5">Bengaluru — the auditorium edition</figcaption>
+    </figure>
+    <figure style="margin:0;flex-shrink:0;width:420px">
+      <div style="border-radius:16px;overflow:hidden;height:270px"><img src="uploads/olake%20event%20san%20fransisco.jpeg" alt="" style="display:block;width:100%;height:100%;object-fit:cover"></div>
+      <figcaption style="font-size:12.5px;color:#9C93A8;padding:12px 4px 0;line-height:1.5">Iceberg meetup, San Francisco</figcaption>
+    </figure>
+    <figure style="margin:0;flex-shrink:0;width:420px">
+      <div style="border-radius:16px;overflow:hidden;height:270px"><img src="uploads/olake%20event%203.jpeg" alt="" style="display:block;width:100%;height:100%;object-fit:cover;object-position:center 35%"></div>
+      <figcaption style="font-size:12.5px;color:#9C93A8;padding:12px 4px 0;line-height:1.5">Iceberg meetup, London</figcaption>
+    </figure>
+    <figure style="margin:0;flex-shrink:0;width:210px">
+      <div style="border-radius:16px;overflow:hidden;height:270px"><img src="uploads/olake%20award.jpeg" alt="" style="display:block;width:100%;height:100%;object-fit:cover"></div>
+      <figcaption style="font-size:12.5px;color:#9C93A8;padding:12px 4px 0;line-height:1.5">Data Engineering Company of the Year, 2026</figcaption>
+    </figure>
+    <figure style="margin:0;flex-shrink:0;width:420px">
+      <div style="border-radius:16px;overflow:hidden;height:270px;display:grid;grid-template-columns:1fr 1fr;gap:4px"><img src="uploads/WhatsApp%20Image%202026-08-17%20at%2017.52.56.jpeg" alt="" style="display:block;width:100%;height:270px;object-fit:cover"><img src="uploads/WhatsApp%20Image%202026-08-17%20at%2017.53.28.jpeg" alt="" style="display:block;width:100%;height:270px;object-fit:cover"></div>
+      <figcaption style="font-size:12.5px;color:#9C93A8;padding:12px 4px 0;line-height:1.5">MoneyClub &amp; Vrddi Awards</figcaption>
+    </figure>
+    <figure style="margin:0;flex-shrink:0;width:540px">
+      <div style="border-radius:16px;overflow:hidden;height:270px"><img src="uploads/harsha%20speaking.jpeg" alt="" style="display:block;width:100%;height:100%;object-fit:cover"></div>
+      <figcaption style="font-size:12.5px;color:#9C93A8;padding:12px 4px 0;line-height:1.5">Product Marketing Insights, panelist · MarkeXchange</figcaption>
+    </figure>
+  </div>
+</section>
+
+<main style="max-width:1240px;margin:0 auto;padding:0 44px">
+  <section id="origin" style="padding:60px 0 100px;display:grid;grid-template-columns:1fr 300px;gap:60px;align-items:center">
+    <div>
+      <h2 style="font-weight:600;font-size:13px;letter-spacing:0.28em;text-transform:uppercase;color:#FFB454;margin:0 0 30px">Origin Story</h2>
+      <p style="max-width:760px;font-size:16.5px;line-height:1.95;font-weight:300;color:#C6BDD1;margin:0">I got into economics for maths and research and stayed for the human behaviour: why money moves, what demand actually is, where it comes from. The curiosity never stayed in the classroom. I studied markets obsessively, and college expanded the syllabus: movements around women's empowerment and literature, fieldwork and research, AIESEC, and co-founding Felicity, a creative venture we ran into profitability. I consulted pro bono for NGOs on grants, donors and SDG programs, taught in Delhi through Teach For India and in Taiwan, got selected for HBS Peek, and interned at a YC startup that converted me to a full-time offer. Then the real syllabus: crypto growth through a bull and a bear market, fintech PMM, founding GTM for a unified data stack platform that pivoted into an open source data replication tool. <span style="font-family:'Instrument Serif',serif;font-style:italic;font-size:19px;color:#F5F1EC">Biggest lesson: markets run on trust, and trust begins with understanding the person on the other side of the market.</span></p>
+    </div>
+    <div style="position:relative;background:#FBF7EF;padding:18px 18px 46px;transform:rotate(4deg);box-shadow:0 24px 60px rgba(0,0,0,0.5);transition:transform .3s" style-hover="transform:rotate(1deg) scale(1.03)">
+      <div style="position:absolute;top:-13px;left:50%;width:96px;height:28px;margin-left:-48px;background:rgba(255,214,140,0.55);transform:rotate(-3deg)"></div>
+      <svg viewBox="0 0 240 260" style="display:block;width:100%;background:#FBF7EF">
+        <g fill="none" stroke="#B4462E" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M78 96 C74 60 100 40 122 42 C148 44 166 64 162 94 C186 92 170 128 158 124"></path>
+          <path d="M78 96 C64 118 60 150 58 186 C64 192 72 194 80 192"></path>
+          <path d="M162 94 C176 116 182 148 184 184 C178 190 170 192 162 190"></path>
+          <path d="M84 126 C78 148 74 168 72 188"></path>
+          <path d="M158 124 C164 146 168 164 170 186"></path>
+          <path d="M78 96 C56 96 66 130 84 126"></path>
+          <path d="M84 126 C80 158 96 176 120 176 C144 176 158 158 158 124"></path>
+          <path d="M78 96 C80 118 82 122 84 126 M162 94 C160 110 159 118 158 124"></path>
+          <path d="M80 88 C86 66 104 54 122 54 C142 54 156 68 160 86"></path>
+          <path d="M86 80 C96 64 112 58 126 60 M94 74 C104 62 118 58 130 62 M148 72 C142 64 134 60 126 60"></path>
+          <path d="M78 96 C72 116 68 148 64 184 C58 186 54 184 52 180 M64 184 C70 190 78 192 84 190"></path>
+          <path d="M162 94 C170 114 176 146 180 182 C186 184 190 182 192 178 M180 182 C174 189 166 191 160 189"></path>
+          <circle cx="104" cy="104" r="13"></circle>
+          <circle cx="140" cy="104" r="13"></circle>
+          <path d="M117 104 L127 104"></path>
+          <path d="M116 140 C120 146 128 146 132 140"></path>
+          <path d="M96 176 C84 190 78 208 76 232 M144 176 C158 190 164 206 166 228"></path>
+          <path d="M76 232 C96 240 144 240 166 228"></path>
+          <path d="M166 200 C186 190 198 172 202 154 M202 154 C196 152 192 152 188 154 M202 154 C204 158 204 162 202 166"></path>
+          <path d="M104 88 C110 84 134 84 140 88"></path>
+        </g>
+        <text x="180" y="60" font-family="Caveat, cursive" font-size="30" fill="#B4462E" transform="rotate(8 190 52)">hello!</text>
+      </svg>
+      <div style="font-family:'Caveat',cursive;font-size:21px;color:#4A3B33;text-align:center;padding-top:10px">that's me — the curious one in the room</div>
+    </div>
+  </section>
+</main>
+
+<footer id="contact" style="border-top:1px solid rgba(255,255,255,0.08);background:linear-gradient(180deg,rgba(13,9,22,0),rgba(255,107,74,0.06))">
+  <div style="max-width:1240px;margin:0 auto;padding:90px 44px 48px">
+    <a href="mailto:harshakalbalia@gmail.com" style="display:inline-block;font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(56px,8vw,120px);line-height:1;background:linear-gradient(120deg,#FFB454,#FF6B4A 45%,#C74FB4);-webkit-background-clip:text;background-clip:text;color:transparent">Let's <em>talk.</em></a>
+    <div style="display:flex;flex-wrap:wrap;gap:30px;margin-top:40px;font-size:13.5px;font-weight:500">
+      <a href="mailto:harshakalbalia@gmail.com" style="opacity:0.85" style-hover="opacity:1">harshakalbalia@gmail.com</a>
+      <a href="#" style="opacity:0.85" style-hover="opacity:1">LinkedIn</a>
+      <a href="#" style="opacity:0.85" style-hover="opacity:1">Book 30 minutes</a>
+      <a href="#" style="opacity:0.85" style-hover="opacity:1">Resume, PDF</a>
+    </div>
+    <div style="margin-top:56px;font-size:12px;color:#9C93A8">© 2026 Harsha Kalbalia</div>
+  </div>
+</footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;recordAutoScroll&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;The Record&quot;}}">
+class Component extends DCLogic {
+  componentDidMount() {
+    this._dir = 1; this._paused = false;
+    this._timer = setInterval(() => {
+      const el = this._rec;
+      if (!el || this._paused || (this.props.recordAutoScroll ?? true) === false) return;
+      el.scrollLeft += this._dir * 1.2;
+      if (el.scrollLeft + el.clientWidth >= el.scrollWidth - 2) this._dir = -1;
+      if (el.scrollLeft <= 2) this._dir = 1;
+    }, 16);
+  }
+  componentWillUnmount() { clearInterval(this._timer); }
+  renderVals() {
+    return {
+      recordRef: (el) => { this._rec = el; },
+      recPause: () => { this._paused = true; },
+      recResume: () => { this._paused = false; }
+    };
+  }
+}
+</script>
+</body>
+</html>
