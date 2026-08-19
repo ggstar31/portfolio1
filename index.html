@@ -1,654 +1,437 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Harsha Kalbalia</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Harsha Kalbalia — Engineering Equilibrium</title>
+<meta name="description" content="Harsha Kalbalia — technical product marketing and developer GTM. Positioning, 0 to 1 launches, and community-led growth for open source, fintech and crypto products.">
+<meta name="author" content="Harsha Kalbalia">
+<link rel="canonical" href="https://harshakalbalia.com/">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="Harsha Kalbalia — Engineering Equilibrium">
+<meta property="og:description" content="Supply meets demand, compounded by trust. Technical product marketing and developer GTM.">
+<meta property="og:url" content="https://harshakalbalia.com/">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='1' x2='1' y2='0'%3E%3Cstop offset='0' stop-color='%23FFB454'/%3E%3Cstop offset='.45' stop-color='%23FF6B4A'/%3E%3Cstop offset='1' stop-color='%23C74FB4'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='32' height='32' rx='8' fill='%230D0916'/%3E%3Ccircle cx='16' cy='16' r='8' fill='url(%23g)'/%3E%3C/svg%3E">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-<style>
-:root {
-  --bg: #0a0908;
-  --bg2: #111010;
-  --bg3: #181514;
-  --bg4: #1f1b18;
-  --bg5: #272220;
-  --bdr: #2a2520;
-  --bdr2: #3a3430;
-  --tx: #eae6e0;
-  --tx2: #9a938a;
-  --tx3: #5e5851;
-  --terra: #c2602a;
-  --tg: rgba(194,96,42,0.12);
-  --tl: #d97b48;
-  --td: #a04d1e;
-  --hd: 'Poppins', sans-serif;
-  --bd: 'Inter', sans-serif;
-}
-*{margin:0;padding:0;box-sizing:border-box}
-::selection{background:rgba(194,96,42,.35);color:#fff}
-html{scroll-behavior:smooth}
-body{font-family:var(--bd);background:var(--bg);color:var(--tx);-webkit-font-smoothing:antialiased;overflow-x:hidden}
-body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9999;opacity:.025;background:url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
-
-/* NAV */
-nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:16px 48px;display:flex;justify-content:space-between;align-items:center;background:rgba(10,9,8,.75);backdrop-filter:blur(28px);border-bottom:1px solid rgba(42,37,32,.4)}
-.nav-logo{width:38px;height:38px;border-radius:10px;background:linear-gradient(135deg,var(--terra),var(--td));display:flex;align-items:center;justify-content:center;font-family:var(--hd);font-weight:700;font-size:15px;color:#fff;letter-spacing:-.02em;text-decoration:none}
-.nav-links{display:flex;gap:32px;list-style:none}
-.nav-links a{font-size:13px;color:var(--tx2);text-decoration:none;letter-spacing:.01em;transition:color .3s}
-.nav-links a:hover{color:var(--terra)}
-.nav-contact{font-size:13px;padding:9px 22px;background:var(--tg);border:1px solid rgba(194,96,42,.25);border-radius:8px;color:var(--tl);text-decoration:none;transition:all .3s;font-weight:500}
-.nav-contact:hover{background:var(--terra);color:#fff;border-color:var(--terra)}
-.nav-hamburger{display:none;background:none;border:none;color:var(--tx2);cursor:pointer;padding:8px}
-
-/* HERO */
-.hero{min-height:100vh;display:grid;grid-template-columns:1.1fr .9fr;align-items:center;padding:0 48px;gap:40px;position:relative;overflow:hidden}
-.hero::before{content:'';position:absolute;top:-100px;right:200px;width:600px;height:600px;background:radial-gradient(circle,rgba(194,96,42,.1) 0%,transparent 65%);pointer-events:none;animation:pulse 6s ease-in-out infinite alternate}
-.hero::after{content:'';position:absolute;bottom:-150px;left:-100px;width:500px;height:500px;background:radial-gradient(circle,rgba(194,96,42,.06) 0%,transparent 65%);pointer-events:none}
-@keyframes pulse{from{opacity:.6;transform:scale(1)}to{opacity:1;transform:scale(1.15)}}
-.hero-text{z-index:2}
-.hero-name{font-family:var(--hd);font-size:clamp(44px,6.5vw,76px);font-weight:700;line-height:1.05;letter-spacing:-.035em;margin-bottom:14px;opacity:0;animation:fu .6s ease forwards .15s}
-.hero-name .accent{color:var(--terra)}
-.hero-role{font-size:15px;color:var(--tx2);letter-spacing:.02em;margin-bottom:32px;font-weight:400;opacity:0;animation:fu .6s ease forwards .3s}
-.hero-role span{color:var(--tx3);margin:0 12px}
-.hero-sub{font-size:19px;line-height:1.65;color:var(--tx2);max-width:540px;margin-bottom:44px;font-weight:300;opacity:0;animation:fu .6s ease forwards .45s}
-.hero-sub strong{color:var(--tx);font-weight:500}
-.hero-buttons{display:flex;gap:14px;align-items:center;opacity:0;animation:fu .6s ease forwards .6s}
-.btn-p{display:inline-flex;align-items:center;gap:8px;padding:14px 28px;background:var(--terra);color:#fff;border:none;border-radius:8px;font-size:14px;font-weight:500;font-family:var(--bd);cursor:pointer;transition:all .3s;text-decoration:none}
-.btn-p:hover{background:var(--td);transform:translateY(-2px);box-shadow:0 8px 30px rgba(194,96,42,.3)}
-.btn-s{display:inline-flex;align-items:center;gap:8px;padding:14px 28px;background:var(--bg3);color:var(--tx2);border:1px solid var(--bdr2);border-radius:8px;font-size:14px;font-weight:400;font-family:var(--bd);cursor:pointer;transition:all .3s;text-decoration:none}
-.btn-s:hover{border-color:var(--terra);color:var(--tl);background:var(--bg4)}
-
-/* AVATAR */
-.hero-avatar{z-index:2;display:flex;justify-content:center;align-items:center;opacity:0;animation:fi 1s ease forwards .5s}
-.avatar-scene{position:relative;width:400px;height:480px}
-.avatar-svg{width:100%;height:100%;filter:drop-shadow(0 20px 40px rgba(0,0,0,.3))}
-.avatar-svg .waving-hand{transform-origin:242px 225px;animation:wave 2.5s ease-in-out infinite}
-@keyframes wave{0%,100%{transform:rotate(0deg)}15%{transform:rotate(14deg)}30%{transform:rotate(-6deg)}45%{transform:rotate(10deg)}60%{transform:rotate(0deg)}}
-.speech-bubble{position:absolute;top:20px;left:-20px;background:var(--bg4);border:1px solid var(--bdr2);border-radius:14px 14px 14px 4px;padding:14px 18px;font-size:14px;font-weight:500;color:var(--tx);z-index:4;animation:float 4s ease-in-out infinite .5s;max-width:220px;line-height:1.5;box-shadow:0 8px 24px rgba(0,0,0,.3)}
-.speech-bubble span{display:block;font-size:12px;color:var(--tx2);font-weight:300;margin-top:4px}
-.floating-card{position:absolute;background:var(--bg3);border:1px solid var(--bdr2);border-radius:10px;padding:10px 14px;font-size:12px;color:var(--tx2);font-weight:500;z-index:3;backdrop-filter:blur(8px)}
-.floating-card.f1{bottom:60px;left:-30px;animation:float 4s ease-in-out infinite}
-.floating-card.f2{top:100px;right:-20px;animation:float 4s ease-in-out infinite 1s}
-.floating-card .num{font-family:var(--hd);font-size:18px;font-weight:700;color:var(--terra);display:block}
-@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
-
-/* METRICS */
-.metrics-section{padding:0 48px;margin-bottom:140px}
-.metrics-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;border-radius:14px;overflow:hidden}
-.metric-item{padding:36px 28px;text-align:center;background:var(--bg2);transition:all .4s;position:relative;overflow:hidden}
-.metric-item::after{content:'';position:absolute;bottom:0;left:50%;width:0;height:2px;background:var(--terra);transition:all .4s;transform:translateX(-50%)}
-.metric-item:hover{background:var(--bg3)}.metric-item:hover::after{width:60%}
-.metric-num{font-family:var(--hd);font-size:38px;font-weight:700;color:var(--tx);letter-spacing:-.02em;margin-bottom:6px}
-.metric-label{font-size:11px;color:var(--tx2);letter-spacing:.06em;text-transform:uppercase;font-weight:500;line-height:1.5}
-
-/* SECTION COMMON */
-.s-tag{display:inline-flex;align-items:center;gap:6px;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--terra);font-weight:600;margin-bottom:20px;padding:5px 12px;background:var(--tg);border-radius:5px}
-.s-hd{font-family:var(--hd);font-size:clamp(30px,3.8vw,46px);font-weight:700;line-height:1.15;letter-spacing:-.025em;margin-bottom:20px}
-.s-desc{font-size:16px;color:var(--tx2);line-height:1.7;max-width:580px;font-weight:300}
-
-/* WORK */
-.work-section{padding:0 48px 160px}
-.work-cards{display:flex;flex-direction:column;gap:24px;margin-top:56px}
-.work-card{background:var(--bg2);border:1px solid var(--bdr);border-radius:16px;padding:44px;display:grid;grid-template-columns:1.15fr 1fr;gap:48px;transition:all .4s;cursor:pointer;text-decoration:none;color:inherit;position:relative;overflow:hidden}
-.work-card::before{content:'';position:absolute;inset:0;border-radius:16px;background:linear-gradient(135deg,rgba(194,96,42,.04),transparent 60%);opacity:0;transition:opacity .4s}
-.work-card:hover{border-color:var(--bdr2);transform:translateY(-3px);box-shadow:0 20px 60px rgba(0,0,0,.3)}.work-card:hover::before{opacity:1}
-.work-company{font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--terra);font-weight:600;margin-bottom:4px}
-.work-timeline{font-size:12px;color:var(--tx3);font-weight:400;margin-bottom:14px}
-.work-title{font-family:var(--hd);font-size:23px;font-weight:600;line-height:1.35;letter-spacing:-.01em;margin-bottom:14px}
-.work-narrative{font-size:14px;color:var(--tx2);line-height:1.7;font-weight:300;margin-bottom:18px}
-.work-tags{display:flex;flex-wrap:wrap;gap:6px}
-.work-tag{font-size:10px;padding:4px 10px;background:var(--tg);color:var(--tl);border-radius:4px;font-weight:600;letter-spacing:.03em;text-transform:uppercase}
-.work-metrics{display:flex;flex-direction:column;gap:18px;justify-content:center}
-.work-metric{display:flex;align-items:baseline;gap:14px;padding:14px 16px;background:var(--bg3);border-radius:10px;border:1px solid rgba(42,37,32,.5);transition:border-color .3s}
-.work-metric:hover{border-color:var(--terra)}
-.work-metric-value{font-family:var(--hd);font-size:26px;font-weight:700;color:var(--terra);letter-spacing:-.02em;white-space:nowrap;min-width:70px}
-.work-metric-ctx{font-size:12px;color:var(--tx2);line-height:1.5}
-
-/* APPROACH */
-.approach-section{padding:120px 48px;border-top:1px solid var(--bdr);position:relative;display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start}
-.approach-section::before{content:'';position:absolute;top:0;right:0;width:50%;height:100%;background:linear-gradient(270deg,rgba(194,96,42,.03),transparent);pointer-events:none}
-.approach-content{max-width:620px}
-.approach-text{font-size:17px;line-height:1.8;color:var(--tx2);font-weight:300;margin-bottom:24px}
-.approach-text strong{color:var(--tx);font-weight:500}
-.approach-quote{font-family:var(--hd);font-size:22px;font-weight:600;color:var(--tl);line-height:1.5;margin:36px 0;padding:20px 24px;border-left:3px solid var(--terra);background:var(--tg);border-radius:0 10px 10px 0}
-.approach-right{display:flex;flex-direction:column;gap:16px;padding-top:60px}
-/* Playbook visual */
-.playbook-visual{background:var(--bg2);border:1px solid var(--bdr);border-radius:14px;padding:32px;margin-bottom:16px}
-.playbook-title{font-family:var(--hd);font-size:14px;font-weight:600;color:var(--terra);margin-bottom:24px;text-transform:uppercase;letter-spacing:.06em}
-.playbook-flow{display:flex;gap:12px;align-items:stretch}
-.playbook-stage{flex:1;background:var(--bg3);border:1px solid var(--bdr);border-radius:10px;padding:16px 14px;text-align:center;transition:all .3s}
-.playbook-stage:hover{border-color:var(--terra);background:var(--bg4)}
-.playbook-stage-num{color:var(--terra);margin-bottom:8px;display:flex;justify-content:center}
-.playbook-stage-title{font-size:13px;font-weight:600;color:var(--tx);margin-bottom:6px}
-.playbook-stage-desc{font-size:11px;color:var(--tx2);line-height:1.5}
-.playbook-arrow{display:flex;align-items:center;color:var(--terra);font-size:18px;padding:0 2px}
-/* Steps */
-.approach-step{background:var(--bg2);border:1px solid var(--bdr);border-radius:12px;padding:22px 24px;display:flex;gap:16px;align-items:flex-start;transition:all .3s}
-.approach-step:hover{border-color:var(--bdr2);background:var(--bg3)}
-.step-icon{width:40px;height:40px;min-width:40px;border-radius:10px;background:var(--tg);border:1px solid rgba(194,96,42,.2);display:flex;align-items:center;justify-content:center;color:var(--terra)}
-.step-title{font-weight:600;color:var(--tx);margin-bottom:4px;font-size:14px}
-.step-desc{color:var(--tx2);font-weight:300;font-size:14px;line-height:1.6}
-
-/* AI WORK */
-.ai-section{padding:120px 48px 80px;border-top:1px solid var(--bdr);position:relative;background:linear-gradient(180deg,rgba(194,96,42,.04) 0%,transparent 40%)}
-.ai-section::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,transparent 10%,var(--terra) 50%,transparent 90%);opacity:.6}
-.ai-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:56px}
-.ai-card{background:var(--bg2);border:1px solid rgba(194,96,42,.15);border-radius:14px;padding:32px 28px;transition:all .4s;cursor:pointer;position:relative;overflow:hidden}
-.ai-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--terra),transparent);opacity:.4;transition:opacity .4s}
-.ai-card:hover{background:var(--bg3);border-color:rgba(194,96,42,.35);transform:translateY(-2px);box-shadow:0 12px 40px rgba(194,96,42,.08)}.ai-card:hover::before{opacity:1}
-.ai-icon{width:42px;height:42px;border-radius:12px;background:linear-gradient(135deg,var(--tg),rgba(194,96,42,.05));border:1px solid rgba(194,96,42,.2);display:flex;align-items:center;justify-content:center;margin-bottom:18px;color:var(--terra);font-size:18px;font-weight:600}
-.ai-title{font-family:var(--hd);font-size:16px;font-weight:600;margin-bottom:10px;line-height:1.4}
-.ai-desc{font-size:13px;color:var(--tx2);line-height:1.65;font-weight:300}
-
-/* Tool scroll */
-.tool-scroll-section{padding:32px 48px 80px;overflow:hidden;position:relative}
-.tool-scroll-label{font-size:13px;color:var(--tx);letter-spacing:.08em;text-transform:uppercase;font-weight:600;margin-bottom:20px;text-align:center}
-.tool-scroll-wrap{background:var(--bg2);border:1px solid rgba(217,184,75,.2);border-radius:14px;padding:24px 0;overflow:hidden;box-shadow:0 0 40px rgba(217,184,75,.06),inset 0 0 30px rgba(217,184,75,.03)}
-.tool-scroll-track{display:flex;gap:40px;animation:scroll-left 25s linear infinite;width:max-content;padding:0 20px}
-.tool-scroll-track:hover{animation-play-state:paused}
-.tool-scroll-item{font-size:15px;color:#d9b84b;font-weight:600;white-space:nowrap;transition:all .3s;padding:8px 16px;border-radius:8px;letter-spacing:.01em}
-.tool-scroll-item:hover{color:#f0d060;background:rgba(217,184,75,.1);box-shadow:0 0 16px rgba(217,184,75,.15)}
-@keyframes scroll-left{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
-
-/* ABOUT */
-.about-section{padding:120px 48px 100px;border-top:1px solid var(--bdr)}
-.about-intro{max-width:680px;margin-bottom:48px}
-.about-intro p{font-size:16px;color:var(--tx2);line-height:1.8;font-weight:300}
-.about-intro p strong{color:var(--tx);font-weight:500}
-.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-.about-item{background:var(--bg2);border:1px solid var(--bdr);border-radius:10px;padding:20px 24px;transition:all .3s}
-.about-item:hover{border-color:var(--bdr2);background:var(--bg3)}
-.about-item-title{font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--terra);font-weight:600;margin-bottom:8px}
-.about-item-content{font-size:13px;color:var(--tx2);line-height:1.6}
-.about-item-content strong{color:var(--tx);font-weight:500}
-.about-item-content a{color:var(--tl);text-decoration:none;transition:color .3s}
-.about-item-content a:hover{color:var(--terra)}
-.about-contact{margin-top:32px;padding-top:24px;border-top:1px solid var(--bdr);display:flex;gap:24px;flex-wrap:wrap}
-.about-contact a{font-size:14px;color:var(--tl);text-decoration:none;transition:color .3s;font-weight:500}
-.about-contact a:hover{color:var(--terra)}
-
-/* TOOLS PILLS */
-.tools-list{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
-.tool-pill{font-size:10px;padding:5px 10px;background:var(--bg3);border:1px solid var(--bdr);border-radius:6px;color:var(--tx2);font-weight:500;transition:all .3s}
-.tool-pill:hover{border-color:var(--terra);color:var(--tl)}
-
-/* FOOTER */
-footer{padding:44px 48px;border-top:1px solid var(--bdr);display:flex;justify-content:space-between;align-items:center}
-.footer-left{font-size:12px;color:var(--tx3)}
-.footer-links{display:flex;gap:24px}
-.footer-links a{font-size:12px;color:var(--tx2);text-decoration:none;transition:color .3s}
-.footer-links a:hover{color:var(--terra)}
-
-/* AGENT */
-.agent-btn{position:fixed;bottom:28px;right:28px;z-index:90;width:56px;height:56px;border-radius:16px;background:linear-gradient(135deg,var(--terra),var(--td));border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 32px rgba(194,96,42,.35);transition:all .3s;color:#fff}
-.agent-btn:hover{transform:scale(1.08);box-shadow:0 12px 40px rgba(194,96,42,.45)}
-.agent-btn svg{width:24px;height:24px}
-.agent-panel{position:fixed;bottom:96px;right:28px;z-index:90;width:380px;height:520px;background:var(--bg2);border:1px solid var(--bdr2);border-radius:18px;display:none;flex-direction:column;overflow:hidden;box-shadow:0 24px 80px rgba(0,0,0,.6)}
-.agent-panel.open{display:flex}
-.agent-head{padding:18px 20px;border-bottom:1px solid var(--bdr);display:flex;align-items:center;justify-content:space-between}
-.agent-head-left{display:flex;align-items:center;gap:10px}
-.agent-avatar{width:32px;height:32px;border-radius:10px;background:linear-gradient(135deg,var(--terra),var(--td));display:flex;align-items:center;justify-content:center;font-family:var(--hd);font-size:12px;font-weight:700;color:#fff}
-.agent-name{font-family:var(--hd);font-size:14px;font-weight:600}
-.agent-status{font-size:11px;color:var(--terra);font-weight:500;display:flex;align-items:center;gap:4px}
-.agent-status::before{content:'';width:5px;height:5px;border-radius:50%;background:var(--terra)}
-.agent-close{background:none;border:none;color:var(--tx3);cursor:pointer;font-size:18px;transition:color .3s;width:28px;height:28px;display:flex;align-items:center;justify-content:center;border-radius:6px}
-.agent-close:hover{color:var(--tx);background:var(--bg4)}
-.agent-msgs{flex:1;padding:20px;overflow-y:auto;display:flex;flex-direction:column;gap:12px}
-.agent-msg{max-width:85%;padding:12px 16px;border-radius:14px;font-size:13px;line-height:1.6}
-.agent-msg.bot{background:var(--bg4);color:var(--tx);align-self:flex-start;border-bottom-left-radius:4px}
-.agent-msg.user{background:var(--terra);color:#fff;align-self:flex-end;border-bottom-right-radius:4px}
-.agent-input-wrap{padding:14px 16px;border-top:1px solid var(--bdr);display:flex;gap:10px;align-items:center}
-.agent-input{flex:1;background:var(--bg4);border:1px solid var(--bdr);border-radius:10px;padding:10px 14px;font-size:13px;color:var(--tx);font-family:var(--bd);outline:none;transition:border-color .3s}
-.agent-input:focus{border-color:var(--terra)}
-.agent-input::placeholder{color:var(--tx3)}
-.agent-send{width:36px;height:36px;border-radius:10px;background:var(--terra);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;color:#fff;transition:all .3s}
-.agent-send:hover{background:var(--td)}
-
-/* ANIMATIONS */
-@keyframes fu{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:translateY(0)}}
-@keyframes fi{from{opacity:0}to{opacity:1}}
-.scroll-reveal{opacity:0;transform:translateY(22px);transition:all .75s cubic-bezier(.16,1,.3,1)}
-.scroll-reveal.visible{opacity:1;transform:translateY(0)}
-@keyframes force-visible{to{opacity:1;transform:translateY(0)}}
-.scroll-reveal{animation:force-visible 0s 2s forwards}
-
-/* RESPONSIVE */
-@media(max-width:1024px){
-  .hero{grid-template-columns:1fr}
-  .hero-avatar{margin-top:20px}
-  .avatar-scene{width:280px;height:340px}
-  .speech-bubble{font-size:12px;padding:10px 14px;top:10px;left:0}
-  .floating-card.f1{bottom:30px;left:0}.floating-card.f2{top:60px;right:0}
-  .approach-section{grid-template-columns:1fr;gap:40px}
-  .about-grid{grid-template-columns:1fr}
-  .agent-panel{width:calc(100vw - 32px);right:16px;bottom:88px}
-}
-@media(max-width:768px){
-  nav{padding:14px 20px}
-  .nav-links{display:none}
-  .nav-hamburger{display:block}
-  nav.nav-open .nav-links{display:flex;position:absolute;top:100%;left:0;right:0;background:rgba(10,9,8,.95);flex-direction:column;padding:20px;gap:16px;border-bottom:1px solid var(--bdr)}
-  .hero{padding:100px 20px 40px;min-height:auto;gap:20px}
-  .hero-name{font-size:40px}
-  .hero-sub{font-size:16px}
-  .metrics-section{padding:0 20px}
-  .metrics-grid{grid-template-columns:repeat(2,1fr)}
-  .work-section{padding:0 20px 100px}
-  .work-card{grid-template-columns:1fr;gap:24px;padding:28px}
-  .approach-section{padding:80px 20px;grid-template-columns:1fr;gap:40px}
-  .playbook-flow{flex-direction:column}
-  .playbook-arrow{transform:rotate(90deg);justify-content:center}
-  .ai-section{padding:80px 20px 60px}
-  .ai-grid{grid-template-columns:1fr}
-  .tool-scroll-section{padding:20px 20px 60px}
-  .about-section{padding:80px 20px 80px}
-  .about-grid{grid-template-columns:1fr}
-  footer{padding:32px 20px;flex-direction:column;gap:14px}
-  .hero-buttons{flex-direction:column;align-items:flex-start}
-}
-</style>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600&family=Caveat:wght@500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/site.css">
 </head>
 <body>
 
-<!-- NAV -->
-<nav id="mainNav">
-  <a href="#" class="nav-logo">HK</a>
-  <button class="nav-hamburger" onclick="document.getElementById('mainNav').classList.toggle('nav-open')">
-    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
-  </button>
-  <ul class="nav-links">
-    <li><a href="#work">Work</a></li>
-    <li><a href="#approach">Approach</a></li>
-    <li><a href="#ai">AI Work</a></li>
-    <li><a href="#about">About</a></li>
-  </ul>
-  <a href="https://zcal.co/harshakalbalia/30min" target="_blank" class="nav-contact">Get in touch</a>
+<a class="visually-hidden" href="#work">Skip to content</a>
+
+<!-- ============================== 1. Nav ============================== -->
+<nav class="nav">
+  <div class="nav__links">
+    <a class="nav__link" href="#work"><span class="on-desktop">Proof of Work</span><span class="on-mobile">Work</span></a>
+    <a class="nav__link" href="#offbooks">Off the Books</a>
+    <a class="nav__link" href="#origin"><span class="on-desktop">Origin Story</span><span class="on-mobile">Origin</span></a>
+  </div>
+  <a class="nav__cta" href="#contact">Get in Touch</a>
 </nav>
 
-<!-- HERO -->
-<section class="hero">
-  <div class="hero-text">
-    <h1 class="hero-name">Hi, I am<br><span class="accent">Harsha!</span></h1>
-    <p class="hero-role">0-to-1 GTM<span>&middot;</span>Developer Ecosystems<span>&middot;</span>Community-Led Growth</p>
-    <p class="hero-sub"><strong>Three fast-scaling, VC-backed startups. Three industries.</strong> Same playbook: find the truth, build trust, then build the engine.</p>
-    <div class="hero-buttons">
-      <a href="#work" class="btn-p">See my work <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12l7 7 7-7"/></svg></a>
-      <a href="/Harsha_Resume.docx%20(1).pdf" target="_blank" class="btn-s"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg> Download resume</a>
-    </div>
-  </div>
-  <div class="hero-avatar">
-    <div class="avatar-scene">
-      <div class="speech-bubble">Hey, I'm Harsha!<span>Welcome to my corner of the internet.</span></div>
-      <svg class="avatar-svg" viewBox="0 0 400 480" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <rect x="60" y="340" width="280" height="12" rx="6" fill="#2a2520"/>
-        <rect x="80" y="352" width="8" height="80" rx="2" fill="#1f1b18"/>
-        <rect x="312" y="352" width="8" height="80" rx="2" fill="#1f1b18"/>
-        <rect x="130" y="300" width="140" height="42" rx="4" fill="#3a3430"/>
-        <rect x="138" y="306" width="124" height="30" rx="2" fill="#1c1916"/>
-        <rect x="142" y="309" width="116" height="24" rx="1" fill="rgba(194,96,42,0.15)"/>
-        <rect x="148" y="314" width="40" height="2" rx="1" fill="rgba(194,96,42,0.5)"/>
-        <rect x="148" y="319" width="60" height="2" rx="1" fill="rgba(194,96,42,0.3)"/>
-        <rect x="148" y="324" width="35" height="2" rx="1" fill="rgba(194,96,42,0.4)"/>
-        <rect x="192" y="314" width="20" height="2" rx="1" fill="rgba(234,230,224,0.2)"/>
-        <rect x="212" y="319" width="30" height="2" rx="1" fill="rgba(234,230,224,0.15)"/>
-        <rect x="110" y="342" width="180" height="8" rx="3" fill="#3a3430"/>
-        <path d="M160 220 C160 220, 155 280, 155 310 L245 310 C245 280, 240 220, 240 220" fill="#c2602a"/>
-        <rect x="185" y="195" width="30" height="28" rx="4" fill="#d4a574"/>
-        <ellipse cx="200" cy="170" rx="48" ry="52" fill="#d4a574"/>
-        <path d="M152 160 C152 120, 170 100, 200 98 C230 100, 248 120, 248 160 L248 210 C260 240, 258 270, 250 290 L248 290 C255 265, 252 240, 248 210 L248 165 C248 135, 235 115, 200 113 C165 115, 152 135, 152 165 L152 210 C148 240, 142 265, 148 290 L146 290 C138 270, 140 240, 152 210 Z" fill="#1a1510"/>
-        <path d="M155 155 C155 130, 168 112, 200 110 C232 112, 245 130, 245 155 L242 148 C240 132, 228 118, 200 116 C172 118, 160 132, 158 148 Z" fill="#2c2015"/>
-        <rect x="172" y="160" width="24" height="18" rx="9" fill="none" stroke="#3a3430" stroke-width="2.5"/>
-        <rect x="204" y="160" width="24" height="18" rx="9" fill="none" stroke="#3a3430" stroke-width="2.5"/>
-        <line x1="196" y1="168" x2="204" y2="168" stroke="#3a3430" stroke-width="2"/>
-        <line x1="172" y1="168" x2="164" y2="166" stroke="#3a3430" stroke-width="2"/>
-        <line x1="228" y1="168" x2="236" y2="166" stroke="#3a3430" stroke-width="2"/>
-        <ellipse cx="184" cy="169" rx="3.5" ry="4" fill="#1a1510"/>
-        <ellipse cx="216" cy="169" rx="3.5" ry="4" fill="#1a1510"/>
-        <ellipse cx="185" cy="168" rx="1.2" ry="1.2" fill="#fff"/>
-        <ellipse cx="217" cy="168" rx="1.2" ry="1.2" fill="#fff"/>
-        <path d="M174 155 C178 152, 188 152, 192 155" stroke="#1a1510" stroke-width="2" stroke-linecap="round" fill="none"/>
-        <path d="M208 155 C212 152, 222 152, 226 155" stroke="#1a1510" stroke-width="2" stroke-linecap="round" fill="none"/>
-        <path d="M188 183 C192 189, 208 189, 212 183" stroke="#a0724a" stroke-width="2" stroke-linecap="round" fill="none"/>
-        <g class="waving-hand">
-          <circle cx="242" cy="225" r="12" fill="#c2602a"/>
-          <path d="M242 225 C255 215, 270 200, 280 185" stroke="#d4a574" stroke-width="20" stroke-linecap="round" fill="none"/>
-          <path d="M280 185 C288 175, 295 168, 300 162" stroke="#d4a574" stroke-width="16" stroke-linecap="round" fill="none"/>
-          <circle cx="302" cy="158" r="14" fill="#d4a574"/>
-          <path d="M294 148 L291 138" stroke="#d4a574" stroke-width="4.5" stroke-linecap="round"/>
-          <path d="M300 146 L298 134" stroke="#d4a574" stroke-width="4.5" stroke-linecap="round"/>
-          <path d="M306 146 L308 134" stroke="#d4a574" stroke-width="4.5" stroke-linecap="round"/>
-          <path d="M312 149 L316 139" stroke="#d4a574" stroke-width="4.5" stroke-linecap="round"/>
-        </g>
-        <path d="M160 230 C148 260, 140 290, 155 310" stroke="#c2602a" stroke-width="18" stroke-linecap="round" fill="none"/>
-        <ellipse cx="155" cy="315" rx="12" ry="8" fill="#d4a574"/>
-        <circle cx="153" cy="185" r="3" fill="#c2602a"/>
-        <circle cx="247" cy="185" r="3" fill="#c2602a"/>
-      </svg>
-      <div class="floating-card f1"><span class="num">3</span>GTM engines</div>
-      <div class="floating-card f2"><span class="num">50+</span>Events globally</div>
-    </div>
-  </div>
-</section>
+<!-- ============================== 2. Hero ============================== -->
+<header class="hero">
+  <div class="hero__aurora" aria-hidden="true"></div>
 
-<!-- METRICS -->
-<div class="metrics-section scroll-reveal">
-  <div class="metrics-grid">
-    <div class="metric-item"><div class="metric-num">3</div><div class="metric-label">GTM engines from zero</div></div>
-    <div class="metric-item"><div class="metric-num">50+</div><div class="metric-label">Events &amp; webinars globally</div></div>
-    <div class="metric-item"><div class="metric-num">1M+</div><div class="metric-label">Users acquired for B2C fintech platform</div></div>
-    <div class="metric-item"><div class="metric-num">6,000+</div><div class="metric-label">Unique event registrants</div></div>
-  </div>
-</div>
-
-<!-- WORK -->
-<section class="work-section" id="work">
-  <div class="s-tag scroll-reveal">Work</div>
-  <h2 class="s-hd scroll-reveal">Three engines. Three markets.<br>One playbook.</h2>
-  <p class="s-desc scroll-reveal">Each role, a different industry and audience. The approach stayed the same.</p>
-
-  <div class="work-cards">
-    <div class="work-card scroll-reveal"><div>
-      <p class="work-company">OLake by Datazip | Founding Member, GTM</p>
-      <p class="work-timeline">July 2024 to Present</p>
-      <h3 class="work-title">Built a developer ecosystem from zero where cold outreach failed. Education-led growth worked.</h3>
-      <p class="work-narrative">Standard B2B playbook yielded no adequate results. So I built an education-led engine instead: partnered with Apache Foundation for India's first official Iceberg event, executed 15 webinars and 7 large-scale global events featuring speakers from Google, Meta, Netflix, Snowflake with zero budget. 100+ discovery conversations shaped the product direction and contributed to closing the seed round. Led the Product Hunt launch (#3 ranking).</p>
-      <div class="work-tags"><span class="work-tag">Open Source</span><span class="work-tag">Developer GTM</span><span class="work-tag">Data Infrastructure</span><span class="work-tag">Community</span></div>
-    </div><div class="work-metrics">
-      <div class="work-metric"><span class="work-metric-value">35+</span><span class="work-metric-ctx">POC conversions, 22 clients in production in 5 months</span></div>
-      <div class="work-metric"><span class="work-metric-value">6,000+</span><span class="work-metric-ctx">Registrations across 22 events and webinars globally</span></div>
-      <div class="work-metric"><span class="work-metric-value">1,500+</span><span class="work-metric-ctx">GitHub stars, 600+ Slack, zero paid</span></div>
-    </div></div>
-
-    <div class="work-card scroll-reveal"><div>
-      <p class="work-company">The Money Club | Founder's Office, Growth</p>
-      <p class="work-timeline">September 2023 to July 2024</p>
-      <h3 class="work-title">Designed for real India. Tier 2 city research to brochures that closed 100+ leads at one event.</h3>
-      <p class="work-narrative">Travelled across Tier 2 cities to understand what people actually need from financial products. 75+ user interviews revealed the gap between what fintechs build and what users need. Led 0-to-1 B2B product launch end-to-end. Designed collateral that turned heads at fintech events in Singapore, UAE, and India, pulling 100+ inbound leads from a single set of brochures.</p>
-      <div class="work-tags"><span class="work-tag">Fintech</span><span class="work-tag">B2B + B2C</span><span class="work-tag">Product Design</span><span class="work-tag">0-to-1</span></div>
-    </div><div class="work-metrics">
-      <div class="work-metric"><span class="work-metric-value">$30M→$48M+</span><span class="work-metric-ctx">Capital pooled via redesigned referral systems</span></div>
-      <div class="work-metric"><span class="work-metric-value">200+</span><span class="work-metric-ctx">Users in under 2 months for new B2B product</span></div>
-      <div class="work-metric"><span class="work-metric-value">CNBC 200</span><span class="work-metric-ctx">Top Global Fintechs recognition</span></div>
-    </div></div>
-
-    <div class="work-card scroll-reveal"><div>
-      <p class="work-company">Mudrex (YC'19) | Growth Manager</p>
-      <p class="work-timeline">April 2022 to September 2023</p>
-      <h3 class="work-title">Built a community that started running itself. First lesson in systems that scale without you.</h3>
-      <p class="work-narrative">Built WAGMI, India's largest student Web3 community, closing partnerships with every major institution. The moment it clicked: students started running it themselves. Also ran guerrilla user research, shot marketing videos, BTL activations across Bengaluru, and managed integrated campaigns with Zepto, Zomato, and CRED.</p>
-      <div class="work-tags"><span class="work-tag">Crypto</span><span class="work-tag">Consumer</span><span class="work-tag">Community</span><span class="work-tag">Partnerships</span></div>
-    </div><div class="work-metrics">
-      <div class="work-metric"><span class="work-metric-value">1M+</span><span class="work-metric-ctx">User acquisitions through campaigns</span></div>
-      <div class="work-metric"><span class="work-metric-value">5,000+</span><span class="work-metric-ctx">WAGMI members, all IITs, ISB, IIMs</span></div>
-      <div class="work-metric"><span class="work-metric-value">$70K</span><span class="work-metric-ctx">Partnership opportunities in 6 months</span></div>
-    </div></div>
-  </div>
-</section>
-
-<!-- APPROACH -->
-<section class="approach-section" id="approach">
-  <div class="approach-content scroll-reveal">
-    <div class="s-tag">Approach</div>
-    <h2 class="s-hd">My playbook starts with people. The channels come after.</h2>
-    <p class="approach-text">Every audience is different. Developers distrust outreach. Crypto users need social proof. Fintech consumers in Tier 2 India need education before a product pitch. <strong>The surface changes every time. The foundation doesn't.</strong></p>
-    <p class="approach-text">At Mudrex, I walked into offices unannounced to talk to real users. I built a student community of 5,000+ that eventually ran itself because the ambassadors believed in it. That taught me the most important thing I know: <strong>if people feel ownership, they become your distribution.</strong></p>
-    <p class="approach-text">At OLake, I took that same principle into a completely different market. Developers don't want to be sold to, so I built an education-led engine: 15 webinars and 7 global events in 6 months, featuring practitioners from Google, Meta, Netflix, and Snowflake. Zero budget. All through relationships.</p>
-    <p class="approach-text">At Money Club, it was Tier 2 India. I travelled to understand what people actually need from financial products. The collateral I designed from those insights generated 100+ leads at a single event.</p>
-    <div class="approach-quote">"The playbook personalises on top. The first principles stay the same: understand the pain deeply enough that the solution feels obvious."</div>
-    <p class="approach-text">Every GTM engine I've built started the same way: <strong>conversations before campaigns.</strong> I get into the communities, the Slack groups, the events, the Discord servers where my audience actually talks. I listen first. Then I build the system.</p>
-  </div>
-  <div class="approach-right scroll-reveal">
-    <div class="playbook-visual">
-      <div class="playbook-title">The Engine I Build Every Time</div>
-      <div class="playbook-flow">
-        <div class="playbook-stage">
-          <div class="playbook-stage-num"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg></div>
-          <div class="playbook-stage-title">Listen</div>
-          <div class="playbook-stage-desc">100+ conversations across channels. Find the real pain.</div>
-        </div>
-        <div class="playbook-arrow">→</div>
-        <div class="playbook-stage">
-          <div class="playbook-stage-num"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div>
-          <div class="playbook-stage-title">Educate</div>
-          <div class="playbook-stage-desc">Events, content, practitioners. Earn trust first.</div>
-        </div>
-        <div class="playbook-arrow">→</div>
-        <div class="playbook-stage">
-          <div class="playbook-stage-num"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 20V10"/><path d="M12 20V4"/><path d="M6 20v-6"/></svg></div>
-          <div class="playbook-stage-title">Scale</div>
-          <div class="playbook-stage-desc">Community runs itself. Growth compounds.</div>
-        </div>
+  <div class="hero__stack hero__stack--left">
+    <figure class="polaroid" style="--r:-6deg;--rh:-3deg;--dur:9s;--glow:rgba(255,107,74,0.35)">
+      <div class="polaroid__inner">
+        <span class="polaroid__tape" style="--tr:3deg" aria-hidden="true"></span>
+        <img class="polaroid__img" style="--h:180px"
+             src="/assets/img/olake-bengaluru-full-house-800.webp"
+             srcset="/assets/img/olake-bengaluru-full-house-400.webp 400w, /assets/img/olake-bengaluru-full-house-800.webp 800w, /assets/img/olake-bengaluru-full-house-1200.webp 1200w"
+             sizes="(max-width:767px) 30vw, (max-width:1199px) 22vw, 26vw"
+             width="1536" height="1536" decoding="async"
+             alt="A full auditorium at an OLake community event in Bengaluru">
+        <figcaption class="polaroid__caption">full house, Bengaluru</figcaption>
       </div>
-    </div>
-    <div class="approach-step">
-      <div class="step-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg></div>
-      <div><div class="step-title">Understand the pain first</div>
-      <div class="step-desc">Get into the rooms where your audience talks. Events, communities, Slack, Discord. Listen before you build.</div></div>
-    </div>
-    <div class="approach-step">
-      <div class="step-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></div>
-      <div><div class="step-title">Earn trust through education</div>
-      <div class="step-desc">Events with practitioners. Content that teaches. Give value before asking for anything.</div></div>
-    </div>
-    <div class="approach-step">
-      <div class="step-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
-      <div><div class="step-title">Build systems that scale without you</div>
-      <div class="step-desc">From WAGMI running itself to OLake's community growing organically. The best engines don't need you pushing.</div></div>
-    </div>
-  </div>
-</section>
+    </figure>
 
-<!-- AI WORK -->
-<section class="ai-section" id="ai">
-  <div class="s-tag scroll-reveal">AI Work</div>
-  <h2 class="s-hd scroll-reveal">I don't just use AI tools.<br>I build with them.</h2>
-  <p class="s-desc scroll-reveal">Independent projects at the intersection of AI and go-to-market.</p>
-  <div class="ai-grid">
-    <div class="ai-card scroll-reveal">
-      <div class="ai-icon">&lambda;</div>
-      <h3 class="ai-title">GTM playbook for a voice-to-text AI startup</h3>
-      <p class="ai-desc">Researched and orchestrated a positioning pivot from voice-to-text to AI governance for BFSI companies. Defined product use cases, messaging, positioning. Built SME sales enablement. PR strategy securing 3 industry accolades in the Middle East.</p>
-    </div>
-    <div class="ai-card scroll-reveal">
-      <div class="ai-icon">&gt;_</div>
-      <h3 class="ai-title">Autonomous AI agent for founder engagement</h3>
-      <p class="ai-desc">Built for an early-stage VC to streamline founder engagement. The agent identified AI-native founders, generated tailored sponsor proposals, and let people explore the entire directory conversationally, ask questions, understand proposals, and qualify themselves as sponsors or attendees in real time. Built using Claude, Fireflies.ai for meeting capture and synthesis, deployed end-to-end.</p>
-    </div>
-    <div class="ai-card scroll-reveal">
-      <div class="ai-icon">&#9670;</div>
-      <h3 class="ai-title">HSR Founder's Club platform</h3>
-      <p class="ai-desc">Website and web app built end-to-end using AI tools. Full deployment pipeline. Community platform for Bangalore founders.</p>
-    </div>
-    <div class="ai-card scroll-reveal">
-      <div class="ai-icon">&#9654;</div>
-      <h3 class="ai-title">ReadAloud: gamified narrative reading app</h3>
-      <p class="ai-desc">I kept zoning out during podcasts and long articles. So I built ReadAloud: paste any public URL, and it narrates the article paragraph by paragraph. Every two paragraphs it pauses, summarizes what it just read, and runs a quick quiz to check if you were actually paying attention. Built with Claude Code and Gemini, deployed on Vercel.</p>
-    </div>
-  </div>
-</section>
+    <figure class="polaroid" style="--r:4deg;--rh:6deg;--dur:10.5s;--glow:rgba(255,180,84,0.3)">
+      <div class="polaroid__inner">
+        <span class="polaroid__tape polaroid__tape--mobile" aria-hidden="true"></span>
+        <img class="polaroid__img" style="--h:150px;--pos:center 88%"
+             src="/assets/img/olake-community-night-800.webp"
+             srcset="/assets/img/olake-community-night-400.webp 400w, /assets/img/olake-community-night-800.webp 800w, /assets/img/olake-community-night-1200.webp 1200w"
+             sizes="(max-width:767px) 30vw, (max-width:1199px) 22vw, 26vw"
+             width="1280" height="960" decoding="async"
+             alt="Attendees seated at an evening community meetup">
+        <figcaption class="polaroid__caption">community night</figcaption>
+      </div>
+    </figure>
 
-<!-- TOOL SCROLL -->
-<div class="tool-scroll-section">
-  <div class="tool-scroll-label">Tools I build with</div>
-  <div class="tool-scroll-wrap">
-    <div class="tool-scroll-track">
-      <span class="tool-scroll-item">Fireflies.ai</span>
-      <span class="tool-scroll-item">Claude</span>
-      <span class="tool-scroll-item">Claude Code</span>
-      <span class="tool-scroll-item">Cursor</span>
-      <span class="tool-scroll-item">n8n</span>
-      <span class="tool-scroll-item">Wispr Flow</span>
-      <span class="tool-scroll-item">ElevenLabs</span>
-      <span class="tool-scroll-item">Perplexity</span>
-      <span class="tool-scroll-item">Gemini</span>
-      <span class="tool-scroll-item">SuperDemo</span>
-      <span class="tool-scroll-item">VEED.io</span>
-      <span class="tool-scroll-item">Canva</span>
-      <span class="tool-scroll-item">Figma</span>
-      <span class="tool-scroll-item">Vercel</span>
-      <span class="tool-scroll-item">GitHub</span>
-      <span class="tool-scroll-item">Happenstance.ai</span>
-      <span class="tool-scroll-item">Numerous.ai</span>
-      <span class="tool-scroll-item">Fireflies.ai</span>
-      <span class="tool-scroll-item">Claude</span>
-      <span class="tool-scroll-item">Claude Code</span>
-      <span class="tool-scroll-item">Cursor</span>
-      <span class="tool-scroll-item">n8n</span>
-      <span class="tool-scroll-item">Wispr Flow</span>
-      <span class="tool-scroll-item">ElevenLabs</span>
-      <span class="tool-scroll-item">Perplexity</span>
-      <span class="tool-scroll-item">Gemini</span>
-      <span class="tool-scroll-item">SuperDemo</span>
-      <span class="tool-scroll-item">VEED.io</span>
-      <span class="tool-scroll-item">Canva</span>
-      <span class="tool-scroll-item">Figma</span>
-      <span class="tool-scroll-item">Vercel</span>
-      <span class="tool-scroll-item">GitHub</span>
-      <span class="tool-scroll-item">Happenstance.ai</span>
-      <span class="tool-scroll-item">Numerous.ai</span>
-    </div>
+    <figure class="polaroid" style="--r:-3deg;--rh:-1deg;--dur:11s;--glow:rgba(199,79,180,0.35)">
+      <div class="polaroid__inner">
+        <span class="polaroid__tape" style="--tr:-4deg" aria-hidden="true"></span>
+        <img class="polaroid__img" style="--h:165px;--pos:center 30%"
+             src="/assets/img/london-product-launch-766.webp"
+             srcset="/assets/img/london-product-launch-400.webp 400w, /assets/img/london-product-launch-766.webp 766w"
+             sizes="(max-width:767px) 30vw, (max-width:1199px) 22vw, 26vw"
+             width="766" height="1062" decoding="async"
+             alt="A product launch talk in London, audience watching a slide on screen">
+        <figcaption class="polaroid__caption">London, Product Launch</figcaption>
+      </div>
+    </figure>
   </div>
+
+  <div class="hero__content">
+    <p class="hero__kicker">Harsha Kalbalia</p>
+    <h1 class="hero__title">Engineering <em>Equilibrium</em></h1>
+    <p class="hero__subtitle">Supply meets demand, compounded by trust.</p>
+    <p class="hero__lede">I learned marketing from microeconomics: every market clears where what people want meets what is supplied. My job is finding that point for new products, and earning the credibility that gets them believed.</p>
+    <div class="hero__ctas">
+      <a class="btn btn--solid" href="/assets/Harsha-Kalbalia-Resume.pdf" target="_blank" rel="noopener">Resume</a>
+      <a class="btn btn--ghost" href="https://www.linkedin.com/in/harsha-kalbalia/" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+    <p class="tags">
+      <span>0 to 1</span><span class="tags__sep" aria-hidden="true">·</span>
+      <span>Positioning &amp; Messaging</span><span class="tags__sep" aria-hidden="true">·</span>
+      <span><span class="on-desktop">Tech </span>Product Launches</span><span class="tags__sep" aria-hidden="true">·</span>
+      <span>GTM &amp; <span class="on-desktop">Operations</span><span class="on-mobile">Ops</span></span><span class="tags__sep" aria-hidden="true">·</span>
+      <span>Community-led</span>
+    </p>
+  </div>
+
+  <div class="hero__stack hero__stack--right">
+    <figure class="polaroid" style="--r:5deg;--rh:2deg;--dur:10s;--glow:rgba(255,107,74,0.35)">
+      <div class="polaroid__inner">
+        <span class="polaroid__tape" style="--tr:-3deg" aria-hidden="true"></span>
+        <img class="polaroid__img" style="--h:180px;--pos:center 78%"
+             src="/assets/img/olake-iceberg-blr-800.webp"
+             srcset="/assets/img/olake-iceberg-blr-400.webp 400w, /assets/img/olake-iceberg-blr-800.webp 800w, /assets/img/olake-iceberg-blr-1200.webp 1200w"
+             sizes="(max-width:767px) 30vw, (max-width:1199px) 22vw, 26vw"
+             width="1280" height="960" decoding="async"
+             alt="Apache Iceberg meetup in Bengaluru, a packed room of attendees">
+        <figcaption class="polaroid__caption"><span class="on-desktop">Apache </span>Iceberg meetup, BLR</figcaption>
+      </div>
+    </figure>
+
+    <figure class="polaroid" style="--r:-4deg;--rh:-6deg;--dur:12s;--glow:rgba(255,180,84,0.3)">
+      <div class="polaroid__inner">
+        <span class="polaroid__tape polaroid__tape--mobile" aria-hidden="true"></span>
+        <img class="polaroid__img" style="--h:150px;--pos:center 80%"
+             src="/assets/img/olake-standing-room-800.webp"
+             srcset="/assets/img/olake-standing-room-400.webp 400w, /assets/img/olake-standing-room-800.webp 800w, /assets/img/olake-standing-room-1200.webp 1200w"
+             sizes="(max-width:767px) 30vw, (max-width:1199px) 22vw, 26vw"
+             width="2048" height="1536" decoding="async"
+             alt="A meetup crowd with people standing at the back of the room">
+        <figcaption class="polaroid__caption">standing room only</figcaption>
+      </div>
+    </figure>
+
+    <figure class="polaroid" style="--r:3deg;--rh:1deg;--dur:9.5s;--glow:rgba(199,79,180,0.35)">
+      <div class="polaroid__inner">
+        <span class="polaroid__tape" style="--tr:4deg" aria-hidden="true"></span>
+        <img class="polaroid__img" style="--h:165px"
+             src="/assets/img/olake-san-francisco-800.webp"
+             srcset="/assets/img/olake-san-francisco-400.webp 400w, /assets/img/olake-san-francisco-800.webp 800w, /assets/img/olake-san-francisco-1200.webp 1200w"
+             sizes="(max-width:767px) 30vw, (max-width:1199px) 22vw, 26vw"
+             width="1536" height="1536" decoding="async"
+             alt="Audience at the San Francisco meetup">
+        <figcaption class="polaroid__caption">San Francisco meetup</figcaption>
+      </div>
+    </figure>
+  </div>
+</header>
+
+<!-- ============================== 3. Bridge ============================== -->
+<div class="bridge">
+  <span>Started in economics classrooms. Ended up making markets. Full story below.</span>
 </div>
 
-<!-- ABOUT -->
-<section class="about-section" id="about">
-  <div class="about-intro scroll-reveal">
-    <div class="s-tag">About</div>
-    <h2 class="s-hd">A bit about me.</h2>
-    <p>I studied economics, taught students, built communities, and ended up running GTM for technical products across three industries. Every role started from zero. Every market needed a different playbook. <strong>The constant: understanding people well enough to build something they actually trust.</strong></p>
+<main>
+
+<!-- ============================== 4. Proof of Work ============================== -->
+<section class="section--work shell" id="work">
+  <div class="label">
+    <h2>Proof of Work</h2>
+    <span class="label__sub">Experience</span>
   </div>
-  <div class="about-grid scroll-reveal">
-    <div class="about-item">
-      <div class="about-item-title">Education</div>
-      <div class="about-item-content"><strong>B.Sc. Economics Honors</strong>, Loreto College, University of Calcutta (2022)<br>CGPA: 8.2/10 | Stata, SQL, Python</div>
-    </div>
-    <div class="about-item">
-      <div class="about-item-title">Research</div>
-      <div class="about-item-content">Expiration-Day Effects on Index Futures: Evidence from Indian Market<br>The Cause of Unemployment in Current Market Scenario</div>
-    </div>
-    <div class="about-item">
-      <div class="about-item-title">Achievements</div>
-      <div class="about-item-content"><strong>HBS</strong> Peek Class (cohort of 90) | <strong>Stanford CME295:</strong> Transformers &amp; LLMs | <strong>Anthropic:</strong> Claude Code in Action, Introduction to MCP | <strong>Symbiosis International:</strong> Consulting, fund management improved 2.5x</div>
-    </div>
-    <div class="about-item">
-      <div class="about-item-title">Early Leadership</div>
-      <div class="about-item-content"><strong>Yuvaa</strong> East India Head (600K+ community) | <strong>AIESEC</strong> International Relations (Japan, Malaysia, Taiwan) | <strong>Teach for India</strong> Fellow | <strong>NABARD</strong> field research, West Bengal</div>
-    </div>
-    <div class="about-item">
-      <div class="about-item-title">College</div>
-      <div class="about-item-content">E-cell Initiator | Economics Fest Coordinator | Essay Winner (Cryptocurrencies) | NSS, Debate, Leadership Training Service</div>
-    </div>
-    <div class="about-item">
-      <div class="about-item-title">Speaking</div>
-      <div class="about-item-content">Guest speaker on product marketing. Hosted India's first official Apache Iceberg event with Apache Foundation.</div>
-    </div>
-  </div>
-  <div class="about-contact scroll-reveal">
-    <a href="mailto:harshakalbalia@gmail.com">harshakalbalia@gmail.com</a>
-    <a href="https://www.linkedin.com/in/harsha-kalbalia/" target="_blank">LinkedIn</a>
-    <a href="https://zcal.co/harshakalbalia/30min" target="_blank">Book a call</a>
-    <a href="/Harsha_Resume.docx%20(1).pdf" target="_blank">Download Resume</a>
+
+  <div class="work">
+    <a class="work-card work-card--olake" href="/olake">
+      <div class="work-card__media">
+        <img src="/assets/img/olake-bengaluru-full-house-800.webp"
+             srcset="/assets/img/olake-bengaluru-full-house-400.webp 400w, /assets/img/olake-bengaluru-full-house-800.webp 800w, /assets/img/olake-bengaluru-full-house-1200.webp 1200w"
+             sizes="(max-width:899px) calc(100vw - 40px), (max-width:1199px) 240px, 340px"
+             width="1536" height="1536" loading="lazy" decoding="async"
+             alt="OLake community event in Bengaluru">
+      </div>
+      <div class="work-card__body">
+        <p class="work-card__eyebrow">01 · Founding Member</p>
+        <div class="work-card__title-row">
+          <h3 class="work-card__title">Developer GTM</h3>
+          <span class="work-card__arrow work-card__arrow--inline" aria-hidden="true">→</span>
+        </div>
+        <p class="work-card__meta">OLake by Datazip · Backed by Elevation Capital</p>
+        <p class="work-card__line">Open source that grows on trust, not spend.</p>
+      </div>
+      <span class="work-card__arrow work-card__arrow--end" aria-hidden="true">→</span>
+    </a>
+
+    <a class="work-card work-card--moneyclub" href="/moneyclub">
+      <div class="work-card__media">
+        <img src="/assets/img/moneyclub-brochure-804.webp"
+             srcset="/assets/img/moneyclub-brochure-400.webp 400w, /assets/img/moneyclub-brochure-804.webp 804w"
+             sizes="(max-width:899px) calc(100vw - 40px), (max-width:1199px) 240px, 340px"
+             width="804" height="568" loading="lazy" decoding="async"
+             alt="The Money Club product brochure">
+      </div>
+      <div class="work-card__body">
+        <p class="work-card__eyebrow">02 · Founder's Office</p>
+        <div class="work-card__title-row">
+          <h3 class="work-card__title">Fintech PMM</h3>
+          <span class="work-card__arrow work-card__arrow--inline" aria-hidden="true">→</span>
+        </div>
+        <p class="work-card__meta">The Money Club · Backed by Blume Ventures</p>
+        <p class="work-card__line">Trust is the product when money is the category.</p>
+      </div>
+      <span class="work-card__arrow work-card__arrow--end" aria-hidden="true">→</span>
+    </a>
+
+    <a class="work-card work-card--mudrex" href="/mudrex">
+      <div class="work-card__media">
+        <img src="/assets/img/mudrex-team-742.webp"
+             srcset="/assets/img/mudrex-team-400.webp 400w, /assets/img/mudrex-team-742.webp 742w"
+             sizes="(max-width:899px) calc(100vw - 40px), (max-width:1199px) 240px, 340px"
+             width="742" height="344" loading="lazy" decoding="async"
+             alt="The Mudrex team">
+      </div>
+      <div class="work-card__body">
+        <p class="work-card__eyebrow">03 · Growth Manager</p>
+        <div class="work-card__title-row">
+          <h3 class="work-card__title">Crypto Growth</h3>
+          <span class="work-card__arrow work-card__arrow--inline" aria-hidden="true">→</span>
+        </div>
+        <p class="work-card__meta">Mudrex · Backed by YC'19, Nexus Ventures</p>
+        <p class="work-card__line">A community built to outgrow its builder.</p>
+      </div>
+      <span class="work-card__arrow work-card__arrow--end" aria-hidden="true">→</span>
+    </a>
   </div>
 </section>
 
-<footer>
-  <div class="footer-left">Harsha Kalbalia &copy; 2026</div>
-  <div class="footer-links">
-    <a href="https://www.linkedin.com/in/harsha-kalbalia/" target="_blank">LinkedIn</a>
-    <a href="mailto:harshakalbalia@gmail.com">Email</a>
-    <a href="/Harsha_Resume.docx%20(1).pdf" target="_blank">Resume</a>
+<!-- ============================== 5. Off the Books ============================== -->
+<section class="section--offbooks shell" id="offbooks">
+  <div class="label">
+    <h2>Off the Books</h2>
+    <span class="label__sub">Fractional &amp; Independent</span>
+  </div>
+
+  <div class="offbooks">
+    <article class="off-card off-card--pivot">
+      <img class="off-card__bg"
+           src="/assets/img/pivot-robot-art-800.webp"
+           srcset="/assets/img/pivot-robot-art-400.webp 400w, /assets/img/pivot-robot-art-800.webp 800w, /assets/img/pivot-robot-art-1032.webp 1032w"
+           sizes="(max-width:767px) calc(100vw - 40px), 600px"
+           width="1032" height="968" loading="lazy" decoding="async" alt="">
+      <div class="off-card__scrim" aria-hidden="true"></div>
+      <div class="off-card__content">
+        <h3 class="off-card__title">The <em>Pivot</em></h3>
+        <p class="off-card__body">A voice-to-text AI startup repositioned into AI governance for BFSI, Middle East. Three industry accolades followed.</p>
+        <p class="off-card__tools"><b>Tools</b> · Claude AI, for designing and brainstorming</p>
+      </div>
+    </article>
+
+    <article class="off-card off-card--agent">
+      <span class="off-card__mark" aria-hidden="true">a.</span>
+      <div class="off-card__content">
+        <h3 class="off-card__title">The <em>Agent</em></h3>
+        <p class="off-card__body">Autonomous founder-to-investor engagement agent for an early-stage VC: finds AI-native founders, drafts sponsor proposals for events, qualifies leads in conversation.</p>
+        <p class="off-card__tools"><b>Tools</b> · Claude AI for master doc, Claude Code and Cursor for agent code, Github, Vercel for deploying</p>
+      </div>
+    </article>
+
+    <article class="off-card off-card--platform">
+      <span class="off-card__mark" aria-hidden="true">p.</span>
+      <div class="off-card__content">
+        <h3 class="off-card__title">The <em>Platform</em></h3>
+        <p class="off-card__body">A founders' community platform, designed, built and deployed end to end with AI tools.</p>
+        <p class="off-card__tools"><b>Tools</b> · Claude, Vercel, Luma AI, Figma</p>
+      </div>
+    </article>
+
+    <article class="off-card off-card--app">
+      <figure class="off-card__phone" aria-hidden="true">
+        <img src="/assets/img/readaloud-mobile-600.webp"
+             srcset="/assets/img/readaloud-mobile-300.webp 300w, /assets/img/readaloud-mobile-600.webp 600w"
+             sizes="(max-width:767px) 150px, 200px"
+             width="660" height="1040" loading="lazy" decoding="async" alt="">
+      </figure>
+      <div class="off-card__content">
+        <h3 class="off-card__title">The <em>App</em></h3>
+        <p class="off-card__body">ReadAloud narrates any article, gamified into quizzes and scores you every few paragraphs. Built because I kept zoning out while reading.</p>
+        <p class="off-card__tools"><b>Tools</b> · Claude for brainstorming, Codex for Code, Firecrawl for API, ElevenLabs for Voice, Wisprflow for Vibecoding, Vercel to deploy, Gitlab for code management</p>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- ============================== 6. The Record ============================== -->
+<section class="section--record" aria-labelledby="record-label">
+  <div class="shell">
+    <div class="label"><h2 id="record-label">The Record</h2></div>
+  </div>
+
+  <div class="record__strip" data-autoscroll tabindex="0" role="region" aria-label="Photo record, horizontally scrollable">
+    <figure class="record__tile" style="--w:420px;--wm:280px">
+      <div class="record__frame">
+        <img style="--pos:center 78%"
+             src="/assets/img/olake-iceberg-blr-800.webp"
+             srcset="/assets/img/olake-iceberg-blr-400.webp 400w, /assets/img/olake-iceberg-blr-800.webp 800w, /assets/img/olake-iceberg-blr-1200.webp 1200w"
+             sizes="(max-width:767px) 280px, (max-width:1199px) 336px, 420px"
+             width="1280" height="960" loading="lazy" decoding="async"
+             alt="Apache Iceberg meetup, Bengaluru — a full house">
+      </div>
+      <figcaption>Apache Iceberg meetup, Bengaluru — full house</figcaption>
+    </figure>
+
+    <figure class="record__tile" style="--w:420px;--wm:280px">
+      <div class="record__frame">
+        <img style="--pos:center 80%"
+             src="/assets/img/olake-standing-room-800.webp"
+             srcset="/assets/img/olake-standing-room-400.webp 400w, /assets/img/olake-standing-room-800.webp 800w, /assets/img/olake-standing-room-1200.webp 1200w"
+             sizes="(max-width:767px) 280px, (max-width:1199px) 336px, 420px"
+             width="2048" height="1536" loading="lazy" decoding="async"
+             alt="Apache Iceberg meetup, Bengaluru — standing room only">
+      </div>
+      <figcaption>Apache Iceberg meetup, Bengaluru — standing room only</figcaption>
+    </figure>
+
+    <figure class="record__tile" style="--w:420px;--wm:280px">
+      <div class="record__frame">
+        <img src="/assets/img/olake-bengaluru-full-house-800.webp"
+             srcset="/assets/img/olake-bengaluru-full-house-400.webp 400w, /assets/img/olake-bengaluru-full-house-800.webp 800w, /assets/img/olake-bengaluru-full-house-1200.webp 1200w"
+             sizes="(max-width:767px) 280px, (max-width:1199px) 336px, 420px"
+             width="1536" height="1536" loading="lazy" decoding="async"
+             alt="Bengaluru — the auditorium edition">
+      </div>
+      <figcaption>Bengaluru — the auditorium edition</figcaption>
+    </figure>
+
+    <figure class="record__tile" style="--w:420px;--wm:280px">
+      <div class="record__frame">
+        <img src="/assets/img/olake-san-francisco-800.webp"
+             srcset="/assets/img/olake-san-francisco-400.webp 400w, /assets/img/olake-san-francisco-800.webp 800w, /assets/img/olake-san-francisco-1200.webp 1200w"
+             sizes="(max-width:767px) 280px, (max-width:1199px) 336px, 420px"
+             width="1536" height="1536" loading="lazy" decoding="async"
+             alt="Iceberg meetup, San Francisco">
+      </div>
+      <figcaption>Iceberg meetup, San Francisco</figcaption>
+    </figure>
+
+    <figure class="record__tile" style="--w:420px;--wm:280px">
+      <div class="record__frame">
+        <img style="--pos:center 35%"
+             src="/assets/img/olake-london-meetup-800.webp"
+             srcset="/assets/img/olake-london-meetup-400.webp 400w, /assets/img/olake-london-meetup-800.webp 800w, /assets/img/olake-london-meetup-1152.webp 1152w"
+             sizes="(max-width:767px) 280px, (max-width:1199px) 336px, 420px"
+             width="1152" height="1536" loading="lazy" decoding="async"
+             alt="Iceberg meetup, London">
+      </div>
+      <figcaption>Iceberg meetup, London</figcaption>
+    </figure>
+
+    <figure class="record__tile" style="--w:210px;--wm:140px">
+      <div class="record__frame">
+        <img src="/assets/img/olake-award-800.webp"
+             srcset="/assets/img/olake-award-400.webp 400w, /assets/img/olake-award-800.webp 800w, /assets/img/olake-award-1200.webp 1200w"
+             sizes="(max-width:767px) 140px, (max-width:1199px) 168px, 210px"
+             width="1280" height="1706" loading="lazy" decoding="async"
+             alt="Data Engineering Company of the Year, 2026 award">
+      </div>
+      <figcaption>Data Engineering Company of the Year, 2026</figcaption>
+    </figure>
+
+    <figure class="record__tile" style="--w:420px;--wm:280px">
+      <div class="record__frame record__frame--split">
+        <img src="/assets/img/award-moneyclub-800.webp"
+             srcset="/assets/img/award-moneyclub-400.webp 400w, /assets/img/award-moneyclub-800.webp 800w, /assets/img/award-moneyclub-1200.webp 1200w"
+             sizes="(max-width:767px) 140px, (max-width:1199px) 168px, 210px"
+             width="1599" height="1599" loading="lazy" decoding="async"
+             alt="The Money Club award ceremony">
+        <img src="/assets/img/award-vrddi-800.webp"
+             srcset="/assets/img/award-vrddi-400.webp 400w, /assets/img/award-vrddi-800.webp 800w, /assets/img/award-vrddi-1200.webp 1200w"
+             sizes="(max-width:767px) 140px, (max-width:1199px) 168px, 210px"
+             width="1200" height="1600" loading="lazy" decoding="async"
+             alt="Vrddi award ceremony">
+      </div>
+      <figcaption>MoneyClub &amp; Vrddi Awards</figcaption>
+    </figure>
+
+    <figure class="record__tile" style="--w:540px;--wm:360px">
+      <div class="record__frame">
+        <img src="/assets/img/harsha-speaking-markexchange-800.webp"
+             srcset="/assets/img/harsha-speaking-markexchange-400.webp 400w, /assets/img/harsha-speaking-markexchange-800.webp 800w, /assets/img/harsha-speaking-markexchange-1280.webp 1280w"
+             sizes="(max-width:767px) 360px, (max-width:1199px) 432px, 540px"
+             width="1280" height="640" loading="lazy" decoding="async"
+             alt="Harsha on a panel at MarkeXchange, Product Marketing Insights">
+      </div>
+      <figcaption>Product Marketing Insights, panelist · MarkeXchange</figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- ============================== 7. Origin Story ============================== -->
+<section class="section--origin shell" id="origin">
+  <div class="origin__text">
+    <div class="label"><h2>Origin Story</h2></div>
+    <p class="origin__body">I got into economics for maths and research and stayed for the human behaviour: why money moves, what demand actually is, where it comes from. The curiosity never stayed in the classroom. I studied markets obsessively, and college expanded the syllabus: movements around women's empowerment and literature, fieldwork and research, AIESEC, and co-founding Felicity, a creative venture we ran into profitability. I consulted pro bono for NGOs on grants, donors and SDG programs, taught in Delhi through Teach For India and in Taiwan, got selected for HBS Peek, and interned at a YC startup that converted me to a full-time offer. Then the real syllabus: crypto growth through a bull and a bear market, fintech PMM, founding GTM for a unified data stack platform that pivoted into an open source data replication tool. <span class="origin__lesson">Biggest lesson: markets run on trust, and trust begins with understanding the person on the other side of the market.</span></p>
+  </div>
+
+  <figure class="sketch">
+    <span class="sketch__tape" aria-hidden="true"></span>
+    <svg viewBox="0 0 240 260" role="img" aria-label="Line sketch of Harsha waving, with the word hello">
+      <g fill="none" stroke="#B4462E" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M78 96 C74 60 100 40 122 42 C148 44 166 64 162 94 C186 92 170 128 158 124"/>
+        <path d="M78 96 C64 118 60 150 58 186 C64 192 72 194 80 192"/>
+        <path d="M162 94 C176 116 182 148 184 184 C178 190 170 192 162 190"/>
+        <path d="M84 126 C78 148 74 168 72 188"/>
+        <path d="M158 124 C164 146 168 164 170 186"/>
+        <path d="M78 96 C56 96 66 130 84 126"/>
+        <path d="M84 126 C80 158 96 176 120 176 C144 176 158 158 158 124"/>
+        <path d="M78 96 C80 118 82 122 84 126 M162 94 C160 110 159 118 158 124"/>
+        <path d="M80 88 C86 66 104 54 122 54 C142 54 156 68 160 86"/>
+        <path d="M86 80 C96 64 112 58 126 60 M94 74 C104 62 118 58 130 62 M148 72 C142 64 134 60 126 60"/>
+        <path d="M78 96 C72 116 68 148 64 184 C58 186 54 184 52 180 M64 184 C70 190 78 192 84 190"/>
+        <path d="M162 94 C170 114 176 146 180 182 C186 184 190 182 192 178 M180 182 C174 189 166 191 160 189"/>
+        <circle cx="104" cy="104" r="13"/>
+        <circle cx="140" cy="104" r="13"/>
+        <path d="M117 104 L127 104"/>
+        <path d="M116 140 C120 146 128 146 132 140"/>
+        <path d="M96 176 C84 190 78 208 76 232 M144 176 C158 190 164 206 166 228"/>
+        <path d="M76 232 C96 240 144 240 166 228"/>
+        <path d="M166 200 C186 190 198 172 202 154 M202 154 C196 152 192 152 188 154 M202 154 C204 158 204 162 202 166"/>
+        <path d="M104 88 C110 84 134 84 140 88"/>
+      </g>
+      <text x="180" y="60" font-family="Caveat, cursive" font-size="30" fill="#B4462E" transform="rotate(8 190 52)">hello!</text>
+    </svg>
+    <figcaption>that's me — the curious one in the room</figcaption>
+  </figure>
+</section>
+
+</main>
+
+<!-- ============================== 8. Footer ============================== -->
+<footer class="site-footer" id="contact">
+  <div class="shell">
+    <a class="footer__headline" href="mailto:harshakalbalia@gmail.com">Let's <em>talk.</em></a>
+    <div class="footer__links">
+      <a href="mailto:harshakalbalia@gmail.com">harshakalbalia@gmail.com</a>
+      <a href="https://www.linkedin.com/in/harsha-kalbalia/" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://zcal.co/harshakalbalia/30min" target="_blank" rel="noopener">Book 30 minutes</a>
+      <a href="/assets/Harsha-Kalbalia-Resume.pdf" target="_blank" rel="noopener">Resume, PDF</a>
+    </div>
+    <p class="footer__note">© 2026 Harsha Kalbalia</p>
   </div>
 </footer>
 
-<!-- AGENT -->
-<button class="agent-btn" onclick="toggleAgent()" id="agentBtn">
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-</button>
-<div class="agent-panel" id="agentPanel">
-  <div class="agent-head">
-    <div class="agent-head-left">
-      <div class="agent-avatar">HK</div>
-      <div>
-        <div class="agent-name">Ask Harsha's AI</div>
-        <div class="agent-status">Online</div>
-      </div>
-    </div>
-    <button class="agent-close" onclick="toggleAgent()">&times;</button>
-  </div>
-  <div class="agent-msgs" id="agentMsgs">
-    <div class="agent-msg bot">Hey! I'm Harsha's AI assistant. I know everything about her work, approach, and experience. Ask me anything.</div>
-  </div>
-  <div class="agent-input-wrap">
-    <input class="agent-input" id="agentInput" placeholder="Ask about my work, approach, tools..." onkeydown="if(event.key==='Enter')sendAgentMessage()">
-    <button class="agent-send" onclick="sendAgentMessage()"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg></button>
-  </div>
-</div>
-
-<script>
-// Scroll reveal
-var ob = new IntersectionObserver(function(entries) {
-  entries.forEach(function(entry) {
-    if (entry.isIntersecting) entry.target.classList.add('visible');
-  });
-}, { threshold: 0.08 });
-document.querySelectorAll('.scroll-reveal').forEach(function(el) { ob.observe(el); });
-
-// Agent
-function toggleAgent() {
-  var panel = document.getElementById('agentPanel');
-  var btn = document.getElementById('agentBtn');
-  panel.classList.toggle('open');
-  btn.style.display = panel.classList.contains('open') ? 'none' : 'flex';
-}
-
-function sendAgentMessage() {
-  var input = document.getElementById('agentInput');
-  var text = input.value.trim();
-  if (!text) return;
-  var msgs = document.getElementById('agentMsgs');
-  msgs.innerHTML += '<div class="agent-msg user">' + text + '</div>';
-  input.value = '';
-  msgs.scrollTop = msgs.scrollHeight;
-  var typingId = 'typing-' + Date.now();
-  msgs.innerHTML += '<div class="agent-msg bot" id="' + typingId + '" style="opacity:0.5">Thinking...</div>';
-  msgs.scrollTop = msgs.scrollHeight;
-  fetch('/api/chat', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ message: text })
-  })
-  .then(function(response) { return response.json(); })
-  .then(function(data) {
-    var el = document.getElementById(typingId);
-    if (el) { el.textContent = data.reply || 'Something went wrong. Reach out at harshakalbalia@gmail.com'; el.style.opacity = '1'; }
-    msgs.scrollTop = msgs.scrollHeight;
-  })
-  .catch(function() {
-    var el = document.getElementById(typingId);
-    if (el) { el.textContent = 'The AI agent needs setup. Please check that the API key is configured on Vercel, or reach out directly at harshakalbalia@gmail.com'; el.style.opacity = '1'; }
-    msgs.scrollTop = msgs.scrollHeight;
-  });
-}
-
-// Keyboard
-document.addEventListener('keydown', function(e) {
-  if (e.key === 'Escape') {
-    var panel = document.getElementById('agentPanel');
-    if (panel.classList.contains('open')) toggleAgent();
-  }
-});
-
-// Smooth scr
-// Smooth scroll
-document.querySelectorAll('a[href^="#"]').forEach(function(a) {
-  a.addEventListener('click', function(e) {
-    var target = document.querySelector(a.getAttribute('href'));
-    if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth' }); }
-  });
-});
-</script>
-
+<script src="/assets/site.js" defer></script>
 </body>
 </html>
