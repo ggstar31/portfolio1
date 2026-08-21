@@ -1,22 +1,22 @@
-/* OLake Developer GTM case study, page behaviour
+/* Case study pages, shared behaviour
    1. The full story: collapsed by default, toggled by the CTA
    2. Workstreams swipe row: pager indicator follows the scroll (mobile only) */
 (function () {
   'use strict';
 
   /* ---------------------------------------------------------------- 1 */
-  /* The boxes ship with the `hidden` attribute set in the markup, so the
+  /* The article ships with the `hidden` attribute set in the markup, so the
      collapsed state is correct before any JS runs and nothing flashes. */
   var toggle = document.querySelector('[data-story-toggle]');
-  var boxes = document.querySelector('[data-story-boxes]');
+  var article = document.querySelector('[data-story-article]');
 
-  if (toggle && boxes) {
+  if (toggle && article) {
     toggle.addEventListener('click', function () {
-      var open = boxes.hasAttribute('hidden');
+      var open = article.hasAttribute('hidden');
       if (open) {
-        boxes.removeAttribute('hidden');
+        article.removeAttribute('hidden');
       } else {
-        boxes.setAttribute('hidden', '');
+        article.setAttribute('hidden', '');
       }
       toggle.textContent = open ? 'Collapse the story' : 'Read the full story';
       toggle.setAttribute('aria-expanded', String(open));
