@@ -19,15 +19,15 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Inter:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/olake.css">
+<link rel="stylesheet" href="/assets/case-study.css">
 </head>
 <body>
 
 <!-- ============================== 1. Hero ============================== -->
 <header class="hero">
   <img class="hero__photo"
-       src="/assets/img/olake/hero-olake-event-1280.webp"
-       srcset="/assets/img/olake/hero-olake-event-800.webp 800w, /assets/img/olake/hero-olake-event-1280.webp 1280w"
+       src="/assets/img/case/olake-hero-iceberg-1280.webp"
+       srcset="/assets/img/case/olake-hero-iceberg-800.webp 800w, /assets/img/case/olake-hero-iceberg-1280.webp 1280w"
        sizes="100vw" width="1280" height="960" fetchpriority="high" decoding="async" alt="">
   <div class="hero__scrim" aria-hidden="true"></div>
 
@@ -42,6 +42,7 @@
         <p class="hero__role">Founding Member, GTM · since July 2024</p>
       </div>
     </div>
+    <p class="hero__caption">India's first official Apache Iceberg event, co-hosted with the Apache Foundation. Bengaluru.</p>
   </div>
 </header>
 
@@ -220,39 +221,52 @@
     <h2 class="section-title" id="story-title">The "Why" behind the execution</h2>
     <p class="story__sub">A 2-minute read. Two products, one company, one lesson.</p>
     <button class="story__toggle" type="button"
-            data-story-toggle aria-expanded="false" aria-controls="story-boxes">Read the full story</button>
+            data-story-toggle aria-expanded="false" aria-controls="story-article">Read the full story</button>
   </div>
 
-  <div class="story__boxes" id="story-boxes" data-story-boxes hidden>
-    <article class="card story-box">
-      <p class="story-box__num">01</p>
-      <h3 class="story-box__title">Datazip, a unified data stack platform for enterprises</h3>
-      <p class="story-box__text">As the first business hire I built the commercial machinery that didn't exist: ICP and primary research, sales enablement, case studies, outreach across email and social, launches on Product Hunt, Hacker News and Reddit. Revenue moved from $100K to $500K ARR. We learnt as we moved further about the limited scalability, without keeping defending the current product, we moved faster with the honest read of the market.</p>
-    </article>
+  <div class="story__article story__article--airy" id="story-article" data-story-article hidden>
+    <p class="story__lede">Two products, one company, one lesson.</p>
 
-    <article class="card story-box">
-      <p class="story-box__num">02</p>
-      <h3 class="story-box__title">Finding the real problem</h3>
-      <p class="story-box__text">We went looking for the real problem. Events and dozens of conversations pointed at it: mid-size companies still found data replication painful, slow and overpriced. That's how OLake was born, and why we built it in the open: open source was the cheapest way to learn if developers actually wanted it before betting the company.</p>
-    </article>
+    <p class="story__kicker">Datazip</p>
+    <p>As the first business hire I built the commercial machinery that didn't exist: ICP and primary research, sales enablement, case studies, outreach across email and social, launches on Product Hunt, Hacker News and Reddit. Revenue moved from $100K to $500K ARR. We learnt as we moved further about the limited scalability, without keeping defending the current product, we moved faster with the honest read of the market.</p>
+    <p>We went looking for the real problem. Events and dozens of conversations pointed at it: mid-size companies still found data replication painful, slow and overpriced. That's how OLake was born, and why we built it in the open: open source was the cheapest way to learn if developers actually wanted it before betting the company.</p>
 
-    <article class="card story-box">
-      <p class="story-box__num">03</p>
-      <h3 class="story-box__title">OLake, an open source data replication tool</h3>
-      <p class="story-box__text">It meant a completely different buyer, and this is where first principles earned their keep. Developers resist being sold to for two rational reasons: switching costs (they run an existing stack, and migration is real work) and the builder's instinct (anything that looks simple, they'd rather write themselves). Ads don't move either. What moves developers is benchmarks, technical content, and advocates they already trust talking about a pain they already have.</p>
-    </article>
+    <p class="story__kicker">OLake</p>
+    <p>It meant a completely different buyer, and this is where first principles earned their keep. Developers resist being sold to for two rational reasons.</p>
 
-    <article class="card story-box">
-      <p class="story-box__num">04</p>
-      <h3 class="story-box__title">Education, not promotion</h3>
-      <p class="story-box__text">So the playbook was education, not promotion, a system I'd first learned running webinars at Mudrex: create evangelists before you sell. We hosted sessions once or twice a month, and I convinced industry leaders to walk audiences through the stack itself, not our pitch. Session learnings became technical documentation and blogs; blogs became social distribution; attendees became a community.</p>
-    </article>
+    <div class="story__split">
+      <div class="story__split-cell story__split-cell--a">
+        <p class="story__split-tag">A</p>
+        <p class="story__split-title">Switching costs</p>
+        <p class="story__split-body">They run an existing stack, and migration is real work.</p>
+      </div>
+      <div class="story__split-cell story__split-cell--b">
+        <p class="story__split-tag">B</p>
+        <p class="story__split-title">The builder's instinct</p>
+        <p class="story__split-body">Anything that looks simple, they'd rather write themselves.</p>
+      </div>
+    </div>
 
-    <article class="card story-box story-box--wide">
-      <p class="story-box__num">05</p>
-      <h3 class="story-box__title">The engine started feeding itself</h3>
-      <p class="story-box__text">100+ user and developer conversations turned into product requirements and contributed to closing the $1M pre-seed. I embedded with engineering on two launches, scoped requirements with the engineers directly, wired AI that cut execution time about 75% across 8+ channels, and ran the whole pre-sales cycle alone, demo to pre-deployment. Then the engine started feeding itself. More than 5% of event attendees converted to design partners. Zero to 1,500+ GitHub stars, 45 contributors, 700+ Slack members; LinkedIn from 0 to 18K. The events went from local meetups to global rooms, San Francisco included, which did something subtler than pipeline: it gave Indian developers a channel to contribute to something with global reach. In 8 months: 6K+ MQLs, 55+ POC conversions, 30+ clients in production, 4:1 LTV:CAC on enterprise.</p>
-    </article>
+    <p>Ads don't move them either. What moves developers is benchmarks, technical content, and advocates they already trust talking about a pain they already have.</p>
+
+    <blockquote class="story__quote">
+      <p>So the playbook was education, not promotion, a system I'd first learned running webinars at Mudrex: create evangelists before you sell.</p>
+    </blockquote>
+
+    <p>We hosted sessions once or twice a month, and I convinced industry leaders to walk audiences through the stack itself, not our pitch. Session learnings became technical documentation and blogs; blogs became social distribution; attendees became a community.</p>
+    <p>100+ user and developer conversations turned into product requirements and contributed to closing the $1M pre-seed. I embedded with engineering on two launches, scoped requirements with the engineers directly, wired AI that cut execution time about 75% across 8+ channels, and ran the whole pre-sales cycle alone, demo to pre-deployment.</p>
+
+    <p class="story__kicker">What compounded</p>
+    <p>Then the engine started feeding itself. More than 5% of event attendees converted to design partners. The events went from local meetups to global rooms, San Francisco included, which did something subtler than pipeline: it gave Indian developers a channel to contribute to something with global reach.</p>
+
+    <div class="story__results">
+      <div class="story__result"><p class="story__result-value">6K+</p><p class="story__result-label">MQLs in 8 months</p></div>
+      <div class="story__result"><p class="story__result-value">55+</p><p class="story__result-label">POC conversions</p></div>
+      <div class="story__result"><p class="story__result-value">30+</p><p class="story__result-label">clients in production</p></div>
+      <div class="story__result"><p class="story__result-value">4:1</p><p class="story__result-label">LTV:CAC on enterprise</p></div>
+    </div>
+
+    <p>Zero to 1,500+ GitHub stars, 45 contributors, 700+ Slack members, and LinkedIn from 0 to 18K.</p>
   </div>
 </section>
 
@@ -262,50 +276,50 @@
 
   <div class="collage">
     <figure class="tile tile--auditorium">
-      <img src="/assets/img/olake/collage-auditorium-800.webp"
-           srcset="/assets/img/olake/collage-auditorium-400.webp 400w, /assets/img/olake/collage-auditorium-800.webp 800w, /assets/img/olake/collage-auditorium-1100.webp 1100w"
+      <img src="/assets/img/case/olake-auditorium-800.webp"
+           srcset="/assets/img/case/olake-auditorium-400.webp 400w, /assets/img/case/olake-auditorium-800.webp 800w, /assets/img/case/olake-auditorium-1100.webp 1100w"
            sizes="(max-width:900px) calc(100vw - 44px), 545px"
            width="1536" height="1536" loading="lazy" decoding="async"
            alt="A packed auditorium at an OLake event in Bengaluru">
     </figure>
     <figure class="tile tile--group">
-      <img src="/assets/img/olake/collage-group-photo-800.webp"
-           srcset="/assets/img/olake/collage-group-photo-400.webp 400w, /assets/img/olake/collage-group-photo-800.webp 800w"
+      <img src="/assets/img/case/olake-group-photo-800.webp"
+           srcset="/assets/img/case/olake-group-photo-400.webp 400w, /assets/img/case/olake-group-photo-800.webp 800w"
            sizes="(max-width:900px) calc(50vw - 26px), 545px"
            width="800" height="531" loading="lazy" decoding="async"
            alt="Group photo of event attendees">
     </figure>
     <figure class="tile tile--sanfrancisco">
-      <img src="/assets/img/olake/collage-san-francisco-600.webp"
-           srcset="/assets/img/olake/collage-san-francisco-300.webp 300w, /assets/img/olake/collage-san-francisco-600.webp 600w"
+      <img src="/assets/img/case/olake-san-francisco-600.webp"
+           srcset="/assets/img/case/olake-san-francisco-300.webp 300w, /assets/img/case/olake-san-francisco-600.webp 600w"
            sizes="(max-width:900px) calc(50vw - 26px), 268px"
            width="1536" height="1536" loading="lazy" decoding="async"
            alt="Audience at the San Francisco meetup">
     </figure>
     <figure class="tile tile--webinar1">
-      <img src="/assets/img/olake/collage-webinar-1-600.webp"
-           srcset="/assets/img/olake/collage-webinar-1-300.webp 300w, /assets/img/olake/collage-webinar-1-600.webp 600w"
+      <img src="/assets/img/case/olake-webinar-1-600.webp"
+           srcset="/assets/img/case/olake-webinar-1-300.webp 300w, /assets/img/case/olake-webinar-1-600.webp 600w"
            sizes="268px"
            width="2940" height="1520" loading="lazy" decoding="async"
            alt="A webinar session in progress">
     </figure>
     <figure class="tile tile--webinargrid">
-      <img src="/assets/img/olake/collage-webinar-grid-800.webp"
-           srcset="/assets/img/olake/collage-webinar-grid-400.webp 400w, /assets/img/olake/collage-webinar-grid-800.webp 800w, /assets/img/olake/collage-webinar-grid-1100.webp 1100w"
+      <img src="/assets/img/case/olake-webinar-grid-800.webp"
+           srcset="/assets/img/case/olake-webinar-grid-400.webp 400w, /assets/img/case/olake-webinar-grid-800.webp 800w, /assets/img/case/olake-webinar-grid-1100.webp 1100w"
            sizes="(max-width:900px) calc(100vw - 44px), 545px"
            width="2940" height="1496" loading="lazy" decoding="async"
            alt="A grid of webinar speakers on a video call">
     </figure>
     <figure class="tile tile--webinar2">
-      <img src="/assets/img/olake/collage-webinar-2-600.webp"
-           srcset="/assets/img/olake/collage-webinar-2-300.webp 300w, /assets/img/olake/collage-webinar-2-600.webp 600w"
+      <img src="/assets/img/case/olake-webinar-2-600.webp"
+           srcset="/assets/img/case/olake-webinar-2-300.webp 300w, /assets/img/case/olake-webinar-2-600.webp 600w"
            sizes="(max-width:900px) calc(50vw - 26px), 268px"
            width="2940" height="1500" loading="lazy" decoding="async"
            alt="A webinar session in progress">
     </figure>
     <figure class="tile tile--webinar3">
-      <img src="/assets/img/olake/collage-webinar-3-600.webp"
-           srcset="/assets/img/olake/collage-webinar-3-300.webp 300w, /assets/img/olake/collage-webinar-3-600.webp 600w"
+      <img src="/assets/img/case/olake-webinar-3-600.webp"
+           srcset="/assets/img/case/olake-webinar-3-300.webp 300w, /assets/img/case/olake-webinar-3-600.webp 600w"
            sizes="(max-width:900px) calc(50vw - 26px), 268px"
            width="2940" height="1508" loading="lazy" decoding="async"
            alt="A webinar session in progress">
@@ -325,6 +339,6 @@
   </div>
 </section>
 
-<script src="/assets/olake.js" defer></script>
+<script src="/assets/case-study.js" defer></script>
 </body>
 </html>
