@@ -496,6 +496,9 @@ img{max-width:100%}
   transition:background-color .25s ease,border-color .25s ease;
 }
 .cta:hover{color:var(--text);background:var(--cta-bg);border-color:var(--cta-hover)}
+/* the two accent pills carry the onward journeys; home stays neutral so it
+   reads as the way back out rather than a third case study */
+.cta--home{--cta-border:rgba(255,255,255,0.22);--cta-bg:rgba(255,255,255,0.06);--cta-hover:rgba(255,255,255,0.45)}
 .cta--fintech{--cta-border:rgba(255,107,74,0.5);--cta-bg:rgba(255,107,74,0.1);--cta-hover:#FF6B4A}
 .cta--crypto {--cta-border:rgba(224,65,127,0.5);--cta-bg:rgba(224,65,127,0.1);--cta-hover:#E0417F}
 
