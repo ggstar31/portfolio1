@@ -4,6 +4,10 @@
   "trailingSlash": false,
   "rewrites": [
     {
+      "source": "/work",
+      "destination": "/index.html"
+    },
+    {
       "source": "/work/:path*",
       "destination": "/index.html"
     },
