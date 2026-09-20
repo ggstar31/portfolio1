@@ -4,19 +4,7 @@
   "trailingSlash": false,
   "rewrites": [
     {
-      "source": "/work",
-      "destination": "/index.html"
-    },
-    {
-      "source": "/work/:path*",
-      "destination": "/index.html"
-    },
-    {
-      "source": "/about",
-      "destination": "/index.html"
-    },
-    {
-      "source": "/built",
+      "source": "/(.*)",
       "destination": "/index.html"
     }
   ],
