@@ -18,7 +18,7 @@
 
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%232B3B2E'/%3E%3Ccircle cx='16' cy='16' r='6' fill='%23B0562E'/%3E%3C/svg%3E">
 
-<script src="./support.js"></script>
+<script src="/support.js"></script>
 </head>
 <body>
 <x-dc>
@@ -76,9 +76,9 @@
 <sc-if value="{{ homeVisible }}" hint-placeholder-val="{{ true }}">
 <section id="top" style="position:relative;overflow:hidden;background:oklch(0.172 0.020 150);color:oklch(0.97 0.008 84);padding:clamp(40px,6vh,76px) clamp(20px,4vw,64px) clamp(34px,5vh,60px);min-height:clamp(600px,84svh,960px);display:flex;flex-direction:column;align-items:center;justify-content:center;">
 
-  <div aria-hidden="true" style="position:absolute;inset:0;background-image:url(assets/img/olake-standing-room-800.webp);background-size:cover;background-position:50% 62%;filter:grayscale(1) sepia(0.36) contrast(0.92);mix-blend-mode:luminosity;opacity:calc(var(--photo, 0.32) * 1.12);mask-image:radial-gradient(78% 56% at 20% 62%,#000,transparent 72%);-webkit-mask-image:radial-gradient(78% 56% at 20% 62%,#000,transparent 72%);"></div>
-  <div aria-hidden="true" style="position:absolute;inset:0;background-image:url(assets/img/case/olake-auditorium-1100.webp);background-size:cover;background-position:50% 56%;filter:grayscale(1) sepia(0.32) contrast(0.94);mix-blend-mode:luminosity;opacity:calc(var(--photo, 0.32) * 1.34);mask-image:radial-gradient(70% 58% at 83% 79%,#000,transparent 70%);-webkit-mask-image:radial-gradient(70% 58% at 83% 79%,#000,transparent 70%);"></div>
-  <div aria-hidden="true" style="position:absolute;inset:0;background-image:url(assets/img/olake-community-night-800.webp);background-size:cover;background-position:50% 56%;filter:grayscale(1) sepia(0.28) contrast(0.94);mix-blend-mode:luminosity;opacity:calc(var(--photo, 0.32) * 0.5);mask-image:radial-gradient(54% 44% at 50% 106%,#000,transparent 76%);-webkit-mask-image:radial-gradient(54% 44% at 50% 106%,#000,transparent 76%);"></div>
+  <div aria-hidden="true" style="position:absolute;inset:0;background-image:url(/assets/img/olake-standing-room-800.webp);background-size:cover;background-position:50% 62%;filter:grayscale(1) sepia(0.36) contrast(0.92);mix-blend-mode:luminosity;opacity:calc(var(--photo, 0.32) * 1.12);mask-image:radial-gradient(78% 56% at 20% 62%,#000,transparent 72%);-webkit-mask-image:radial-gradient(78% 56% at 20% 62%,#000,transparent 72%);"></div>
+  <div aria-hidden="true" style="position:absolute;inset:0;background-image:url(/assets/img/case/olake-auditorium-1100.webp);background-size:cover;background-position:50% 56%;filter:grayscale(1) sepia(0.32) contrast(0.94);mix-blend-mode:luminosity;opacity:calc(var(--photo, 0.32) * 1.34);mask-image:radial-gradient(70% 58% at 83% 79%,#000,transparent 70%);-webkit-mask-image:radial-gradient(70% 58% at 83% 79%,#000,transparent 70%);"></div>
+  <div aria-hidden="true" style="position:absolute;inset:0;background-image:url(/assets/img/olake-community-night-800.webp);background-size:cover;background-position:50% 56%;filter:grayscale(1) sepia(0.28) contrast(0.94);mix-blend-mode:luminosity;opacity:calc(var(--photo, 0.32) * 0.5);mask-image:radial-gradient(54% 44% at 50% 106%,#000,transparent 76%);-webkit-mask-image:radial-gradient(54% 44% at 50% 106%,#000,transparent 76%);"></div>
   <div aria-hidden="true" style="position:absolute;inset:0;background:radial-gradient(84% 68% at 50% 46%, oklch(0.32 0.035 150 / .08), oklch(0.172 0.020 150 / .46) 78%);"></div>
   <div aria-hidden="true" style="position:absolute;inset:0;background:linear-gradient(180deg, oklch(0.140 0.018 150 / .86) 0%, oklch(0.150 0.020 150 / .54) 22%, oklch(0.172 0.020 150 / .24) 46%, oklch(0.172 0.020 150 / .40) 74%, oklch(0.172 0.020 150 / .78) 90%, oklch(0.172 0.020 150) 100%);"></div>
   <div aria-hidden="true" style="position: absolute; inset: 0; background: repeating-linear-gradient(118deg, oklch(0.98 0.02 70 / .02) 0 2px, transparent 2px 10px); left: -229px; top: -180px"></div>
@@ -100,7 +100,7 @@
     <p style="margin:0;max-width:52ch;font-size:clamp(16px,1.35vw,18.5px);line-height:1.6;color:oklch(0.88 0.012 80);">I work in the <b style="color:oklch(0.99 0.006 84);font-weight:700;">messy stage</b> between a good product and repeatable adoption, defining the ICP, sharpening positioning, and turning the right <span style="color:oklch(0.875 0.065 142);font-weight:600;">growth levers into traction</span>.</p>
 
     <div style="{{ heroCtaRow }}">
-      <a href="assets/Harsha-Kalbalia-Resume.pdf" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;justify-content:center;gap:9px;padding:14px 26px;border-radius:2px;font-size:14.5px;font-weight:700;color:oklch(0.98 0.01 88);background:oklch(0.375 0.070 148);{{ heroCtaBtn }}transition:transform .2s ease,box-shadow .2s ease;" style-hover="transform:translateY(-2px);box-shadow:0 16px 36px -16px oklch(0.44 0.075 148 / .65);color:oklch(0.99 0.008 88)">Resumé <span aria-hidden="true">→</span></a>
+      <a href="/assets/Harsha-Kalbalia-Resume.pdf" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;justify-content:center;gap:9px;padding:14px 26px;border-radius:2px;font-size:14.5px;font-weight:700;color:oklch(0.98 0.01 88);background:oklch(0.375 0.070 148);{{ heroCtaBtn }}transition:transform .2s ease,box-shadow .2s ease;" style-hover="transform:translateY(-2px);box-shadow:0 16px 36px -16px oklch(0.44 0.075 148 / .65);color:oklch(0.99 0.008 88)">Resumé <span aria-hidden="true">→</span></a>
       <a href="https://www.linkedin.com/in/harsha-kalbalia/" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;justify-content:center;gap:9px;padding:14px 26px;border-radius:2px;font-size:14.5px;font-weight:600;color:oklch(0.96 0.008 84);border:1px solid oklch(0.92 0.03 76 / .34);{{ heroCtaBtn }}transition:border-color .2s ease,transform .2s ease,background .2s ease;" style-hover="border-color:oklch(0.875 0.065 142);background:oklch(0.98 0.02 70 / .06);transform:translateY(-2px);color:oklch(0.99 0.006 84)">LinkedIn <span aria-hidden="true">→</span></a>
     </div>
 
@@ -181,11 +181,11 @@
             <div style="position:relative;width:100%;aspect-ratio:1;overflow:hidden;background:oklch(0.966 0.012 88);">
 
               <div style="position:absolute;left:0;right:0;top:0;height:70%;overflow:hidden;-webkit-mask-image:linear-gradient(to bottom, #000 0%, #000 60%, rgba(0,0,0,.92) 74.3%, rgba(0,0,0,.62) 84%, rgba(0,0,0,.28) 93%, rgba(0,0,0,0) 100%);mask-image:linear-gradient(to bottom, #000 0%, #000 60%, rgba(0,0,0,.92) 74.3%, rgba(0,0,0,.62) 84%, rgba(0,0,0,.28) 93%, rgba(0,0,0,0) 100%);">
-                <img src="assets/img/olake-bengaluru-full-house-800.webp" alt="A full auditorium of practitioners at a product launch session in Bengaluru" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;object-position:50% 92%;filter:contrast(1.04) saturate(0.78);">
+                <img src="/assets/img/olake-bengaluru-full-house-800.webp" alt="A full auditorium of practitioners at a product launch session in Bengaluru" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;object-position:50% 92%;filter:contrast(1.04) saturate(0.78);">
               </div>
 
               <div style="position:absolute;left:0;right:0;top:52%;bottom:0;overflow:hidden;-webkit-mask-image:linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,.30) 10%, rgba(0,0,0,.66) 22%, rgba(0,0,0,.94) 33%, #000 40%, #000 100%);mask-image:linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,.30) 10%, rgba(0,0,0,.66) 22%, rgba(0,0,0,.94) 33%, #000 40%, #000 100%);">
-                <img src="assets/img/olake-san-francisco-800.webp" alt="A product launch session in San Francisco" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;object-position:50% 55%;filter:contrast(1.03) saturate(0.76);">
+                <img src="/assets/img/olake-san-francisco-800.webp" alt="A product launch session in San Francisco" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;object-position:50% 55%;filter:contrast(1.03) saturate(0.76);">
               </div>
 
               <span aria-hidden="true" style="position:absolute;left:0;right:0;top:0;bottom:0;pointer-events:none;background:linear-gradient(to bottom, rgba(0,0,0,0) 50%, oklch(0.955 0.020 86 / .10) 55%, oklch(0.955 0.020 86 / .22) 61%, oklch(0.955 0.020 86 / .10) 67%, rgba(0,0,0,0) 72%);"></span>
@@ -722,7 +722,7 @@
         </div>
 
         <figure style="margin:0 0 clamp(34px,4vw,56px);">
-          <img src="assets/img/case/olake-group-photo-800.webp" alt="Practitioners and the OLake team after a community session" width="800" height="533" loading="lazy" decoding="async" style="width:100%;aspect-ratio:2.1/1;object-fit:cover;object-position:50% 68%;filter:contrast(1.04) saturate(0.94);">
+          <img src="/assets/img/case/olake-group-photo-800.webp" alt="Practitioners and the OLake team after a community session" width="800" height="533" loading="lazy" decoding="async" style="width:100%;aspect-ratio:2.1/1;object-fit:cover;object-position:50% 68%;filter:contrast(1.04) saturate(0.94);">
           <figcaption style="margin-top:10px;font-family:'Azeret Mono',monospace;font-size:10.5px;letter-spacing:0.06em;color:oklch(0.50 0.012 62);">The room the programming was built for: practitioners who kept coming back.</figcaption>
         </figure>
 
@@ -753,7 +753,7 @@
           </div>
 
           <figure style="margin:0;">
-            <img src="assets/img/olake-iceberg-blr-1200.webp" alt="Practitioners at an OLake session in Bengaluru" width="1200" height="800" loading="lazy" decoding="async" style="width:100%;aspect-ratio:2.4/1;object-fit:cover;object-position:50% 56%;filter:contrast(1.04) saturate(0.94);">
+            <img src="/assets/img/olake-iceberg-blr-1200.webp" alt="Practitioners at an OLake session in Bengaluru" width="1200" height="800" loading="lazy" decoding="async" style="width:100%;aspect-ratio:2.4/1;object-fit:cover;object-position:50% 56%;filter:contrast(1.04) saturate(0.94);">
             <figcaption style="margin-top:10px;font-family:'Azeret Mono',monospace;font-size:10.5px;letter-spacing:0.06em;color:oklch(0.50 0.012 62);">Speakers came from POCs and customers, not from a vendor deck.</figcaption>
           </figure>
 
@@ -848,7 +848,7 @@
           </div>
 
           <figure style="margin:0;">
-            <img src="assets/img/case/olake-architecture.png" alt="OLake architecture: source databases ingested by OLake Go, written to object storage or directly to Apache Iceberg, then read by query engines" width="1539" height="1059" loading="lazy" decoding="async" style="width:100%;height:auto;display:block;background:oklch(0.966 0.012 88);border:1px solid var(--rule);">
+            <img src="/assets/img/case/olake-architecture.png" alt="OLake architecture: source databases ingested by OLake Go, written to object storage or directly to Apache Iceberg, then read by query engines" width="1539" height="1059" loading="lazy" decoding="async" style="width:100%;height:auto;display:block;background:oklch(0.966 0.012 88);border:1px solid var(--rule);">
             <figcaption style="margin-top:10px;font-family:'Azeret Mono',monospace;font-size:10.5px;letter-spacing:0.06em;color:oklch(0.50 0.012 62);">The narrowed product: one replication path from source databases into open table formats.</figcaption>
           </figure>
 
@@ -915,7 +915,7 @@
 
         <div style="display:flex;flex-direction:column;gap:clamp(34px,4vw,56px);">
           <figure style="margin:0;">
-            <img src="assets/img/olake-london-meetup-1152.webp" alt="Data practitioners at an OLake meetup in London" width="1152" height="768" loading="lazy" decoding="async" style="width:100%;aspect-ratio:2.2/1;object-fit:cover;object-position:50% 56%;filter:contrast(1.05) saturate(0.92);">
+            <img src="/assets/img/olake-london-meetup-1152.webp" alt="Data practitioners at an OLake meetup in London" width="1152" height="768" loading="lazy" decoding="async" style="width:100%;aspect-ratio:2.2/1;object-fit:cover;object-position:50% 56%;filter:contrast(1.05) saturate(0.92);">
             <figcaption style="margin-top:10px;font-family:'Azeret Mono',monospace;font-size:10.5px;letter-spacing:0.06em;color:oklch(0.50 0.012 62);"><div>Practitioner-led sessions across London, Bengaluru, San Francisco and Singapore.</div></figcaption>
           </figure>
 
@@ -1006,11 +1006,11 @@
               <figure style="margin:0;min-width:0;max-width:330px;justify-self:end;display:flex;flex-direction:column;gap:12px;">
                 <div>
                   <p style="margin:0 0 7px;font-family:'Azeret Mono',monospace;font-size:9.5px;letter-spacing:0.14em;text-transform:uppercase;color:oklch(0.52 0.014 130);">Before</p>
-                  <img src="assets/img/case/fintech-ui-before-1576.webp" alt="Money Club app screens before the redesign" width="1576" height="524" loading="lazy" decoding="async" style="width:100%;object-fit:contain;background:var(--sand);padding:10px;">
+                  <img src="/assets/img/case/fintech-ui-before-1576.webp" alt="Money Club app screens before the redesign" width="1576" height="524" loading="lazy" decoding="async" style="width:100%;object-fit:contain;background:var(--sand);padding:10px;">
                 </div>
                 <div>
                   <p style="margin:0 0 7px;font-family:'Azeret Mono',monospace;font-size:9.5px;letter-spacing:0.14em;text-transform:uppercase;color:var(--rust-ink);">After</p>
-                  <img src="assets/img/case/fintech-ui-after-1740.webp" alt="Money Club app screens after the redesign" width="1740" height="1430" loading="lazy" decoding="async" style="width:100%;object-fit:contain;background:var(--sand);padding:10px;">
+                  <img src="/assets/img/case/fintech-ui-after-1740.webp" alt="Money Club app screens after the redesign" width="1740" height="1430" loading="lazy" decoding="async" style="width:100%;object-fit:contain;background:var(--sand);padding:10px;">
                 </div>
                 <figcaption style="font-family:'Azeret Mono',monospace;font-size:10px;line-height:1.6;letter-spacing:0.06em;color:oklch(0.44 0.014 130);">One product, rebuilt around recognition and proximity.</figcaption>
               </figure>
@@ -1037,11 +1037,11 @@
             </div>
             <div style="display:flex;flex-direction:column;gap:clamp(18px,2.2vw,26px);">
               <figure style="margin:0;">
-                <img src="assets/img/case/fintech-brochure-stack-510.webp" alt="Printed Money Club customer-facing collateral" width="510" height="382" loading="lazy" decoding="async" style="width:100%;aspect-ratio:4/3;object-fit:cover;">
+                <img src="/assets/img/case/fintech-brochure-stack-510.webp" alt="Printed Money Club customer-facing collateral" width="510" height="382" loading="lazy" decoding="async" style="width:100%;aspect-ratio:4/3;object-fit:cover;">
                 <figcaption style="margin-top:10px;font-family:'Azeret Mono',monospace;font-size:10.5px;letter-spacing:0.06em;color:oklch(0.50 0.012 62);">Customer-facing collateral for group leaders and local participation.</figcaption>
               </figure>
               <figure style="margin:0;">
-                <img src="assets/img/moneyclub-brochure-804.webp" alt="Money Club brand and campaign collateral" width="804" height="536" loading="lazy" decoding="async" style="width:100%;aspect-ratio:3/2;object-fit:cover;">
+                <img src="/assets/img/moneyclub-brochure-804.webp" alt="Money Club brand and campaign collateral" width="804" height="536" loading="lazy" decoding="async" style="width:100%;aspect-ratio:3/2;object-fit:cover;">
                 <figcaption style="margin-top:10px;font-family:'Azeret Mono',monospace;font-size:10.5px;letter-spacing:0.06em;color:oklch(0.50 0.012 62);">Rebrand carried through campaigns, social and print.</figcaption>
               </figure>
             </div>
@@ -1153,8 +1153,8 @@
             </div>
             <figure style="margin:0;max-width:460px;">
               <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;">
-                <img src="assets/img/case/fintech-award-hca-1100.webp" alt="The Economic Times Human Capital Awards 2023 trophy awarded to Vrddi" width="1100" height="1375" loading="lazy" decoding="async" style="width:100%;aspect-ratio:1/1;object-fit:cover;background:var(--sand);">
-                <img src="assets/img/case/fintech-award-sme-1100.webp" alt="Industry recognition received during this period" width="1100" height="1100" loading="lazy" decoding="async" style="width:100%;aspect-ratio:1/1;object-fit:cover;background:var(--sand);">
+                <img src="/assets/img/case/fintech-award-hca-1100.webp" alt="The Economic Times Human Capital Awards 2023 trophy awarded to Vrddi" width="1100" height="1375" loading="lazy" decoding="async" style="width:100%;aspect-ratio:1/1;object-fit:cover;background:var(--sand);">
+                <img src="/assets/img/case/fintech-award-sme-1100.webp" alt="Industry recognition received during this period" width="1100" height="1100" loading="lazy" decoding="async" style="width:100%;aspect-ratio:1/1;object-fit:cover;background:var(--sand);">
               </div>
               <figcaption style="margin-top:10px;font-family:'Azeret Mono',monospace;font-size:10.5px;letter-spacing:0.06em;color:oklch(0.50 0.012 62);">Bronze, "Technology Solution Provider of the Year," The Economic Times Human Capital Awards 2023.</figcaption>
             </figure>
@@ -1185,7 +1185,7 @@
         <div style="display:flex;flex-direction:column;gap:clamp(34px,4vw,56px);">
           <figure style="margin:0;">
             <div style="position:relative;width:100%;background:oklch(0.172 0.020 150);">
-              <video ref="{{ filmRef }}" src="assets/video/wagmi-film.mp4" poster="assets/img/case/crypto-wagmi-poster-848.webp" controls="{{ true }}" playsInline="{{ true }}" preload="auto" onClick="{{ filmPlay }}" onPlay="{{ filmPlaying }}" onPause="{{ filmPaused }}" onEnded="{{ filmPaused }}" style="width:100%;max-height:70vh;object-fit:contain;display:block;background:oklch(0.172 0.020 150);cursor:pointer;"></video>
+              <video ref="{{ filmRef }}" src="/assets/video/wagmi-film.mp4" poster="/assets/img/case/crypto-wagmi-poster-848.webp" controls="{{ true }}" playsInline="{{ true }}" preload="auto" onClick="{{ filmPlay }}" onPlay="{{ filmPlaying }}" onPause="{{ filmPaused }}" onEnded="{{ filmPaused }}" style="width:100%;max-height:70vh;object-fit:contain;display:block;background:oklch(0.172 0.020 150);cursor:pointer;"></video>
               <button type="button" onClick="{{ filmPlay }}" aria-label="Play the WAGMI community film" style="{{ filmOverlay }}">
                 <span aria-hidden="true" style="display:flex;align-items:center;justify-content:center;width:clamp(52px,5vw,68px);height:clamp(52px,5vw,68px);border-radius:50%;background:oklch(0.455 0.085 292 / .92);box-shadow:0 12px 30px -12px oklch(0.15 0.02 292 / .8);"><svg viewBox="0 0 24 24" width="22" height="22" fill="oklch(0.98 0.012 292)"><path d="M8 5.5v13l11-6.5z"></path></svg></span>
                 
@@ -1219,7 +1219,7 @@
             </div>
             <p style="margin:0 0 clamp(24px,3vw,34px);padding:16px 18px;background:var(--sand);border-left:2px solid var(--rust-ink);font-family:'Azeret Mono',monospace;font-size:clamp(10.5px,1vw,12px);line-height:1.8;letter-spacing:0.06em;color:oklch(0.28 0.014 62);">Mudrex → student ambassadors → campus chapters → talks, workshops and live projects → future-user network</p>
             <figure style="margin:0;">
-              <img src="assets/img/case/crypto-campus-session-1100.webp" alt="Students at a WAGMI campus chapter session" width="1100" height="822" loading="lazy" decoding="async" style="width:100%;aspect-ratio:2.3/1;object-fit:cover;object-position:50% 46%;">
+              <img src="/assets/img/case/crypto-campus-session-1100.webp" alt="Students at a WAGMI campus chapter session" width="1100" height="822" loading="lazy" decoding="async" style="width:100%;aspect-ratio:2.3/1;object-fit:cover;object-position:50% 46%;">
               <figcaption style="margin-top:10px;font-family:'Azeret Mono',monospace;font-size:10.5px;letter-spacing:0.06em;color:oklch(0.50 0.012 62);">Starting at ISB, then expanding across IITs, NITs, IIMs, BITS and MDI.</figcaption>
             </figure>
           </div>
@@ -1513,7 +1513,7 @@
 </section>
 
 <section id="about" style="position:relative;overflow:hidden;padding:clamp(70px,9vw,130px) clamp(20px,4vw,64px) clamp(60px,8vw,110px);background:oklch(0.172 0.020 150);color:oklch(0.96 0.01 82);">
-  <div aria-hidden="true" style="position:absolute;inset:0;background-image:url(assets/img/olake-community-night-800.webp);background-size:cover;background-position:50% 44%;filter:grayscale(1) sepia(0.4);mix-blend-mode:luminosity;opacity:0.14;mask-image:radial-gradient(66% 58% at 86% 12%,#000,transparent 72%);-webkit-mask-image:radial-gradient(66% 58% at 86% 12%,#000,transparent 72%);"></div>
+  <div aria-hidden="true" style="position:absolute;inset:0;background-image:url(/assets/img/olake-community-night-800.webp);background-size:cover;background-position:50% 44%;filter:grayscale(1) sepia(0.4);mix-blend-mode:luminosity;opacity:0.14;mask-image:radial-gradient(66% 58% at 86% 12%,#000,transparent 72%);-webkit-mask-image:radial-gradient(66% 58% at 86% 12%,#000,transparent 72%);"></div>
   <div aria-hidden="true" style="position:absolute;inset:0;background:radial-gradient(70% 60% at 12% 92%, oklch(0.46 0.12 330 / .26), transparent 70%);"></div>
   <div style="position:relative;max-width:1240px;margin:0 auto;">
     <p style="margin:0 0 clamp(24px,3vw,38px);display:inline-flex;align-items:center;gap:10px;font-family:'Azeret Mono',monospace;font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:var(--a1, oklch(0.845 0.070 145));"><span aria-hidden="true" style="width: 22px; height: 1px; background: oklch(0.845 0.07 145);"></span><span style="background-color: oklch(0.845 0.07 145);"></span>A little more about me</p>
@@ -1553,7 +1553,7 @@
         <a href="https://www.youtube.com/@harshakalbalia" target="_blank" rel="noopener" aria-label="YouTube" style="display:inline-flex;align-items:center;gap:9px;padding:11px 15px;border:1px solid oklch(0.98 0.02 80 / .18);color:oklch(0.88 0.014 80);font-family:'Azeret Mono',monospace;font-size:10.5px;letter-spacing:0.14em;text-transform:uppercase;transition:border-color .2s ease,color .2s ease;" style-hover="border-color:oklch(0.845 0.07 145 / .7);color:oklch(0.99 0.008 84)">
           <span aria-hidden="true" style="display:block;width:17px;height:17px;"><svg viewBox="0 0 24 24" fill="currentColor" style="width:100%;height:100%;display:block;"><path d="M21.6 7.3c-.2-.9-.9-1.6-1.8-1.9C18 5 12 5 12 5s-6 0-7.8.4c-.9.3-1.6 1-1.8 1.9C2 9.1 2 12 2 12s0 2.9.4 4.7c.2.9.9 1.6 1.8 1.9C6 19 12 19 12 19s6 0 7.8-.4c.9-.3 1.6-1 1.8-1.9.4-1.8.4-4.7.4-4.7s0-2.9-.4-4.7zM10.2 15.3V8.7l5.7 3.3-5.7 3.3z"></path></svg></span>YouTube
         </a>
-        <a href="assets/Harsha-Kalbalia-Resume.pdf" target="_blank" rel="noopener" aria-label="Résumé, PDF" style="display:inline-flex;align-items:center;gap:9px;padding:11px 15px;border:1px solid oklch(0.42 0.018 150);background:transparent;color:oklch(0.86 0.012 90);font-family:'Azeret Mono',monospace;font-size:10.5px;letter-spacing:0.14em;text-transform:uppercase;transition:border-color .2s ease,color .2s ease;" style-hover="border-color:oklch(0.70 0.03 140);color:oklch(0.99 0.008 84)">
+        <a href="/assets/Harsha-Kalbalia-Resume.pdf" target="_blank" rel="noopener" aria-label="Résumé, PDF" style="display:inline-flex;align-items:center;gap:9px;padding:11px 15px;border:1px solid oklch(0.42 0.018 150);background:transparent;color:oklch(0.86 0.012 90);font-family:'Azeret Mono',monospace;font-size:10.5px;letter-spacing:0.14em;text-transform:uppercase;transition:border-color .2s ease,color .2s ease;" style-hover="border-color:oklch(0.70 0.03 140);color:oklch(0.99 0.008 84)">
           <span aria-hidden="true" style="display:block;width:17px;height:17px;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" style="width:100%;height:100%;display:block;"><path d="M6 2.8h8L18.5 7.3V21.2H6z"></path><path d="M13.8 2.8v4.8h4.7"></path><path d="M9 12.6h6.2M9 16.2h4.4"></path></svg></span>Résumé
         </a>
       </div>
@@ -1606,10 +1606,101 @@ const TITLES = {
   ge: "Learning how acquisition works beyond paid channels"
 };
 
+const COMPANY_SLUGS = { olake: "datazip-olake", moneyclub: "money-club-vrddi", mudrex: "mudrex-wagmi" };
+const SLUG_TO_COMPANY = Object.fromEntries(Object.entries(COMPANY_SLUGS).map(([id, slug]) => [slug, id]));
+
+const CASE_SLUGS = {
+  ol1: "developer-audience-from-zero",
+  ol2: "datazip-to-olake-pivot",
+  ol3: "community-led-gtm",
+  mc: "trust-gap-product-brand-gtm",
+  vr: "financial-product-buyer-story",
+  wg: "crypto-credibility-students",
+  ge: "acquisition-beyond-paid"
+};
+const SLUG_TO_CASE = Object.fromEntries(Object.entries(CASE_SLUGS).map(([id, slug]) => [slug, id]));
+
+const FILTER_SLUGS = ["0-to-1", "market-entry", "positioning", "adoption", "distribution", "launches-community"];
+
+const DEFAULT_TITLE = "Harsha Kalbalia · Product marketing + GTM";
+
 class Component extends DCLogic {
   state = { view: "home", company: null, caseId: null, filter: null, narrow: false, phone: false, menuOpen: false };
 
+  parseLocation() {
+    const raw = window.location.pathname || "/";
+    const path = raw.length > 1 ? raw.replace(/\/+$/, "") : raw;
+    const params = new URLSearchParams(window.location.search);
+    const lensSlug = params.get("lens");
+    const home = { view: "home", company: null, caseId: null, filter: null };
+
+    if (path === "/work") {
+      const fi = lensSlug ? FILTER_SLUGS.indexOf(lensSlug) : -1;
+      return fi > -1 ? { view: "filter", company: null, caseId: null, filter: fi } : home;
+    }
+
+    const caseMatch = path.match(/^\/work\/([^/]+)\/([^/]+)$/);
+    if (caseMatch) {
+      const companyId = SLUG_TO_COMPANY[caseMatch[1]];
+      const caseId = SLUG_TO_CASE[caseMatch[2]];
+      const c = caseId ? CASES.filter((x) => x.id === caseId)[0] : null;
+      if (companyId && c && c.company === companyId) return { view: "case", company: companyId, caseId, filter: null };
+      return home;
+    }
+
+    const companyMatch = path.match(/^\/work\/([^/]+)$/);
+    if (companyMatch) {
+      const companyId = SLUG_TO_COMPANY[companyMatch[1]];
+      return companyId ? { view: "company", company: companyId, caseId: null, filter: null } : home;
+    }
+
+    return home;
+  }
+
+  urlForState(s) {
+    if (s.view === "case" && s.caseId) {
+      const c = CASES.filter((x) => x.id === s.caseId)[0];
+      const companySlug = c ? COMPANY_SLUGS[c.company] : null;
+      const caseSlug = CASE_SLUGS[s.caseId];
+      if (companySlug && caseSlug) return "/work/" + companySlug + "/" + caseSlug;
+    }
+    if (s.view === "company" && s.company && COMPANY_SLUGS[s.company]) return "/work/" + COMPANY_SLUGS[s.company];
+    if (s.view === "filter" && s.filter !== null && FILTER_SLUGS[s.filter]) return "/work?lens=" + FILTER_SLUGS[s.filter];
+    return "/";
+  }
+
+  titleForState(s) {
+    if (s.view === "case" && s.caseId && TITLES[s.caseId]) return TITLES[s.caseId] + " · Harsha Kalbalia";
+    if (s.view === "company" && s.company) {
+      const c = COMPANIES.filter((x) => x.id === s.company)[0];
+      if (c) return c.label + " · Harsha Kalbalia";
+    }
+    return DEFAULT_TITLE;
+  }
+
+  syncUrl(push) {
+    const url = this.urlForState(this.state);
+    const title = this.titleForState(this.state);
+    if (document.title !== title) document.title = title;
+    const current = window.location.pathname + window.location.search;
+    if (current === url) return;
+    const historyState = { view: this.state.view, company: this.state.company, caseId: this.state.caseId, filter: this.state.filter };
+    if (push) history.pushState(historyState, "", url);
+    else history.replaceState(historyState, "", url);
+  }
+
+  navigate(patch) {
+    this.setState(patch, () => this.syncUrl(true));
+  }
+
   componentDidMount() {
+    this._onPopState = () => {
+      const parsed = this.parseLocation();
+      this.setState(parsed, () => this.syncUrl(false));
+    };
+    window.addEventListener("popstate", this._onPopState);
+    this.setState(this.parseLocation(), () => this.syncUrl(false));
+
     this._reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     this._mq = window.matchMedia("(max-width: 820px)");
     this._onMq = () => this.setState({ narrow: this._mq.matches });
@@ -1629,6 +1720,7 @@ class Component extends DCLogic {
 
   componentWillUnmount() {
     this.unbind();
+    window.removeEventListener("popstate", this._onPopState);
     if (this._mq && this._mq.removeEventListener) this._mq.removeEventListener("change", this._onMq);
     if (this._mqp && this._mqp.removeEventListener) this._mqp.removeEventListener("change", this._onMqp);
     if (this._raf) cancelAnimationFrame(this._raf);
@@ -1738,17 +1830,17 @@ class Component extends DCLogic {
       filterSummary: "",
       chip: {},
       pressed: {},
-      clearFilters: () => { this.setState({ filter: null, view: "home", company: null, caseId: null }); this.workTop(); },
-      backToWork: () => { this.setState({ view: "home", company: null, caseId: null }); this.workTop(); },
-      goHome: () => { this.setState({ view: "home", company: null, caseId: null, filter: null }); this.workTop(); },
+      clearFilters: () => { this.navigate({ filter: null, view: "home", company: null, caseId: null }); this.workTop(); },
+      backToWork: () => { this.navigate({ view: "home", company: null, caseId: null }); this.workTop(); },
+      goHome: () => { this.navigate({ view: "home", company: null, caseId: null, filter: null }); this.workTop(); },
       backFromCase: () => {
         const c = CASES.filter((x) => x.id === s.caseId)[0];
-        if (filtering) this.setState({ view: "filter", caseId: null });
-        else this.setState({ view: "company", company: c ? c.company : null, caseId: null });
+        if (filtering) this.navigate({ view: "filter", caseId: null });
+        else this.navigate({ view: "company", company: c ? c.company : null, caseId: null });
         this.workTop();
       },
-      allStories: () => { this.setState({ view: "home", company: null, caseId: null, filter: null }); this.workTop(); },
-      navWork: () => { this.setState({ view: "home", company: null, caseId: null, filter: null, menuOpen: false }); this.workTop(); },
+      allStories: () => { this.navigate({ view: "home", company: null, caseId: null, filter: null }); this.workTop(); },
+      navWork: () => { this.navigate({ view: "home", company: null, caseId: null, filter: null, menuOpen: false }); this.workTop(); },
       filmRef: (el) => { this._film = el; },
       filmPlaying: () => { if (!this.state.filmOn) this.setState({ filmOn: true }); },
       filmPaused: () => { if (this.state.filmOn) this.setState({ filmOn: false }); },
@@ -1760,9 +1852,9 @@ class Component extends DCLogic {
       },
       filmOverlay: "position:absolute;left:0;right:0;top:0;bottom:56px;display:" + (this.state.filmOn ? "none" : "flex") +
         ";flex-direction:column;align-items:center;justify-content:center;gap:14px;padding:0;border:none;background:oklch(0.172 0.020 150 / .28);cursor:pointer;",
-      openOlake: () => { this.setState({ view: "company", company: "olake", filter: null }); this.workTop(); },
-      openMoney: () => { this.setState({ view: "company", company: "moneyclub", filter: null }); this.workTop(); },
-      openMudrex: () => { this.setState({ view: "company", company: "mudrex", filter: null }); this.workTop(); }
+      openOlake: () => { this.navigate({ view: "company", company: "olake", filter: null }); this.workTop(); },
+      openMoney: () => { this.navigate({ view: "company", company: "moneyclub", filter: null }); this.workTop(); },
+      openMudrex: () => { this.navigate({ view: "company", company: "mudrex", filter: null }); this.workTop(); }
     };
 
     const hits = filtering ? FILTERS[s.filter].cases : [];
@@ -1777,13 +1869,13 @@ class Component extends DCLogic {
         : "border:1px solid oklch(0.860 0.014 88);background-color:transparent;color:oklch(0.355 0.014 130);");
       if (s.phone) vals.chip["f" + i] += "min-height:44px;";
       vals.pressed["f" + i] = on ? "true" : "false";
-      vals["setFilter" + i] = () => { this.setState({ filter: on ? null : i, view: on ? "home" : "filter", company: null, caseId: null }); this.workTop(); };
+      vals["setFilter" + i] = () => { this.navigate({ filter: on ? null : i, view: on ? "home" : "filter", company: null, caseId: null }); this.workTop(); };
     });
 
     CASES.forEach((c) => {
       vals["show_" + c.id] = (inCompany && c.company === s.company) || (!inCase && filtering && hits.indexOf(c.id) > -1);
       vals["case_" + c.id] = inCase && s.caseId === c.id;
-      vals["open" + c.id.charAt(0).toUpperCase() + c.id.slice(1)] = () => { this.setState({ view: "case", caseId: c.id }); this.top(); };
+      vals["open" + c.id.charAt(0).toUpperCase() + c.id.slice(1)] = () => { this.navigate({ view: "case", caseId: c.id }); this.top(); };
     });
 
     const ci = COMPANIES.map((c) => c.id).indexOf(s.company);
@@ -1791,7 +1883,7 @@ class Component extends DCLogic {
     vals.companyNavVisible = inCompany;
     vals.nextCompanyVisible = inCompany && !!nextCo;
     vals.nextCompanyLabel = nextCo ? nextCo.label : "";
-    vals.goNextCompany = () => { if (nextCo) { this.setState({ view: "company", company: nextCo.id, caseId: null, filter: null }); this.workTop(); } };
+    vals.goNextCompany = () => { if (nextCo) { this.navigate({ view: "company", company: nextCo.id, caseId: null, filter: null }); this.workTop(); } };
 
     vals.head_olake = inCompany && s.company === "olake";
     vals.head_moneyclub = inCompany && s.company === "moneyclub";
@@ -1802,7 +1894,7 @@ class Component extends DCLogic {
     const next = idx > -1 && idx < ids.length - 1 ? ids[idx + 1] : null;
     vals.nextVisible = inCase && !!next;
     vals.nextLabel = next ? TITLES[next] : "";
-    vals.goNext = () => { if (next) { this.setState({ view: "case", caseId: next }); this.top(); } };
+    vals.goNext = () => { if (next) { this.navigate({ view: "case", caseId: next }); this.top(); } };
     return vals;
   }
 }
