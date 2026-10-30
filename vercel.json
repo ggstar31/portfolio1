@@ -1,13 +1,10 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
-  "redirects": [
+  "rewrites": [
     {
       "source": "/mongodb",
-      "destination": "https://claude.ai/artifact/WKj1Lj6SyUHm8tNZqFyvQ9",
-      "permanent": false
-    }
-  ],
-  "rewrites": [
+      "destination": "/plans/mongodb.html"
+    },
     {
       "source": "/(.*)",
       "destination": "/index.html"
