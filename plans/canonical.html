@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>Work Samples · Harsha Kalbalia</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%232B3B2E'/%3E%3Ccircle cx='16' cy='16' r='6' fill='%23B0562E'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=Azeret+Mono:wght@400;500&family=Newsreader:ital,opsz,wght@0,6..72,400..600;1,6..72,400..500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: oklch(0.966 0.012 88);
+    --bg-soft: oklch(0.938 0.018 88);
+    --card: oklch(0.985 0.008 88);
+    --ink: oklch(0.235 0.014 135);
+    --ink-2: oklch(0.355 0.012 130);
+    --muted: oklch(0.50 0.012 130);
+    --line: oklch(0.874 0.014 88);
+    --accent: oklch(0.435 0.075 148);
+    --accent-ink: oklch(0.375 0.070 148);
+    --chip: oklch(0.906 0.030 142);
+    --todo-bg: oklch(0.944 0.035 70);
+    --todo-ink: oklch(0.45 0.10 55);
+    --sans: "Archivo", Helvetica, Arial, sans-serif;
+    --serif: "Newsreader", Georgia, serif;
+    --mono: "Azeret Mono", ui-monospace, Menlo, monospace;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: oklch(0.19 0.014 145);
+      --bg-soft: oklch(0.22 0.016 145);
+      --card: oklch(0.235 0.016 145);
+      --ink: oklch(0.94 0.012 88);
+      --ink-2: oklch(0.84 0.012 88);
+      --muted: oklch(0.70 0.012 120);
+      --line: oklch(0.33 0.016 145);
+      --accent: oklch(0.80 0.08 145);
+      --accent-ink: oklch(0.84 0.08 145);
+      --chip: oklch(0.30 0.035 145);
+      --todo-bg: oklch(0.30 0.05 60);
+      --todo-ink: oklch(0.88 0.08 70);
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: oklch(0.19 0.014 145);
+    --bg-soft: oklch(0.22 0.016 145);
+    --card: oklch(0.235 0.016 145);
+    --ink: oklch(0.94 0.012 88);
+    --ink-2: oklch(0.84 0.012 88);
+    --muted: oklch(0.70 0.012 120);
+    --line: oklch(0.33 0.016 145);
+    --accent: oklch(0.80 0.08 145);
+    --accent-ink: oklch(0.84 0.08 145);
+    --chip: oklch(0.30 0.035 145);
+    --todo-bg: oklch(0.30 0.05 60);
+    --todo-ink: oklch(0.88 0.08 70);
+  }
+
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body { margin: 0; background: var(--bg); color: var(--ink); font-family: var(--sans); font-size: 17px; line-height: 1.55; -webkit-font-smoothing: antialiased; text-wrap: pretty; }
+  a { color: var(--accent-ink); text-underline-offset: 3px; }
+  .wrap { max-width: 980px; margin: 0 auto; padding: 0 max(16px, env(safe-area-inset-left)); }
+  @media (min-width: 700px) { .wrap { padding: 0 32px; } }
+
+  /* top */
+  .topbar { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 24px 0; border-bottom: 1px solid var(--line); }
+  .brand { display: flex; align-items: center; gap: 12px; font-weight: 600; font-size: 15px; color: inherit; text-decoration: none; }
+  .brand:hover, .brand:focus-visible { color: var(--accent-ink); }
+  .badge { width: 34px; height: 34px; border-radius: 50%; display: grid; place-items: center; background: var(--ink); color: var(--bg); font-family: var(--mono); font-size: 12px; }
+  .for { font-family: var(--mono); font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); text-align: right; }
+
+  .intro { padding: 56px 0 24px; }
+  .eyebrow { font-family: var(--mono); font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin: 0 0 14px; }
+  h1 { font-family: var(--serif); font-weight: 500; font-size: clamp(34px, 5.4vw, 52px); line-height: 1.08; letter-spacing: -0.01em; margin: 0 0 20px; }
+  .intro p.lede { font-size: 19px; color: var(--ink-2); max-width: 60ch; margin: 0; }
+  .jump { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 28px; padding: 0; list-style: none; }
+  .jump a { display: inline-block; font-family: var(--mono); font-size: 12px; text-decoration: none; color: var(--ink); background: var(--chip); padding: 7px 12px; border-radius: 999px; }
+
+  /* sections */
+  section { padding: 40px 0 8px; }
+  h2 { font-family: var(--serif); font-weight: 500; font-size: 28px; line-height: 1.2; margin: 0 0 6px; }
+  .sec-note { color: var(--muted); margin: 0 0 22px; font-size: 15px; }
+
+  .item { background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 22px; margin-bottom: 16px; display: grid; gap: 18px; }
+  .item.with-media { grid-template-columns: 1fr; }
+  @media (min-width: 760px) { .item.with-media { grid-template-columns: 300px 1fr; align-items: start; } }
+  .media { display: block; border-radius: 10px; overflow: hidden; background: var(--bg-soft); aspect-ratio: 16 / 10; }
+  .media img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .meta { font-family: var(--mono); font-size: 11.5px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); margin: 0 0 6px; }
+  h3 { font-size: 20px; line-height: 1.3; font-weight: 600; margin: 0 0 10px; }
+  .item p { margin: 0 0 12px; color: var(--ink-2); }
+  .links { display: flex; flex-wrap: wrap; gap: 10px 18px; margin-top: 4px; }
+  .links a { font-weight: 600; font-size: 15px; }
+
+  .posts { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--line); }
+  .posts li { border-bottom: 1px solid var(--line); padding: 16px 0; display: grid; gap: 4px; }
+  .posts a.t { font-weight: 600; color: var(--ink); text-decoration: none; }
+  .posts a.t:hover, .posts a.t:focus-visible { color: var(--accent-ink); text-decoration: underline; }
+  .posts p { margin: 0; color: var(--ink-2); font-size: 15.5px; }
+
+  /* placeholders for Harsha's own words: removed before going live */
+  .todo { display: block; background: var(--todo-bg); color: var(--todo-ink); border: 1px dashed currentColor; border-radius: 8px; padding: 8px 12px; font-size: 15px; font-style: italic; }
+
+  footer { margin-top: 48px; padding: 32px 0 48px; border-top: 1px solid var(--line); color: var(--muted); font-size: 14.5px; }
+  footer p { margin: 0 0 8px; max-width: 70ch; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="brand" href="/" title="Go to my portfolio" aria-label="Harsha Kalbalia, go to my portfolio"><span class="badge">HK</span>Harsha Kalbalia</a>
+    <div class="for">Shared with Canonical</div>
+  </div>
+
+  <header class="intro">
+    <p class="eyebrow">Work samples</p>
+    <h1><span class="todo">[Your headline, a few words]</span></h1>
+    <p class="lede"><span class="todo">[Your two or three line intro to Mohamed: what's here and how to read it]</span></p>
+    <ul class="jump" aria-label="Sections">
+      <li><a href="#writing">Writing</a></li>
+      <li><a href="#camera">On camera</a></li>
+      <li><a href="#linkedin">LinkedIn</a></li>
+    </ul>
+  </header>
+
+  <section id="writing" aria-labelledby="h-writing">
+    <h2 id="h-writing">Writing</h2>
+    <p class="sec-note"><span class="todo">[Optional one line about this section]</span></p>
+
+    <article class="item with-media">
+      <a class="media" href="https://moneyclubber.com" target="_blank" rel="noopener" aria-label="Open the Money Club website">
+        <img src="assets/img/moneyclub-brochure-804.webp" alt="The Money Club brochure, open to its cover and back page" width="804" height="568" loading="lazy" decoding="async">
+      </a>
+      <div>
+        <p class="meta">Website and brochure · The Money Club</p>
+        <h3>The Money Club website and brochure</h3>
+        <p><span class="todo">[Your line: what you wrote or designed, and for whom]</span></p>
+        <div class="links">
+          <a href="https://moneyclubber.com" target="_blank" rel="noopener">Visit the website</a>
+          <a href="#" target="_blank" rel="noopener"><span class="todo" style="display:inline">[Brochure PDF link]</span></a>
+        </div>
+      </div>
+    </article>
+
+    <article class="item">
+      <div>
+        <p class="meta">Customer case study · Datazip blog</p>
+        <h3>48 Hours to 1 Minute: How Insurance Tech Startup Automated 300 Reports with Datazip</h3>
+        <p><span class="todo">[Your line: what the story is and what your part was]</span></p>
+        <div class="links"><a href="https://olake.hashnode.dev/how-insurance-tech-startup-automated-300-reports-with-datazip" target="_blank" rel="noopener">Read the case study</a></div>
+      </div>
+    </article>
+
+    <article class="item">
+      <div>
+        <p class="meta">Product docs · OLake</p>
+        <h3>OLake Fusion use cases</h3>
+        <p><span class="todo">[Your line: what Fusion does, and why you wrote this page]</span></p>
+        <div class="links"><a href="https://olake.io/docs/fusion/core/use-cases/" target="_blank" rel="noopener">Read the docs page</a></div>
+      </div>
+    </article>
+  </section>
+
+  <section id="camera" aria-labelledby="h-camera">
+    <h2 id="h-camera">On camera</h2>
+    <p class="sec-note"><span class="todo">[Optional one line about this section]</span></p>
+
+    <article class="item with-media">
+      <a class="media" href="https://www.youtube.com/watch?v=Z0tEClkIT_8" target="_blank" rel="noopener" aria-label="Watch the webinar with Viktor Kessler on YouTube">
+        <img src="https://i.ytimg.com/vi/Z0tEClkIT_8/hqdefault.jpg" alt="" width="480" height="360" loading="lazy" decoding="async">
+      </a>
+      <div>
+        <p class="meta">Webinar · I host</p>
+        <h3>Iceberg lakehouse architecture and REST catalogs, with Viktor Kessler</h3>
+        <p><span class="todo">[Your line: who Viktor is, what you two covered]</span></p>
+        <div class="links"><a href="https://www.youtube.com/watch?v=Z0tEClkIT_8" target="_blank" rel="noopener">Watch on YouTube</a></div>
+      </div>
+    </article>
+
+    <article class="item with-media">
+      <a class="media" href="https://www.youtube.com/watch?v=7fuvICHBvbc" target="_blank" rel="noopener" aria-label="Watch the Women in Data panel on YouTube">
+        <img src="https://i.ytimg.com/vi/7fuvICHBvbc/hqdefault.jpg" alt="" width="480" height="360" loading="lazy" decoding="async">
+      </a>
+      <div>
+        <p class="meta">Panel · I moderate · 75 min</p>
+        <h3>Women in Data panel</h3>
+        <p><span class="todo">[Your line: who was on the panel and what it was about]</span></p>
+        <div class="links"><a href="https://www.youtube.com/watch?v=7fuvICHBvbc" target="_blank" rel="noopener">Watch on YouTube</a></div>
+      </div>
+    </article>
+  </section>
+
+  <section id="linkedin" aria-labelledby="h-linkedin">
+    <h2 id="h-linkedin">LinkedIn</h2>
+    <p class="sec-note"><span class="todo">[Optional one line: two of your own posts, five you wrote for OLake's page]</span></p>
+
+    <ul class="posts">
+      <li><a class="t" href="#" target="_blank" rel="noopener"><span class="todo" style="display:inline">[Your post 1: title + link]</span></a><p><span class="todo">[Optional line]</span></p></li>
+      <li><a class="t" href="#" target="_blank" rel="noopener"><span class="todo" style="display:inline">[Your post 2: title + link]</span></a><p><span class="todo">[Optional line]</span></p></li>
+      <li><a class="t" href="https://www.linkedin.com/posts/olakebydatazip_dataengineer-dataingestion-apacheiceberg-activity-7431670259771830272-b5GO" target="_blank" rel="noopener">OLake: data ingestion into Apache Iceberg</a><p><span class="todo">[Optional line]</span></p></li>
+      <li><a class="t" href="https://www.linkedin.com/posts/olakebydatazip_apacheiceberg-lakehouse-ai-activity-7427633962035933185-rIWK" target="_blank" rel="noopener">OLake: Iceberg lakehouses and AI</a><p><span class="todo">[Optional line]</span></p></li>
+      <li><a class="t" href="https://www.linkedin.com/posts/olakebydatazip_release-notespart-2-activity-7424702491159638017-4Zsl" target="_blank" rel="noopener">OLake: release notes, part 2</a><p><span class="todo">[Optional line]</span></p></li>
+      <li><a class="t" href="https://www.linkedin.com/posts/olakebydatazip_cordial-case-study-activity-7425065396497567745-whNf" target="_blank" rel="noopener">OLake: Cordial case study</a><p><span class="todo">[Optional line]</span></p></li>
+      <li><a class="t" href="https://www.linkedin.com/posts/olakebydatazip_indias-first-apache-iceberg-community-meetup-activity-7396452535634620417-ph7s" target="_blank" rel="noopener">OLake: India's first Apache Iceberg community meetup</a><p><span class="todo">[Optional line]</span></p></li>
+    </ul>
+  </section>
+
+  <footer>
+    <p>More work: <a href="/">harshakalbalia.xyz</a></p>
+    <p>Page built with Claude. Descriptions written by Harsha Kalbalia.</p>
+  </footer>
+</div>
+</body>
+</html>
