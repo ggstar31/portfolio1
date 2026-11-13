@@ -8,61 +8,40 @@
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%232B3B2E'/%3E%3Ccircle cx='16' cy='16' r='6' fill='%23B0562E'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=Azeret+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=Azeret+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
   :root {
     --bg: oklch(0.975 0.008 95);
-    --grid: oklch(0.925 0.012 95);
+    --grid: oklch(0.93 0.011 95);
     --card: oklch(0.995 0.004 95);
-    --head: oklch(0.955 0.012 95);
+    --soft: oklch(0.955 0.012 95);
     --ink: oklch(0.235 0.014 135);
-    --ink-2: oklch(0.36 0.012 130);
-    --muted: oklch(0.52 0.012 130);
-    --line: oklch(0.87 0.014 95);
+    --ink-2: oklch(0.38 0.012 130);
+    --muted: oklch(0.53 0.012 130);
+    --line: oklch(0.88 0.014 95);
     --accent: oklch(0.47 0.09 148);
     --accent-ink: oklch(0.40 0.08 148);
-    --accent-soft: oklch(0.93 0.035 145);
     --panel: oklch(0.235 0.022 150);
-    --panel-ink: oklch(0.93 0.02 140);
-    --panel-muted: oklch(0.72 0.03 145);
     --sans: "Archivo", Helvetica, Arial, sans-serif;
     --mono: "Azeret Mono", ui-monospace, Menlo, monospace;
   }
   @media (prefers-color-scheme: dark) {
     :root:not([data-theme="light"]) {
-      --bg: oklch(0.18 0.012 150);
-      --grid: oklch(0.225 0.014 150);
-      --card: oklch(0.215 0.014 150);
-      --head: oklch(0.245 0.016 150);
-      --ink: oklch(0.94 0.01 95);
-      --ink-2: oklch(0.84 0.01 95);
-      --muted: oklch(0.68 0.012 130);
-      --line: oklch(0.32 0.016 150);
-      --accent: oklch(0.80 0.10 145);
-      --accent-ink: oklch(0.84 0.09 145);
-      --accent-soft: oklch(0.30 0.04 145);
-      --panel: oklch(0.14 0.016 150);
+      --bg: oklch(0.18 0.012 150); --grid: oklch(0.215 0.013 150); --card: oklch(0.215 0.014 150); --soft: oklch(0.245 0.016 150);
+      --ink: oklch(0.94 0.01 95); --ink-2: oklch(0.82 0.01 95); --muted: oklch(0.66 0.012 130); --line: oklch(0.32 0.016 150);
+      --accent: oklch(0.80 0.10 145); --accent-ink: oklch(0.84 0.09 145); --panel: oklch(0.14 0.016 150);
     }
   }
   :root[data-theme="dark"] {
-    --bg: oklch(0.18 0.012 150);
-    --grid: oklch(0.225 0.014 150);
-    --card: oklch(0.215 0.014 150);
-    --head: oklch(0.245 0.016 150);
-    --ink: oklch(0.94 0.01 95);
-    --ink-2: oklch(0.84 0.01 95);
-    --muted: oklch(0.68 0.012 130);
-    --line: oklch(0.32 0.016 150);
-    --accent: oklch(0.80 0.10 145);
-    --accent-ink: oklch(0.84 0.09 145);
-    --accent-soft: oklch(0.30 0.04 145);
-    --panel: oklch(0.14 0.016 150);
+    --bg: oklch(0.18 0.012 150); --grid: oklch(0.215 0.013 150); --card: oklch(0.215 0.014 150); --soft: oklch(0.245 0.016 150);
+    --ink: oklch(0.94 0.01 95); --ink-2: oklch(0.82 0.01 95); --muted: oklch(0.66 0.012 130); --line: oklch(0.32 0.016 150);
+    --accent: oklch(0.80 0.10 145); --accent-ink: oklch(0.84 0.09 145); --panel: oklch(0.14 0.016 150);
   }
 
   * { box-sizing: border-box; }
-  html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+  html { -webkit-text-size-adjust: 100%; }
   body {
-    margin: 0; color: var(--ink); font-family: var(--sans); font-size: 17px; line-height: 1.55; -webkit-font-smoothing: antialiased; text-wrap: pretty;
+    margin: 0; color: var(--ink); font-family: var(--sans); font-size: 16px; line-height: 1.5; -webkit-font-smoothing: antialiased; text-wrap: pretty;
     background-color: var(--bg);
     background-image: linear-gradient(var(--grid) 1px, transparent 1px), linear-gradient(90deg, var(--grid) 1px, transparent 1px);
     background-size: 28px 28px;
@@ -70,293 +49,148 @@
   a { color: var(--accent-ink); text-underline-offset: 3px; }
   .wrap { max-width: 1040px; margin: 0 auto; padding: 0 max(16px, env(safe-area-inset-left)); }
   @media (min-width: 700px) { .wrap { padding: 0 32px; } }
-  .mono { font-family: var(--mono); }
 
-  /* top */
-  .topbar { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 22px 0; }
-  .brand { display: flex; align-items: center; gap: 12px; font-weight: 600; font-size: 15px; color: inherit; text-decoration: none; }
+  .top { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 20px 0 4px; }
+  .brand { display: flex; align-items: center; gap: 10px; font-weight: 600; font-size: 15px; color: inherit; text-decoration: none; }
   .brand:hover, .brand:focus-visible { color: var(--accent-ink); }
-  .badge { width: 34px; height: 34px; border-radius: 8px; display: grid; place-items: center; background: var(--ink); color: var(--bg); font-family: var(--mono); font-size: 12px; font-weight: 600; }
-  .path { font-family: var(--mono); font-size: 12.5px; color: var(--muted); }
+  .badge { width: 32px; height: 32px; border-radius: 8px; display: grid; place-items: center; background: var(--ink); color: var(--bg); font-family: var(--mono); font-size: 12px; }
+  h1 { font-size: 13px; font-family: var(--mono); font-weight: 400; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); margin: 0; }
 
-  .intro { padding: 40px 0 8px; }
-  .eyebrow { font-family: var(--mono); font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent-ink); margin: 0 0 14px; }
-  .eyebrow::before { content: "// "; color: var(--muted); }
-  h1 { font-weight: 700; font-size: clamp(30px, 4.6vw, 46px); line-height: 1.1; letter-spacing: -0.02em; margin: 0 0 18px; max-width: 22ch; }
-  .lede { font-size: 18.5px; color: var(--ink-2); max-width: 62ch; margin: 0; }
+  section { padding: 26px 0 0; }
+  .sh { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin: 0 0 12px; min-height: 30px; }
+  h2 { font-family: var(--mono); font-size: 13px; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; color: var(--accent-ink); margin: 0; }
+  h2 span { color: var(--muted); margin-right: 8px; }
+  .nav { display: flex; gap: 6px; }
+  .nav button { font: inherit; font-size: 15px; width: 34px; height: 30px; border-radius: 8px; border: 1px solid var(--line); background: var(--card); color: var(--ink); cursor: pointer; }
+  .nav button:hover, .nav button:focus-visible { border-color: var(--accent); color: var(--accent-ink); }
 
-  /* manifest */
-  .manifest { margin: 36px 0 8px; background: var(--card); border: 1px solid var(--line); border-radius: 12px; overflow: hidden; }
-  .bar { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 10px 16px; background: var(--head); border-bottom: 1px solid var(--line); font-family: var(--mono); font-size: 12px; color: var(--muted); }
-  .dots { display: flex; gap: 6px; }
-  .dots i { width: 9px; height: 9px; border-radius: 50%; background: var(--line); display: block; }
-  table { width: 100%; border-collapse: collapse; font-size: 15px; }
-  th, td { text-align: left; padding: 11px 16px; border-bottom: 1px solid var(--line); vertical-align: top; }
-  tr:last-child td { border-bottom: 0; }
-  th { font-family: var(--mono); font-size: 11.5px; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); }
-  td.n { font-family: var(--mono); color: var(--muted); width: 56px; }
-  td a { color: var(--ink); font-weight: 600; text-decoration: none; }
-  td a:hover, td a:focus-visible { color: var(--accent-ink); text-decoration: underline; }
-  .tag { display: inline-block; font-family: var(--mono); font-size: 11.5px; padding: 2px 8px; border-radius: 6px; background: var(--accent-soft); color: var(--accent-ink); white-space: nowrap; }
-  @media (max-width: 640px) { .hide-sm { display: none; } th, td { padding: 10px 12px; } }
+  .card { background: var(--card); border: 1px solid var(--line); border-radius: 12px; overflow: hidden; }
+  .card h3 { font-size: 16px; font-weight: 600; line-height: 1.35; margin: 0 0 4px; }
+  .card h3 a { color: var(--ink); text-decoration: none; }
+  .card h3 a:hover, .card h3 a:focus-visible { color: var(--accent-ink); text-decoration: underline; }
+  .card p { margin: 0; color: var(--ink-2); font-size: 15px; }
+  .pad { padding: 14px 16px 16px; }
 
-  /* sections */
-  section { padding: 48px 0 4px; }
-  .sec-h { display: flex; align-items: baseline; gap: 14px; margin: 0 0 6px; }
-  .sec-h .num { font-family: var(--mono); font-size: 14px; color: var(--accent-ink); }
-  h2 { font-weight: 700; font-size: 26px; letter-spacing: -0.01em; line-height: 1.2; margin: 0; }
-  .sec-note { color: var(--muted); margin: 0 0 20px; font-size: 15px; }
+  .row { display: grid; gap: 14px; grid-template-columns: 1fr; }
+  @media (min-width: 640px) { .row.two, .row.three { grid-template-columns: 1fr 1fr; } }
+  @media (min-width: 900px) { .row.three { grid-template-columns: repeat(3, 1fr); } }
 
-  .item { background: var(--card); border: 1px solid var(--line); border-radius: 12px; overflow: hidden; margin-bottom: 18px; }
-  .item .bar a { color: var(--muted); }
-  .body { padding: 20px; display: grid; gap: 22px; }
-  @media (min-width: 820px) { .body { grid-template-columns: minmax(0, 1fr) 280px; } .body.media-left { grid-template-columns: 320px minmax(0, 1fr) 240px; } }
-  @media (min-width: 640px) and (max-width: 819px) { .body.media-left { grid-template-columns: 260px minmax(0, 1fr); } .body.media-left .spec { grid-column: 1 / -1; } }
-  h3 { font-size: 20px; line-height: 1.3; font-weight: 600; margin: 0 0 10px; }
-  .body p { margin: 0 0 14px; color: var(--ink-2); }
-  .links { display: flex; flex-wrap: wrap; gap: 8px 18px; }
-  .links a { font-family: var(--mono); font-size: 13.5px; font-weight: 500; }
-  .links a::after { content: " \2197"; }
+  .mc .pad { border-bottom: 1px solid var(--line); }
 
-  .spec { margin: 0; font-size: 14px; border-left: 1px solid var(--line); padding-left: 18px; align-self: start; }
-  @media (max-width: 819px) { .spec { border-left: 0; padding-left: 0; border-top: 1px dashed var(--line); padding-top: 14px; } }
-  .spec div { display: grid; grid-template-columns: 92px 1fr; gap: 10px; padding: 5px 0; }
-  .spec dt { font-family: var(--mono); font-size: 11.5px; letter-spacing: 0.05em; text-transform: uppercase; color: var(--muted); padding-top: 2px; }
-  .spec dd { margin: 0; color: var(--ink); }
+  .scroller { display: grid; grid-auto-flow: column; gap: 12px; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: thin; }
+  .scroller > * { scroll-snap-align: start; }
+  .pages { grid-auto-columns: 170px; padding: 14px 16px 16px; }
+  @media (max-width: 640px) { .pages { grid-auto-columns: 44%; } }
+  .pg { display: block; width: 100%; padding: 0; border: 1px solid var(--line); border-radius: 6px; overflow: hidden; background: var(--soft); cursor: zoom-in; }
+  .pg img { width: 100%; height: auto; display: block; }
 
-  /* media */
-  .thumb { position: relative; display: block; aspect-ratio: 16 / 9; border-radius: 8px; overflow: hidden; background: var(--panel); color: var(--panel-ink); text-decoration: none; align-self: start; }
-  .thumb .fallback { position: absolute; inset: 0; padding: 14px 16px; display: flex; flex-direction: column; justify-content: space-between; font-family: var(--mono); font-size: 12px; line-height: 1.4; }
-  .thumb .fallback b { font-family: var(--sans); font-size: 15px; font-weight: 600; color: var(--panel-ink); }
-  .thumb .fallback span { color: var(--panel-muted); }
+  .thumb { position: relative; display: block; aspect-ratio: 16 / 9; background: var(--panel); overflow: hidden; }
   .thumb img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
-  .thumb .play { position: absolute; left: 50%; top: 50%; width: 54px; height: 38px; margin: -19px 0 0 -27px; border-radius: 10px; background: rgba(0,0,0,0.72); display: grid; place-items: center; }
-  .thumb .play::before { content: ""; border-left: 15px solid #fff; border-top: 9px solid transparent; border-bottom: 9px solid transparent; margin-left: 3px; }
+  .thumb .play { position: absolute; left: 50%; top: 50%; width: 52px; height: 36px; margin: -18px 0 0 -26px; border-radius: 10px; background: rgba(0,0,0,0.72); display: grid; place-items: center; }
+  .thumb .play::before { content: ""; border-left: 14px solid #fff; border-top: 8px solid transparent; border-bottom: 8px solid transparent; margin-left: 3px; }
   .thumb:hover .play, .thumb:focus-visible .play { background: #c4302b; }
 
-  .shot { display: block; border-radius: 8px; overflow: hidden; border: 1px solid var(--line); background: var(--head); }
-  .shot img { width: 100%; height: auto; display: block; }
-  .gallery-wrap { border-top: 1px solid var(--line); padding: 14px 20px 20px; }
-  .gallery-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; font-family: var(--mono); font-size: 12px; color: var(--muted); margin-bottom: 12px; }
-  .gallery-head .hint { flex: 1; }
-  @media (max-width: 640px) { .gallery-head .hint { display: none; } }
-  .nav { display: flex; gap: 6px; }
-  .gbtn { font: inherit; font-size: 15px; width: 34px; height: 30px; border-radius: 8px; border: 1px solid var(--line); background: var(--card); color: var(--ink); cursor: pointer; }
-  .gbtn:hover, .gbtn:focus-visible { border-color: var(--accent); color: var(--accent-ink); }
-  .gallery { display: grid; grid-auto-flow: column; grid-auto-columns: minmax(240px, 32%); gap: 14px; overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: 10px; scrollbar-width: thin; }
-  @media (max-width: 640px) { .gallery { grid-auto-columns: 78%; } }
-  .gallery figure { margin: 0; scroll-snap-align: start; }
-  .pg { display: block; width: 100%; padding: 0; border: 1px solid var(--line); border-radius: 6px; overflow: hidden; background: var(--head); cursor: zoom-in; }
-  .pg img { width: 100%; height: auto; display: block; }
-  .gallery figcaption { font-family: var(--mono); font-size: 12px; color: var(--muted); margin-top: 8px; }
-  .gallery figcaption span { color: var(--accent-ink); margin-right: 6px; }
+  .posts { grid-auto-columns: 250px; padding-bottom: 8px; }
+  @media (max-width: 640px) { .posts { grid-auto-columns: 76%; } }
+  .post { display: flex; flex-direction: column; text-decoration: none; color: inherit; }
+  .post .img { aspect-ratio: 1 / 1; background: var(--panel); border-bottom: 1px solid var(--line); overflow: hidden; }
+  .post .img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .post .pad { flex: 1; padding: 12px 14px 14px; }
+  .post h3 { font-size: 15px; }
+  .post:hover h3, .post:focus-visible h3 { color: var(--accent-ink); text-decoration: underline; }
+
+  footer { margin-top: 30px; padding: 16px 0 36px; border-top: 1px solid var(--line); color: var(--muted); font-size: 13.5px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 24px; }
+
   dialog.lb { border: 0; padding: 0; background: transparent; max-width: 96vw; max-height: 96vh; }
   dialog.lb::backdrop { background: rgba(10, 14, 12, 0.86); }
-  .lb-inner { position: relative; display: flex; flex-direction: column; align-items: center; gap: 10px; }
+  .lb-inner { display: flex; flex-direction: column; align-items: center; gap: 10px; }
   .lb img { max-width: 92vw; max-height: 84vh; width: auto; height: auto; display: block; border-radius: 6px; }
   .lb-bar { display: flex; gap: 8px; align-items: center; font-family: var(--mono); font-size: 13px; color: #e8eee9; }
   .lb-bar button { font: inherit; color: #fff; background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.25); border-radius: 8px; padding: 6px 12px; cursor: pointer; }
-
-  footer { margin-top: 56px; padding: 26px 0 48px; border-top: 1px solid var(--line); color: var(--muted); font-size: 14.5px; }
-  footer p { margin: 0 0 6px; max-width: 72ch; }
-  footer .mono { font-size: 12.5px; }
 </style>
 </head>
 <body>
 <div class="wrap">
-  <div class="topbar">
+  <header class="top">
     <a class="brand" href="/" title="Go to my portfolio" aria-label="Harsha Kalbalia, go to my portfolio"><span class="badge">HK</span>Harsha Kalbalia</a>
-    <span class="path">~/work-samples</span>
-  </div>
-
-  <header class="intro">
-    <p class="eyebrow">Work samples</p>
-    <h1>Writing, webinars and posts from my work in data and fintech</h1>
-    <p class="lede">Most of this comes from my two years at OLake, an open source tool that moves data from databases into Apache Iceberg, where I was the first business hire and built marketing and community from scratch. The first piece is from The Money Club, the fintech I worked at before that.</p>
-
-    <div class="manifest">
-      <div class="bar"><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span><span>index · 11 items</span></div>
-      <table>
-        <thead><tr><th>#</th><th>Item</th><th>Type</th><th class="hide-sm">My role</th></tr></thead>
-        <tbody>
-          <tr><td class="n">01.1</td><td><a href="#moneyclub">The Money Club website and brochure</a></td><td><span class="tag">copy</span></td><td class="hide-sm">Copy, brochure</td></tr>
-          <tr><td class="n">01.2</td><td><a href="#casestudy">48 Hours to 1 Minute</a></td><td><span class="tag">case study</span></td><td class="hide-sm">Co-writer</td></tr>
-          <tr><td class="n">01.3</td><td><a href="#fusion">OLake Fusion use cases</a></td><td><span class="tag">product docs</span></td><td class="hide-sm">Writer</td></tr>
-          <tr><td class="n">02.1</td><td><a href="#andrew">Iceberg for Agents, with Andrew Madson</a></td><td><span class="tag">webinar</span></td><td class="hide-sm">Host</td></tr>
-          <tr><td class="n">02.2</td><td><a href="#viktor">REST catalogs, with Viktor Kessler</a></td><td><span class="tag">webinar</span></td><td class="hide-sm">Host</td></tr>
-          <tr><td class="n">02.3</td><td><a href="#wide">Women in Data Engineering</a></td><td><span class="tag">panel</span></td><td class="hide-sm">Moderator</td></tr>
-          <tr><td class="n">03.x</td><td><a href="#linkedin">Five posts for OLake's LinkedIn</a></td><td><span class="tag">social</span></td><td class="hide-sm">Writer</td></tr>
-        </tbody>
-      </table>
-    </div>
+    <h1>Work samples</h1>
   </header>
 
-  <!-- 01 -->
-  <section id="writing" aria-labelledby="h-writing">
-    <div class="sec-h"><span class="num">01</span><h2 id="h-writing">Writing</h2></div>
-    <p class="sec-note">Copy, a customer story and product docs.</p>
-
-    <article class="item" id="moneyclub">
-      <div class="bar"><span>01.1 · the-money-club</span><a href="https://moneyclubber.com" target="_blank" rel="noopener">moneyclubber.com</a></div>
-      <div class="body">
-        <div>
-          <h3>The Money Club website and brochure</h3>
-          <p>The Money Club lets people pool money with a group of verified members, a digital version of the savings circles that are common across India. I worked on the website copy and this brochure, which tells the story through Umesh, one of the 400 million lower middle class Indians that banks find hard to lend to.</p>
-          <div class="links">
-            <a href="https://moneyclubber.com" target="_blank" rel="noopener">Visit the website</a>
-          </div>
-        </div>
-        <dl class="spec">
-          <div><dt>Type</dt><dd>Website copy, 6 page brochure</dd></div>
-          <div><dt>My role</dt><dd>Copy and brochure</dd></div>
-          <div><dt>Company</dt><dd>The Money Club, fintech</dd></div>
-          <div><dt>Story</dt><dd>One user, Umesh, stands in for the segment</dd></div>
-        </dl>
+  <section aria-labelledby="h-mc">
+    <div class="sh"><h2 id="h-mc"><span>01</span>The Money Club</h2><div class="nav" data-for="pages"><button type="button" data-dir="-1" aria-label="Previous pages">&larr;</button><button type="button" data-dir="1" aria-label="Next pages">&rarr;</button></div></div>
+    <div class="card mc">
+      <div class="pad">
+        <h3><a href="https://moneyclubber.com" target="_blank" rel="noopener">Website copy and brochure</a></h3>
+        <p>A fintech brochure built around Umesh, one of the 400 million Indians banks find hard to lend to.</p>
       </div>
-      <div class="gallery-wrap">
-        <div class="gallery-head"><span>brochure · 6 pages</span><span class="hint">swipe or use the arrows · tap a page to enlarge</span><span class="nav"><button type="button" class="gbtn" data-dir="-1" aria-label="Previous pages">&larr;</button><button type="button" class="gbtn" data-dir="1" aria-label="Next pages">&rarr;</button></span></div>
-        <div class="gallery" id="gallery" tabindex="0" aria-label="Money Club brochure pages">
-        <figure><button type="button" class="pg" data-i="0" aria-label="View page 1, Cover, full size"><img src="assets/img/moneyclub-brochure-p1-900.webp" alt="Brochure page 1: Cover" width="900" height="1274" loading="lazy" decoding="async"></button><figcaption><span>p1</span> Cover</figcaption></figure>
-        <figure><button type="button" class="pg" data-i="1" aria-label="View page 2, Meet Umesh, full size"><img src="assets/img/moneyclub-brochure-p2-900.webp" alt="Brochure page 2: Meet Umesh" width="900" height="1274" loading="lazy" decoding="async"></button><figcaption><span>p2</span> Meet Umesh</figcaption></figure>
-        <figure><button type="button" class="pg" data-i="2" aria-label="View page 3, Introducing Money Club, full size"><img src="assets/img/moneyclub-brochure-p3-900.webp" alt="Brochure page 3: Introducing Money Club" width="900" height="1274" loading="lazy" decoding="async"></button><figcaption><span>p3</span> Introducing Money Club</figcaption></figure>
-        <figure><button type="button" class="pg" data-i="3" aria-label="View page 4, How we do it, full size"><img src="assets/img/moneyclub-brochure-p4-900.webp" alt="Brochure page 4: How we do it" width="900" height="1274" loading="lazy" decoding="async"></button><figcaption><span>p4</span> How we do it</figcaption></figure>
-        <figure><button type="button" class="pg" data-i="4" aria-label="View page 5, Dynamic underwriting, full size"><img src="assets/img/moneyclub-brochure-p5-900.webp" alt="Brochure page 5: Dynamic underwriting" width="900" height="1274" loading="lazy" decoding="async"></button><figcaption><span>p5</span> Dynamic underwriting</figcaption></figure>
-        <figure><button type="button" class="pg" data-i="5" aria-label="View page 6, Back cover, full size"><img src="assets/img/moneyclub-brochure-p6-900.webp" alt="Brochure page 6: Back cover" width="900" height="1274" loading="lazy" decoding="async"></button><figcaption><span>p6</span> Back cover</figcaption></figure>
-        </div>
+      <div class="scroller pages" id="pages" aria-label="Brochure pages">
+        <button type="button" class="pg" data-i="0" aria-label="View page 1 full size"><img src="assets/img/moneyclub-brochure-p1-900.webp" alt="Brochure page 1: cover" width="900" height="1274" decoding="async"></button>
+        <button type="button" class="pg" data-i="1" aria-label="View page 2 full size"><img src="assets/img/moneyclub-brochure-p2-900.webp" alt="Brochure page 2: Meet Umesh" width="900" height="1274" decoding="async"></button>
+        <button type="button" class="pg" data-i="2" aria-label="View page 3 full size"><img src="assets/img/moneyclub-brochure-p3-900.webp" alt="Brochure page 3: Introducing Money Club" width="900" height="1274" decoding="async"></button>
+        <button type="button" class="pg" data-i="3" aria-label="View page 4 full size"><img src="assets/img/moneyclub-brochure-p4-900.webp" alt="Brochure page 4: How are we doing this" width="900" height="1274" decoding="async"></button>
+        <button type="button" class="pg" data-i="4" aria-label="View page 5 full size"><img src="assets/img/moneyclub-brochure-p5-900.webp" alt="Brochure page 5: Dynamic real-time underwriting" width="900" height="1274" decoding="async"></button>
+        <button type="button" class="pg" data-i="5" aria-label="View page 6 full size"><img src="assets/img/moneyclub-brochure-p6-900.webp" alt="Brochure page 6: back cover" width="900" height="1274" decoding="async"></button>
       </div>
-    </article>
-
-    <article class="item" id="casestudy">
-      <div class="bar"><span>01.2 · case-study</span><a href="https://olake.hashnode.dev/how-insurance-tech-startup-automated-300-reports-with-datazip" target="_blank" rel="noopener">olake.hashnode.dev</a></div>
-      <div class="body">
-        <div>
-          <h3>48 Hours to 1 Minute: How Insurance Tech Startup Automated 300 Reports with Datazip</h3>
-          <p>A Mumbai health and insurance tech company was waiting up to 48 hours for its reports because of slow, disconnected pipelines. This is the story of how Datazip, OLake's parent company, brought that down to one minute across 250 to 300 reports. I co-wrote it with the team, built on our conversations with the customer.</p>
-          <div class="links"><a href="https://olake.hashnode.dev/how-insurance-tech-startup-automated-300-reports-with-datazip" target="_blank" rel="noopener">Read the case study</a></div>
-        </div>
-        <dl class="spec">
-          <div><dt>Type</dt><dd>Customer case study</dd></div>
-          <div><dt>My role</dt><dd>Co-writer</dd></div>
-          <div><dt>Before</dt><dd>Up to 48 hours per report</dd></div>
-          <div><dt>After</dt><dd>1 minute sync, 250 to 300 reports</dd></div>
-        </dl>
-      </div>
-    </article>
-
-    <article class="item" id="fusion">
-      <div class="bar"><span>01.3 · product-docs</span><a href="https://olake.io/docs/fusion/core/use-cases/" target="_blank" rel="noopener">olake.io/docs</a></div>
-      <div class="body">
-        <div>
-          <h3>OLake Fusion use cases</h3>
-          <p>Fusion is OLake's tool for Iceberg table maintenance. The page walks a data engineer through the three problems it solves: slow queries on Iceberg tables, little visibility into table health, and maintenance that needs tuning table by table.</p>
-          <div class="links"><a href="https://olake.io/docs/fusion/core/use-cases/" target="_blank" rel="noopener">Read the docs page</a></div>
-        </div>
-        <dl class="spec">
-          <div><dt>Type</dt><dd>Product docs</dd></div>
-          <div><dt>My role</dt><dd>Writer</dd></div>
-          <div><dt>Reader</dt><dd>Data engineers on Iceberg</dd></div>
-          <div><dt>Covers</dt><dd>Query speed, table health, per-table tuning</dd></div>
-        </dl>
-      </div>
-    </article>
+    </div>
   </section>
 
-  <!-- 02 -->
-  <section id="camera" aria-labelledby="h-camera">
-    <div class="sec-h"><span class="num">02</span><h2 id="h-camera">On camera</h2></div>
-    <p class="sec-note">Two webinars I hosted and a panel I moderated, all on OLake's YouTube channel.</p>
-
-    <article class="item" id="andrew">
-      <div class="bar"><span>02.1 · webinar</span><a href="https://www.youtube.com/watch?v=duOEjA8P2Qo" target="_blank" rel="noopener">youtube.com</a></div>
-      <div class="body media-left">
-        <a class="thumb" href="https://www.youtube.com/watch?v=duOEjA8P2Qo" target="_blank" rel="noopener" aria-label="Watch Iceberg for Agents with Andrew Madson on YouTube">
-          <span class="fallback"><span>OLake webinar · youtube</span><b>Iceberg for Agents, with Andrew Madson</b></span>
-          <img src="https://i.ytimg.com/vi/duOEjA8P2Qo/hqdefault.jpg" alt="" loading="lazy" decoding="async" onerror="this.remove()">
-          <span class="play" aria-hidden="true"></span>
-        </a>
-        <div>
-          <h3>Iceberg for Agents: Turning Lakehouse Data into AI Context</h3>
-          <p>A webinar with Andrew Madson on how AI agents can use the data teams already keep in an Iceberg lakehouse as context.</p>
-          <div class="links"><a href="https://www.youtube.com/watch?v=duOEjA8P2Qo" target="_blank" rel="noopener">Watch on YouTube</a></div>
-        </div>
-        <dl class="spec">
-          <div><dt>Type</dt><dd>Webinar</dd></div>
-          <div><dt>My role</dt><dd>Host</dd></div>
-          <div><dt>Guest</dt><dd>Andrew Madson</dd></div>
-          <div><dt>Topic</dt><dd>Iceberg and AI agents</dd></div>
-        </dl>
-      </div>
-    </article>
-
-    <article class="item" id="viktor">
-      <div class="bar"><span>02.2 · webinar</span><a href="https://www.youtube.com/watch?v=Z0tEClkIT_8" target="_blank" rel="noopener">youtube.com</a></div>
-      <div class="body media-left">
-        <a class="thumb" href="https://www.youtube.com/watch?v=Z0tEClkIT_8" target="_blank" rel="noopener" aria-label="Watch the REST catalog webinar with Viktor Kessler on YouTube">
-          <span class="fallback"><span>OLake webinar 6 · youtube</span><b>Iceberg and REST catalogs, with Viktor Kessler</b></span>
-          <img src="https://i.ytimg.com/vi/Z0tEClkIT_8/hqdefault.jpg" alt="" loading="lazy" decoding="async" onerror="this.remove()">
-          <span class="play" aria-hidden="true"></span>
-        </a>
-        <div>
-          <h3>Iceberg: game changing capabilities and the advantage of REST catalogs</h3>
-          <p>The sixth webinar in OLake's series, which I hosted. Viktor co-founded Vakamo, the team behind Lakekeeper, an open source Iceberg REST catalog, and we talked about what a REST catalog changes for teams building on Iceberg.</p>
-          <div class="links"><a href="https://www.youtube.com/watch?v=Z0tEClkIT_8" target="_blank" rel="noopener">Watch on YouTube</a></div>
-        </div>
-        <dl class="spec">
-          <div><dt>Type</dt><dd>Webinar 6</dd></div>
-          <div><dt>My role</dt><dd>Host</dd></div>
-          <div><dt>Guest</dt><dd>Viktor Kessler</dd></div>
-          <div><dt>Topic</dt><dd>Iceberg REST catalogs</dd></div>
-        </dl>
-      </div>
-    </article>
-
-    <article class="item" id="wide">
-      <div class="bar"><span>02.3 · panel</span><a href="https://www.youtube.com/watch?v=7fuvICHBvbc" target="_blank" rel="noopener">youtube.com</a></div>
-      <div class="body media-left">
-        <a class="thumb" href="https://www.youtube.com/watch?v=7fuvICHBvbc" target="_blank" rel="noopener" aria-label="Watch the Women in Data Engineering panel on YouTube">
-          <span class="fallback"><span>OLake panel · youtube · 75 min</span><b>Women in Data Engineering</b></span>
-          <img src="https://i.ytimg.com/vi/7fuvICHBvbc/hqdefault.jpg" alt="" loading="lazy" decoding="async" onerror="this.remove()">
-          <span class="play" aria-hidden="true"></span>
-        </a>
-        <div>
-          <h3>Women in Data Engineering</h3>
-          <p>A 75 minute panel I moderated for OLake's community, with women who work in data engineering.</p>
-          <div class="links"><a href="https://www.youtube.com/watch?v=7fuvICHBvbc" target="_blank" rel="noopener">Watch on YouTube</a></div>
-        </div>
-        <dl class="spec">
-          <div><dt>Type</dt><dd>Panel</dd></div>
-          <div><dt>My role</dt><dd>Moderator</dd></div>
-          <div><dt>Length</dt><dd>75 min</dd></div>
-        </dl>
-      </div>
-    </article>
+  <section aria-labelledby="h-w">
+    <div class="sh"><h2 id="h-w"><span>02</span>Writing at OLake</h2></div>
+    <div class="row two">
+      <article class="card pad">
+        <h3><a href="https://olake.hashnode.dev/how-insurance-tech-startup-automated-300-reports-with-datazip" target="_blank" rel="noopener">48 Hours to 1 Minute</a></h3>
+        <p>Case study I co-wrote on an insurance tech company that cut report time from 48 hours to one minute.</p>
+      </article>
+      <article class="card pad">
+        <h3><a href="https://olake.io/docs/fusion/core/use-cases/" target="_blank" rel="noopener">OLake Fusion use cases</a></h3>
+        <p>Product docs on the three problems Fusion solves for Iceberg tables.</p>
+      </article>
+    </div>
   </section>
 
-  <!-- 03 -->
-  <section id="linkedin" aria-labelledby="h-linkedin">
-    <div class="sec-h"><span class="num">03</span><h2 id="h-linkedin">LinkedIn</h2></div>
-    <p class="sec-note">Posts I wrote for OLake's company page, from release notes to the first Apache Iceberg community meetup in India.</p>
+  <section aria-labelledby="h-v">
+    <div class="sh"><h2 id="h-v"><span>03</span>On camera</h2></div>
+    <div class="row three">
+      <article class="card">
+        <a class="thumb" href="https://www.youtube.com/watch?v=duOEjA8P2Qo" target="_blank" rel="noopener" aria-label="Watch Iceberg for Agents on YouTube"><img src="https://i.ytimg.com/vi/duOEjA8P2Qo/hqdefault.jpg" alt="" loading="lazy" decoding="async"><span class="play" aria-hidden="true"></span></a>
+        <div class="pad">
+          <h3><a href="https://www.youtube.com/watch?v=duOEjA8P2Qo" target="_blank" rel="noopener">Iceberg for Agents, with Andrew Madson</a></h3>
+          <p>Hosted: using lakehouse data as context for AI agents.</p>
+        </div>
+      </article>
+      <article class="card">
+        <a class="thumb" href="https://www.youtube.com/watch?v=Z0tEClkIT_8" target="_blank" rel="noopener" aria-label="Watch the REST catalog webinar on YouTube"><img src="https://i.ytimg.com/vi/Z0tEClkIT_8/hqdefault.jpg" alt="" loading="lazy" decoding="async"><span class="play" aria-hidden="true"></span></a>
+        <div class="pad">
+          <h3><a href="https://www.youtube.com/watch?v=Z0tEClkIT_8" target="_blank" rel="noopener">Iceberg REST catalogs, with Viktor Kessler</a></h3>
+          <p>Hosted: what a REST catalog changes for teams on Iceberg.</p>
+        </div>
+      </article>
+      <article class="card">
+        <a class="thumb" href="https://www.youtube.com/watch?v=7fuvICHBvbc" target="_blank" rel="noopener" aria-label="Watch the Women in Data Engineering panel on YouTube"><img src="https://i.ytimg.com/vi/7fuvICHBvbc/hqdefault.jpg" alt="" loading="lazy" decoding="async"><span class="play" aria-hidden="true"></span></a>
+        <div class="pad">
+          <h3><a href="https://www.youtube.com/watch?v=7fuvICHBvbc" target="_blank" rel="noopener">Women in Data Engineering</a></h3>
+          <p>Moderated: a 75 minute panel with women in data engineering.</p>
+        </div>
+      </article>
+    </div>
+  </section>
 
-    <div class="manifest">
-      <div class="bar"><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span><span>olake · linkedin</span></div>
-      <table>
-        <thead><tr><th>#</th><th>Post</th><th>Type</th></tr></thead>
-        <tbody>
-          <tr><td class="n">03.1</td><td><a href="https://www.linkedin.com/posts/olakebydatazip_dataengineer-dataingestion-apacheiceberg-activity-7431670259771830272-b5GO" target="_blank" rel="noopener">Data ingestion into Apache Iceberg</a></td><td><span class="tag">ingestion</span></td></tr>
-          <tr><td class="n">03.2</td><td><a href="https://www.linkedin.com/posts/olakebydatazip_apacheiceberg-lakehouse-ai-activity-7427633962035933185-rIWK" target="_blank" rel="noopener">Iceberg lakehouses and AI</a></td><td><span class="tag">ai</span></td></tr>
-          <tr><td class="n">03.3</td><td><a href="https://www.linkedin.com/posts/olakebydatazip_release-notespart-2-activity-7424702491159638017-4Zsl" target="_blank" rel="noopener">Release notes, part 2</a></td><td><span class="tag">release</span></td></tr>
-          <tr><td class="n">03.4</td><td><a href="https://www.linkedin.com/posts/olakebydatazip_cordial-case-study-activity-7425065396497567745-whNf" target="_blank" rel="noopener">Cordial case study</a></td><td><span class="tag">customer</span></td></tr>
-          <tr><td class="n">03.5</td><td><a href="https://www.linkedin.com/posts/olakebydatazip_indias-first-apache-iceberg-community-meetup-activity-7396452535634620417-ph7s" target="_blank" rel="noopener">India's first Apache Iceberg community meetup</a></td><td><span class="tag">event</span></td></tr>
-        </tbody>
-      </table>
+  <section aria-labelledby="h-li">
+    <div class="sh"><h2 id="h-li"><span>04</span>LinkedIn posts I wrote for OLake</h2><div class="nav" data-for="posts"><button type="button" data-dir="-1" aria-label="Previous posts">&larr;</button><button type="button" data-dir="1" aria-label="Next posts">&rarr;</button></div></div>
+    <div class="scroller posts" id="posts">
+      <a class="card post" href="https://www.linkedin.com/posts/olakebydatazip_dataengineer-dataingestion-apacheiceberg-activity-7431670259771830272-b5GO" target="_blank" rel="noopener"><div class="img"><img src="assets/img/canonical/li-1.webp" alt="" loading="lazy" decoding="async" onerror="this.remove()"></div><div class="pad"><h3>Data ingestion into Apache Iceberg</h3></div></a>
+      <a class="card post" href="https://www.linkedin.com/posts/olakebydatazip_apacheiceberg-lakehouse-ai-activity-7427633962035933185-rIWK" target="_blank" rel="noopener"><div class="img"><img src="assets/img/canonical/li-2.webp" alt="" loading="lazy" decoding="async" onerror="this.remove()"></div><div class="pad"><h3>Iceberg lakehouses and AI</h3></div></a>
+      <a class="card post" href="https://www.linkedin.com/posts/olakebydatazip_release-notespart-2-activity-7424702491159638017-4Zsl" target="_blank" rel="noopener"><div class="img"><img src="assets/img/canonical/li-3.webp" alt="" loading="lazy" decoding="async" onerror="this.remove()"></div><div class="pad"><h3>Release notes, part 2</h3></div></a>
+      <a class="card post" href="https://www.linkedin.com/posts/olakebydatazip_cordial-case-study-activity-7425065396497567745-whNf" target="_blank" rel="noopener"><div class="img"><img src="assets/img/canonical/li-4.webp" alt="" loading="lazy" decoding="async" onerror="this.remove()"></div><div class="pad"><h3>Cordial case study</h3></div></a>
+      <a class="card post" href="https://www.linkedin.com/posts/olakebydatazip_indias-first-apache-iceberg-community-meetup-activity-7396452535634620417-ph7s" target="_blank" rel="noopener"><div class="img"><img src="assets/img/canonical/li-5.webp" alt="" loading="lazy" decoding="async" onerror="this.remove()"></div><div class="pad"><h3>India's first Apache Iceberg community meetup</h3></div></a>
     </div>
   </section>
 
   <footer>
-    <p>More work: <a href="/">harshakalbalia.xyz</a></p>
-    <p>I built this page with Claude, and it helped me word the descriptions. The work it links to is mine.</p>
+    <span>Built with Claude</span>
   </footer>
 </div>
+
 <dialog class="lb" id="lb" aria-label="Brochure page">
   <div class="lb-inner">
     <img id="lb-img" alt="">
@@ -365,17 +199,21 @@
 </dialog>
 <script>
 (function () {
-  var g = document.getElementById('gallery');
-  if (!g) return;
-  var imgs = [].slice.call(g.querySelectorAll('img'));
-  document.querySelectorAll('.gbtn').forEach(function (b) {
-    b.addEventListener('click', function () {
-      var step = g.querySelector('figure').getBoundingClientRect().width + 14;
-      g.scrollBy({ left: step * Number(b.dataset.dir), behavior: 'smooth' });
+  document.querySelectorAll('.nav').forEach(function (nav) {
+    var s = document.getElementById(nav.dataset.for);
+    if (!s) return;
+    nav.querySelectorAll('button').forEach(function (b) {
+      b.addEventListener('click', function () {
+        var first = s.firstElementChild;
+        var step = first ? first.getBoundingClientRect().width + 12 : 200;
+        s.scrollBy({ left: step * 2 * Number(b.dataset.dir), behavior: 'smooth' });
+      });
     });
   });
+  var pages = document.getElementById('pages');
   var lb = document.getElementById('lb');
-  if (!lb || typeof lb.showModal !== 'function') return;
+  if (!pages || !lb || typeof lb.showModal !== 'function') return;
+  var imgs = [].slice.call(pages.querySelectorAll('img'));
   var big = document.getElementById('lb-img'), count = document.getElementById('lb-count'), cur = 0;
   function show(i) {
     cur = (i + imgs.length) % imgs.length;
@@ -383,7 +221,7 @@
     big.alt = imgs[cur].alt;
     count.textContent = (cur + 1) + ' / ' + imgs.length;
   }
-  g.querySelectorAll('.pg').forEach(function (b) {
+  pages.querySelectorAll('.pg').forEach(function (b) {
     b.addEventListener('click', function () { show(Number(b.dataset.i)); lb.showModal(); });
   });
   document.getElementById('lb-prev').addEventListener('click', function () { show(cur - 1); });
