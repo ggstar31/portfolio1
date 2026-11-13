@@ -136,9 +136,26 @@
 
   .shot { display: block; border-radius: 8px; overflow: hidden; border: 1px solid var(--line); background: var(--head); }
   .shot img { width: 100%; height: auto; display: block; }
-  .pages { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 8px; margin: 2px 0 16px; }
-  .pages img { width: 100%; height: auto; border-radius: 4px; border: 1px solid var(--line); display: block; }
-  @media (max-width: 520px) { .pages { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+  .gallery-wrap { border-top: 1px solid var(--line); padding: 14px 20px 20px; }
+  .gallery-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; font-family: var(--mono); font-size: 12px; color: var(--muted); margin-bottom: 12px; }
+  .gallery-head .hint { flex: 1; }
+  @media (max-width: 640px) { .gallery-head .hint { display: none; } }
+  .nav { display: flex; gap: 6px; }
+  .gbtn { font: inherit; font-size: 15px; width: 34px; height: 30px; border-radius: 8px; border: 1px solid var(--line); background: var(--card); color: var(--ink); cursor: pointer; }
+  .gbtn:hover, .gbtn:focus-visible { border-color: var(--accent); color: var(--accent-ink); }
+  .gallery { display: grid; grid-auto-flow: column; grid-auto-columns: minmax(240px, 32%); gap: 14px; overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: 10px; scrollbar-width: thin; }
+  @media (max-width: 640px) { .gallery { grid-auto-columns: 78%; } }
+  .gallery figure { margin: 0; scroll-snap-align: start; }
+  .pg { display: block; width: 100%; padding: 0; border: 1px solid var(--line); border-radius: 6px; overflow: hidden; background: var(--head); cursor: zoom-in; }
+  .pg img { width: 100%; height: auto; display: block; }
+  .gallery figcaption { font-family: var(--mono); font-size: 12px; color: var(--muted); margin-top: 8px; }
+  .gallery figcaption span { color: var(--accent-ink); margin-right: 6px; }
+  dialog.lb { border: 0; padding: 0; background: transparent; max-width: 96vw; max-height: 96vh; }
+  dialog.lb::backdrop { background: rgba(10, 14, 12, 0.86); }
+  .lb-inner { position: relative; display: flex; flex-direction: column; align-items: center; gap: 10px; }
+  .lb img { max-width: 92vw; max-height: 84vh; width: auto; height: auto; display: block; border-radius: 6px; }
+  .lb-bar { display: flex; gap: 8px; align-items: center; font-family: var(--mono); font-size: 13px; color: #e8eee9; }
+  .lb-bar button { font: inherit; color: #fff; background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.25); border-radius: 8px; padding: 6px 12px; cursor: pointer; }
 
   footer { margin-top: 56px; padding: 26px 0 48px; border-top: 1px solid var(--line); color: var(--muted); font-size: 14.5px; }
   footer p { margin: 0 0 6px; max-width: 72ch; }
@@ -185,17 +202,8 @@
         <div>
           <h3>The Money Club website and brochure</h3>
           <p>The Money Club lets people pool money with a group of verified members, a digital version of the savings circles that are common across India. I worked on the website copy and this brochure, which tells the story through Umesh, one of the 400 million lower middle class Indians that banks find hard to lend to.</p>
-          <a class="pages" href="assets/docs/moneyclub-brochure.pdf" target="_blank" rel="noopener" aria-label="Open the brochure PDF">
-            <img src="assets/img/moneyclub-brochure-p1-420.webp" alt="Brochure page 1 of 6" width="420" height="594" loading="lazy" decoding="async">
-            <img src="assets/img/moneyclub-brochure-p2-420.webp" alt="Brochure page 2 of 6" width="420" height="594" loading="lazy" decoding="async">
-            <img src="assets/img/moneyclub-brochure-p3-420.webp" alt="Brochure page 3 of 6" width="420" height="594" loading="lazy" decoding="async">
-            <img src="assets/img/moneyclub-brochure-p4-420.webp" alt="Brochure page 4 of 6" width="420" height="594" loading="lazy" decoding="async">
-            <img src="assets/img/moneyclub-brochure-p5-420.webp" alt="Brochure page 5 of 6" width="420" height="594" loading="lazy" decoding="async">
-            <img src="assets/img/moneyclub-brochure-p6-420.webp" alt="Brochure page 6 of 6" width="420" height="594" loading="lazy" decoding="async">
-          </a>
           <div class="links">
             <a href="https://moneyclubber.com" target="_blank" rel="noopener">Visit the website</a>
-            <a href="assets/docs/moneyclub-brochure.pdf" target="_blank" rel="noopener">Open the brochure (PDF)</a>
           </div>
         </div>
         <dl class="spec">
@@ -204,6 +212,17 @@
           <div><dt>Company</dt><dd>The Money Club, fintech</dd></div>
           <div><dt>Story</dt><dd>One user, Umesh, stands in for the segment</dd></div>
         </dl>
+      </div>
+      <div class="gallery-wrap">
+        <div class="gallery-head"><span>brochure · 6 pages</span><span class="hint">swipe or use the arrows · tap a page to enlarge</span><span class="nav"><button type="button" class="gbtn" data-dir="-1" aria-label="Previous pages">&larr;</button><button type="button" class="gbtn" data-dir="1" aria-label="Next pages">&rarr;</button></span></div>
+        <div class="gallery" id="gallery" tabindex="0" aria-label="Money Club brochure pages">
+        <figure><button type="button" class="pg" data-i="0" aria-label="View page 1, Cover, full size"><img src="assets/img/moneyclub-brochure-p1-900.webp" alt="Brochure page 1: Cover" width="900" height="1274" loading="lazy" decoding="async"></button><figcaption><span>p1</span> Cover</figcaption></figure>
+        <figure><button type="button" class="pg" data-i="1" aria-label="View page 2, Meet Umesh, full size"><img src="assets/img/moneyclub-brochure-p2-900.webp" alt="Brochure page 2: Meet Umesh" width="900" height="1274" loading="lazy" decoding="async"></button><figcaption><span>p2</span> Meet Umesh</figcaption></figure>
+        <figure><button type="button" class="pg" data-i="2" aria-label="View page 3, Introducing Money Club, full size"><img src="assets/img/moneyclub-brochure-p3-900.webp" alt="Brochure page 3: Introducing Money Club" width="900" height="1274" loading="lazy" decoding="async"></button><figcaption><span>p3</span> Introducing Money Club</figcaption></figure>
+        <figure><button type="button" class="pg" data-i="3" aria-label="View page 4, How we do it, full size"><img src="assets/img/moneyclub-brochure-p4-900.webp" alt="Brochure page 4: How we do it" width="900" height="1274" loading="lazy" decoding="async"></button><figcaption><span>p4</span> How we do it</figcaption></figure>
+        <figure><button type="button" class="pg" data-i="4" aria-label="View page 5, Dynamic underwriting, full size"><img src="assets/img/moneyclub-brochure-p5-900.webp" alt="Brochure page 5: Dynamic underwriting" width="900" height="1274" loading="lazy" decoding="async"></button><figcaption><span>p5</span> Dynamic underwriting</figcaption></figure>
+        <figure><button type="button" class="pg" data-i="5" aria-label="View page 6, Back cover, full size"><img src="assets/img/moneyclub-brochure-p6-900.webp" alt="Brochure page 6: Back cover" width="900" height="1274" loading="lazy" decoding="async"></button><figcaption><span>p6</span> Back cover</figcaption></figure>
+        </div>
       </div>
     </article>
 
@@ -338,5 +357,44 @@
     <p>I built this page with Claude, and it helped me word the descriptions. The work it links to is mine.</p>
   </footer>
 </div>
+<dialog class="lb" id="lb" aria-label="Brochure page">
+  <div class="lb-inner">
+    <img id="lb-img" alt="">
+    <div class="lb-bar"><button type="button" id="lb-prev" aria-label="Previous page">&larr;</button><span id="lb-count"></span><button type="button" id="lb-next" aria-label="Next page">&rarr;</button><button type="button" id="lb-close">Close</button></div>
+  </div>
+</dialog>
+<script>
+(function () {
+  var g = document.getElementById('gallery');
+  if (!g) return;
+  var imgs = [].slice.call(g.querySelectorAll('img'));
+  document.querySelectorAll('.gbtn').forEach(function (b) {
+    b.addEventListener('click', function () {
+      var step = g.querySelector('figure').getBoundingClientRect().width + 14;
+      g.scrollBy({ left: step * Number(b.dataset.dir), behavior: 'smooth' });
+    });
+  });
+  var lb = document.getElementById('lb');
+  if (!lb || typeof lb.showModal !== 'function') return;
+  var big = document.getElementById('lb-img'), count = document.getElementById('lb-count'), cur = 0;
+  function show(i) {
+    cur = (i + imgs.length) % imgs.length;
+    big.src = imgs[cur].currentSrc || imgs[cur].src;
+    big.alt = imgs[cur].alt;
+    count.textContent = (cur + 1) + ' / ' + imgs.length;
+  }
+  g.querySelectorAll('.pg').forEach(function (b) {
+    b.addEventListener('click', function () { show(Number(b.dataset.i)); lb.showModal(); });
+  });
+  document.getElementById('lb-prev').addEventListener('click', function () { show(cur - 1); });
+  document.getElementById('lb-next').addEventListener('click', function () { show(cur + 1); });
+  document.getElementById('lb-close').addEventListener('click', function () { lb.close(); });
+  lb.addEventListener('click', function (e) { if (e.target === lb) lb.close(); });
+  lb.addEventListener('keydown', function (e) {
+    if (e.key === 'ArrowLeft') show(cur - 1);
+    if (e.key === 'ArrowRight') show(cur + 1);
+  });
+})();
+</script>
 </body>
 </html>
