@@ -99,6 +99,9 @@
   @media (max-width: 640px) { .posts { grid-auto-columns: 76%; } }
   .post { display: flex; flex-direction: column; text-decoration: none; color: inherit; }
   .post .img { aspect-ratio: 1 / 1; background: var(--panel); border-bottom: 1px solid var(--line); overflow: hidden; }
+  .post .tile { display: flex; align-items: flex-end; padding: 16px; background-image: linear-gradient(oklch(0.30 0.025 150) 1px, transparent 1px), linear-gradient(90deg, oklch(0.30 0.025 150) 1px, transparent 1px); background-size: 22px 22px; }
+  .post .tile span { font-family: var(--mono); font-size: 15px; color: oklch(0.86 0.09 145); }
+  .post .tile span::before { content: "# "; color: oklch(0.62 0.04 145); }
   .post .img img { width: 100%; height: 100%; object-fit: cover; display: block; }
   .post .pad { flex: 1; padding: 12px 14px 14px; }
   .post h3 { font-size: 15px; }
@@ -193,11 +196,11 @@
   <section aria-labelledby="h-li">
     <div class="sh"><h2 id="h-li"><span>04</span>LinkedIn posts I wrote for OLake</h2><div class="nav" data-for="posts"><button type="button" data-dir="-1" aria-label="Previous posts">&larr;</button><button type="button" data-dir="1" aria-label="Next posts">&rarr;</button></div></div>
     <div class="scroller posts" id="posts">
-      <a class="card post" href="https://www.linkedin.com/posts/olakebydatazip_dataengineer-dataingestion-apacheiceberg-activity-7431670259771830272-b5GO" target="_blank" rel="noopener"><div class="img"><img src="assets/img/canonical/li-1.webp" alt="" loading="lazy" decoding="async" onerror="this.remove()"></div><div class="pad"><h3>Data ingestion into Apache Iceberg</h3></div></a>
-      <a class="card post" href="https://www.linkedin.com/posts/olakebydatazip_apacheiceberg-lakehouse-ai-activity-7427633962035933185-rIWK" target="_blank" rel="noopener"><div class="img"><img src="assets/img/canonical/li-2.webp" alt="" loading="lazy" decoding="async" onerror="this.remove()"></div><div class="pad"><h3>Iceberg lakehouses and AI</h3></div></a>
-      <a class="card post" href="https://www.linkedin.com/posts/olakebydatazip_release-notespart-2-activity-7424702491159638017-4Zsl" target="_blank" rel="noopener"><div class="img"><img src="assets/img/canonical/li-3.webp" alt="" loading="lazy" decoding="async" onerror="this.remove()"></div><div class="pad"><h3>Release notes, part 2</h3></div></a>
-      <a class="card post" href="https://www.linkedin.com/posts/olakebydatazip_cordial-case-study-activity-7425065396497567745-whNf" target="_blank" rel="noopener"><div class="img"><img src="assets/img/canonical/li-4.webp" alt="" loading="lazy" decoding="async" onerror="this.remove()"></div><div class="pad"><h3>Cordial case study</h3></div></a>
-      <a class="card post" href="https://www.linkedin.com/posts/olakebydatazip_indias-first-apache-iceberg-community-meetup-activity-7396452535634620417-ph7s" target="_blank" rel="noopener"><div class="img"><img src="assets/img/canonical/li-5.webp" alt="" loading="lazy" decoding="async" onerror="this.remove()"></div><div class="pad"><h3>India's first Apache Iceberg community meetup</h3></div></a>
+      <a class="card post" href="https://www.linkedin.com/posts/olakebydatazip_indias-first-apache-iceberg-community-meetup-activity-7396452535634620417-ph7s" target="_blank" rel="noopener"><div class="img"><img src="assets/img/olake-iceberg-blr-1200.webp" alt="Attendees seated in rows of red chairs at the Apache Iceberg community meetup in Bengaluru" loading="lazy" decoding="async"></div><div class="pad"><h3>India's first Apache Iceberg community meetup</h3></div></a>
+      <a class="card post" href="https://www.linkedin.com/posts/olakebydatazip_dataengineer-dataingestion-apacheiceberg-activity-7431670259771830272-b5GO" target="_blank" rel="noopener"><div class="img tile" aria-hidden="true"><span>ingestion</span></div><div class="pad"><h3>Data ingestion into Apache Iceberg</h3></div></a>
+      <a class="card post" href="https://www.linkedin.com/posts/olakebydatazip_apacheiceberg-lakehouse-ai-activity-7427633962035933185-rIWK" target="_blank" rel="noopener"><div class="img tile" aria-hidden="true"><span>lakehouse + ai</span></div><div class="pad"><h3>Iceberg lakehouses and AI</h3></div></a>
+      <a class="card post" href="https://www.linkedin.com/posts/olakebydatazip_release-notespart-2-activity-7424702491159638017-4Zsl" target="_blank" rel="noopener"><div class="img tile" aria-hidden="true"><span>release notes</span></div><div class="pad"><h3>Release notes, part 2</h3></div></a>
+      <a class="card post" href="https://www.linkedin.com/posts/olakebydatazip_cordial-case-study-activity-7425065396497567745-whNf" target="_blank" rel="noopener"><div class="img tile" aria-hidden="true"><span>case study</span></div><div class="pad"><h3>Cordial case study</h3></div></a>
     </div>
   </section>
 
