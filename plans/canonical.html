@@ -1,0 +1,252 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>Work Samples · Harsha Kalbalia</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%232B3B2E'/%3E%3Ccircle cx='16' cy='16' r='6' fill='%23B0562E'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=Azeret+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: oklch(0.975 0.008 95);
+    --grid: oklch(0.93 0.011 95);
+    --card: oklch(0.995 0.004 95);
+    --soft: oklch(0.955 0.012 95);
+    --ink: oklch(0.235 0.014 135);
+    --ink-2: oklch(0.38 0.012 130);
+    --muted: oklch(0.53 0.012 130);
+    --line: oklch(0.88 0.014 95);
+    --accent: oklch(0.47 0.09 148);
+    --accent-ink: oklch(0.40 0.08 148);
+    --panel: oklch(0.235 0.022 150);
+    --sans: "Archivo", Helvetica, Arial, sans-serif;
+    --mono: "Azeret Mono", ui-monospace, Menlo, monospace;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: oklch(0.18 0.012 150); --grid: oklch(0.215 0.013 150); --card: oklch(0.215 0.014 150); --soft: oklch(0.245 0.016 150);
+      --ink: oklch(0.94 0.01 95); --ink-2: oklch(0.82 0.01 95); --muted: oklch(0.66 0.012 130); --line: oklch(0.32 0.016 150);
+      --accent: oklch(0.80 0.10 145); --accent-ink: oklch(0.84 0.09 145); --panel: oklch(0.14 0.016 150);
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: oklch(0.18 0.012 150); --grid: oklch(0.215 0.013 150); --card: oklch(0.215 0.014 150); --soft: oklch(0.245 0.016 150);
+    --ink: oklch(0.94 0.01 95); --ink-2: oklch(0.82 0.01 95); --muted: oklch(0.66 0.012 130); --line: oklch(0.32 0.016 150);
+    --accent: oklch(0.80 0.10 145); --accent-ink: oklch(0.84 0.09 145); --panel: oklch(0.14 0.016 150);
+  }
+
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0; color: var(--ink); font-family: var(--sans); font-size: 16px; line-height: 1.5; -webkit-font-smoothing: antialiased; text-wrap: pretty;
+    background-color: var(--bg);
+    background-image: linear-gradient(var(--grid) 1px, transparent 1px), linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+    background-size: 28px 28px;
+  }
+  a { color: var(--accent-ink); text-underline-offset: 3px; }
+  .wrap { max-width: 1040px; margin: 0 auto; padding: 0 max(16px, env(safe-area-inset-left)); }
+  @media (min-width: 700px) { .wrap { padding: 0 32px; } }
+
+  .top { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 20px 0 4px; }
+  .brand { display: flex; align-items: center; gap: 10px; font-weight: 600; font-size: 15px; color: inherit; text-decoration: none; }
+  .brand:hover, .brand:focus-visible { color: var(--accent-ink); }
+  .badge { width: 32px; height: 32px; border-radius: 8px; display: grid; place-items: center; background: var(--ink); color: var(--bg); font-family: var(--mono); font-size: 12px; }
+  h1 { font-size: 13px; font-family: var(--mono); font-weight: 400; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); margin: 0; }
+
+  section { padding: 26px 0 0; }
+  .sh { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin: 0 0 12px; min-height: 30px; }
+  h2 { font-family: var(--mono); font-size: 13px; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; color: var(--accent-ink); margin: 0; }
+  h2 span { color: var(--muted); margin-right: 8px; }
+  .nav { display: flex; gap: 6px; }
+  .nav button { font: inherit; font-size: 15px; width: 34px; height: 30px; border-radius: 8px; border: 1px solid var(--line); background: var(--card); color: var(--ink); cursor: pointer; }
+  .nav button:hover, .nav button:focus-visible { border-color: var(--accent); color: var(--accent-ink); }
+
+  .card { background: var(--card); border: 1px solid var(--line); border-radius: 12px; overflow: hidden; }
+  .card h3 { font-size: 16px; font-weight: 600; line-height: 1.35; margin: 0 0 4px; }
+  .card h3 a { color: var(--ink); text-decoration: none; }
+  .card h3 a:hover, .card h3 a:focus-visible { color: var(--accent-ink); text-decoration: underline; }
+  .card p { margin: 0; color: var(--ink-2); font-size: 15px; }
+  .pad { padding: 14px 16px 16px; }
+
+  .row { display: grid; gap: 14px; grid-template-columns: 1fr; }
+  @media (min-width: 640px) { .row.two, .row.three { grid-template-columns: 1fr 1fr; } }
+  @media (min-width: 900px) { .row.three { grid-template-columns: repeat(3, 1fr); } }
+
+  .mc .pad { border-bottom: 1px solid var(--line); }
+  .split { display: grid; gap: 14px; }
+  @media (min-width: 640px) { .split { grid-template-columns: 1fr 1fr; gap: 24px; } .split > div + div { border-left: 1px dashed var(--line); padding-left: 24px; } }
+  .ctx { margin: 6px 0 0; color: var(--ink-2); font-size: 16px; max-width: 70ch; }
+  .go { display: inline-block; margin-top: 10px; font-family: var(--mono); font-size: 13px; font-weight: 500; }
+  .go::after { content: " \2197"; }
+
+  .scroller { display: grid; grid-auto-flow: column; gap: 12px; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: thin; }
+  .scroller > * { scroll-snap-align: start; }
+  .pages { grid-auto-columns: 170px; padding: 14px 16px 16px; }
+  @media (max-width: 640px) { .pages { grid-auto-columns: 44%; } }
+  .pg { display: block; width: 100%; padding: 0; border: 1px solid var(--line); border-radius: 6px; overflow: hidden; background: var(--soft); cursor: zoom-in; }
+  .pg img { width: 100%; height: auto; display: block; }
+
+  .thumb { position: relative; display: block; aspect-ratio: 16 / 9; background: var(--panel); overflow: hidden; }
+  .thumb img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
+  .thumb .play { position: absolute; left: 50%; top: 50%; width: 52px; height: 36px; margin: -18px 0 0 -26px; border-radius: 10px; background: rgba(0,0,0,0.72); display: grid; place-items: center; }
+  .thumb .play::before { content: ""; border-left: 14px solid #fff; border-top: 8px solid transparent; border-bottom: 8px solid transparent; margin-left: 3px; }
+  .thumb:hover .play, .thumb:focus-visible .play { background: #c4302b; }
+
+  .posts { grid-auto-columns: 250px; padding-bottom: 8px; }
+  @media (max-width: 640px) { .posts { grid-auto-columns: 76%; } }
+  .post { display: flex; flex-direction: column; text-decoration: none; color: inherit; }
+  .post .img { aspect-ratio: 1 / 1; background: var(--panel); border-bottom: 1px solid var(--line); overflow: hidden; }
+  .post .tile { display: flex; align-items: flex-end; padding: 16px; background-image: linear-gradient(oklch(0.30 0.025 150) 1px, transparent 1px), linear-gradient(90deg, oklch(0.30 0.025 150) 1px, transparent 1px); background-size: 22px 22px; }
+  .post .tile span { font-family: var(--mono); font-size: 15px; color: oklch(0.86 0.09 145); }
+  .post .tile span::before { content: "# "; color: oklch(0.62 0.04 145); }
+  .post .img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .post .pad { flex: 1; padding: 12px 14px 14px; }
+  .post h3 { font-size: 15px; }
+  .post:hover h3, .post:focus-visible h3 { color: var(--accent-ink); text-decoration: underline; }
+
+  .wrap > section:last-of-type { padding-bottom: 48px; }
+
+  dialog.lb { border: 0; padding: 0; background: transparent; max-width: 96vw; max-height: 96vh; }
+  dialog.lb::backdrop { background: rgba(10, 14, 12, 0.86); }
+  .lb-inner { display: flex; flex-direction: column; align-items: center; gap: 10px; }
+  .lb img { max-width: 92vw; max-height: 84vh; width: auto; height: auto; display: block; border-radius: 6px; }
+  .lb-bar { display: flex; gap: 8px; align-items: center; font-family: var(--mono); font-size: 13px; color: #e8eee9; }
+  .lb-bar button { font: inherit; color: #fff; background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.25); border-radius: 8px; padding: 6px 12px; cursor: pointer; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <a class="brand" href="/" title="Go to my portfolio" aria-label="Harsha Kalbalia, go to my portfolio"><span class="badge">HK</span>Harsha Kalbalia</a>
+    <h1>Work samples</h1>
+  </header>
+  <p class="ctx">A glimpse of content produced and designed by me over my work experience.</p>
+
+  <section aria-labelledby="h-mc">
+    <div class="sh"><h2 id="h-mc"><span>01</span>The Money Club</h2><div class="nav" data-for="pages"><button type="button" data-dir="-1" aria-label="Previous pages">&larr;</button><button type="button" data-dir="1" aria-label="Next pages">&rarr;</button></div></div>
+    <div class="card mc">
+      <div class="pad split">
+        <div>
+          <h3><a href="https://moneyclubber.com" target="_blank" rel="noopener">Website</a></h3>
+          <p>I wrote the copy for moneyclubber.com.</p>
+          <a class="go" href="https://moneyclubber.com" target="_blank" rel="noopener">Visit website</a>
+        </div>
+        <div>
+          <h3>Brochure</h3>
+          <p>Built as collateral to represent the company at the Singapore FinTech Festival 2024.</p>
+        </div>
+      </div>
+      <div class="scroller pages" id="pages" aria-label="Brochure pages">
+        <button type="button" class="pg" data-i="0" aria-label="View page 1 full size"><img src="assets/img/moneyclub-brochure-p1-900.webp" alt="Brochure page 1: cover" width="900" height="1274" decoding="async"></button>
+        <button type="button" class="pg" data-i="1" aria-label="View page 2 full size"><img src="assets/img/moneyclub-brochure-p2-900.webp" alt="Brochure page 2: Meet Umesh" width="900" height="1274" decoding="async"></button>
+        <button type="button" class="pg" data-i="2" aria-label="View page 3 full size"><img src="assets/img/moneyclub-brochure-p3-900.webp" alt="Brochure page 3: Introducing Money Club" width="900" height="1274" decoding="async"></button>
+        <button type="button" class="pg" data-i="3" aria-label="View page 4 full size"><img src="assets/img/moneyclub-brochure-p4-900.webp" alt="Brochure page 4: How are we doing this" width="900" height="1274" decoding="async"></button>
+        <button type="button" class="pg" data-i="4" aria-label="View page 5 full size"><img src="assets/img/moneyclub-brochure-p5-900.webp" alt="Brochure page 5: Dynamic real-time underwriting" width="900" height="1274" decoding="async"></button>
+        <button type="button" class="pg" data-i="5" aria-label="View page 6 full size"><img src="assets/img/moneyclub-brochure-p6-900.webp" alt="Brochure page 6: back cover" width="900" height="1274" decoding="async"></button>
+      </div>
+    </div>
+  </section>
+
+  <section aria-labelledby="h-w">
+    <div class="sh"><h2 id="h-w"><span>02</span>Writing at OLake</h2></div>
+    <div class="row two">
+      <article class="card pad">
+        <h3><a href="https://olake.hashnode.dev/how-insurance-tech-startup-automated-300-reports-with-datazip" target="_blank" rel="noopener">Datazip customer story</a></h3>
+        <p>Case study I co-wrote on an insurance tech company that cut report time from 48 hours to one minute.</p>
+        <a class="go" href="https://olake.hashnode.dev/how-insurance-tech-startup-automated-300-reports-with-datazip" target="_blank" rel="noopener">Read case study</a>
+      </article>
+      <article class="card pad">
+        <h3><a href="https://olake.io/docs/fusion/core/use-cases/" target="_blank" rel="noopener">OLake Fusion use cases</a></h3>
+        <p>Product docs on the three problems Fusion solves for Iceberg tables.</p>
+        <a class="go" href="https://olake.io/docs/fusion/core/use-cases/" target="_blank" rel="noopener">Read docs</a>
+      </article>
+    </div>
+  </section>
+
+  <section aria-labelledby="h-v">
+    <div class="sh"><h2 id="h-v"><span>03</span>Examples of webinars hosted</h2></div>
+    <div class="row three">
+      <article class="card">
+        <a class="thumb" href="https://www.youtube.com/watch?v=duOEjA8P2Qo" target="_blank" rel="noopener" aria-label="Watch Iceberg for Agents on YouTube"><img src="https://i.ytimg.com/vi/duOEjA8P2Qo/hqdefault.jpg" alt="" loading="lazy" decoding="async"><span class="play" aria-hidden="true"></span></a>
+        <div class="pad">
+          <h3><a href="https://www.youtube.com/watch?v=duOEjA8P2Qo" target="_blank" rel="noopener">Iceberg for Agents, with Andrew Madson</a></h3>
+          <p>Hosted: using lakehouse data as context for AI agents.</p>
+        </div>
+      </article>
+      <article class="card">
+        <a class="thumb" href="https://www.youtube.com/watch?v=Z0tEClkIT_8" target="_blank" rel="noopener" aria-label="Watch the REST catalog webinar on YouTube"><img src="https://i.ytimg.com/vi/Z0tEClkIT_8/hqdefault.jpg" alt="" loading="lazy" decoding="async"><span class="play" aria-hidden="true"></span></a>
+        <div class="pad">
+          <h3><a href="https://www.youtube.com/watch?v=Z0tEClkIT_8" target="_blank" rel="noopener">Iceberg REST catalogs, with Viktor Kessler</a></h3>
+          <p>Hosted: what a REST catalog changes for teams on Iceberg.</p>
+        </div>
+      </article>
+      <article class="card">
+        <a class="thumb" href="https://www.youtube.com/watch?v=7fuvICHBvbc" target="_blank" rel="noopener" aria-label="Watch the Women in Data Engineering panel on YouTube"><img src="https://i.ytimg.com/vi/7fuvICHBvbc/hqdefault.jpg" alt="" loading="lazy" decoding="async"><span class="play" aria-hidden="true"></span></a>
+        <div class="pad">
+          <h3><a href="https://www.youtube.com/watch?v=7fuvICHBvbc" target="_blank" rel="noopener">Women in Data Engineering</a></h3>
+          <p>Moderated: a 75 minute panel with women in data engineering.</p>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section aria-labelledby="h-li">
+    <div class="sh"><h2 id="h-li"><span>04</span>Some LinkedIn posts I wrote for OLake</h2><div class="nav" data-for="posts"><button type="button" data-dir="-1" aria-label="Previous posts">&larr;</button><button type="button" data-dir="1" aria-label="Next posts">&rarr;</button></div></div>
+    <div class="scroller posts" id="posts">
+      <a class="card post" href="https://www.linkedin.com/posts/olakebydatazip_indias-first-apache-iceberg-community-meetup-activity-7396452535634620417-ph7s" target="_blank" rel="noopener"><div class="img"><img src="assets/img/case/olake-auditorium-1100.webp" alt="A full auditorium at the Apache Iceberg community meetup" loading="lazy" decoding="async"></div><div class="pad"><h3>India's first Apache Iceberg community meetup</h3></div></a>
+      <a class="card post" href="https://www.linkedin.com/posts/olakebydatazip_dataengineer-dataingestion-apacheiceberg-activity-7431670259771830272-b5GO" target="_blank" rel="noopener"><div class="img" style="background:rgb(240,244,247)"><img src="assets/img/canonical/li-ingestion.webp" alt="Diagram of OLake's Arrow writer architecture, from source databases to Iceberg on object storage" loading="lazy" decoding="async" style="object-fit:contain"></div><div class="pad"><h3>Data ingestion into Apache Iceberg</h3></div></a>
+      <a class="card post" href="https://www.linkedin.com/posts/olakebydatazip_release-notespart-2-activity-7424702491159638017-4Zsl" target="_blank" rel="noopener"><div class="img" style="background:rgb(35,1,250)"><img src="assets/img/canonical/li-release-notes.webp" alt="OLake release notes graphic showing versions from v0.2.2 to v0.3.15" loading="lazy" decoding="async" style="object-fit:cover"></div><div class="pad"><h3>Release notes</h3></div></a>
+      <a class="card post" href="https://www.linkedin.com/posts/olakebydatazip_cordial-case-study-activity-7425065396497567745-whNf" target="_blank" rel="noopener"><div class="img" style="background:rgb(29,32,39)"><img src="assets/img/canonical/li-cordial.webp" alt="Graphic introducing Cordial's MongoDB data challenge" loading="lazy" decoding="async" style="object-fit:contain"></div><div class="pad"><h3>Cordial case study</h3></div></a>
+    </div>
+  </section>
+
+</div>
+
+<dialog class="lb" id="lb" aria-label="Brochure page">
+  <div class="lb-inner">
+    <img id="lb-img" alt="">
+    <div class="lb-bar"><button type="button" id="lb-prev" aria-label="Previous page">&larr;</button><span id="lb-count"></span><button type="button" id="lb-next" aria-label="Next page">&rarr;</button><button type="button" id="lb-close">Close</button></div>
+  </div>
+</dialog>
+<script>
+(function () {
+  document.querySelectorAll('.nav').forEach(function (nav) {
+    var s = document.getElementById(nav.dataset.for);
+    if (!s) return;
+    nav.querySelectorAll('button').forEach(function (b) {
+      b.addEventListener('click', function () {
+        var first = s.firstElementChild;
+        var step = first ? first.getBoundingClientRect().width + 12 : 200;
+        s.scrollBy({ left: step * 2 * Number(b.dataset.dir), behavior: 'smooth' });
+      });
+    });
+  });
+  var pages = document.getElementById('pages');
+  var lb = document.getElementById('lb');
+  if (!pages || !lb || typeof lb.showModal !== 'function') return;
+  var imgs = [].slice.call(pages.querySelectorAll('img'));
+  var big = document.getElementById('lb-img'), count = document.getElementById('lb-count'), cur = 0;
+  function show(i) {
+    cur = (i + imgs.length) % imgs.length;
+    big.src = imgs[cur].currentSrc || imgs[cur].src;
+    big.alt = imgs[cur].alt;
+    count.textContent = (cur + 1) + ' / ' + imgs.length;
+  }
+  pages.querySelectorAll('.pg').forEach(function (b) {
+    b.addEventListener('click', function () { show(Number(b.dataset.i)); lb.showModal(); });
+  });
+  document.getElementById('lb-prev').addEventListener('click', function () { show(cur - 1); });
+  document.getElementById('lb-next').addEventListener('click', function () { show(cur + 1); });
+  document.getElementById('lb-close').addEventListener('click', function () { lb.close(); });
+  lb.addEventListener('click', function (e) { if (e.target === lb) lb.close(); });
+  lb.addEventListener('keydown', function (e) {
+    if (e.key === 'ArrowLeft') show(cur - 1);
+    if (e.key === 'ArrowRight') show(cur + 1);
+  });
+})();
+</script>
+</body>
+</html>

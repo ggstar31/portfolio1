@@ -6,6 +6,10 @@
       "destination": "/plans/mongodb.html"
     },
     {
+      "source": "/canonical",
+      "destination": "/plans/canonical.html"
+    },
+    {
       "source": "/(.*)",
       "destination": "/index.html"
     }
