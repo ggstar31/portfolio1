@@ -76,6 +76,11 @@
   @media (min-width: 900px) { .row.three { grid-template-columns: repeat(3, 1fr); } }
 
   .mc .pad { border-bottom: 1px solid var(--line); }
+  .split { display: grid; gap: 14px; }
+  @media (min-width: 640px) { .split { grid-template-columns: 1fr 1fr; gap: 24px; } .split > div + div { border-left: 1px dashed var(--line); padding-left: 24px; } }
+  .ctx { margin: 6px 0 0; color: var(--ink-2); font-size: 16px; max-width: 70ch; }
+  .go { display: inline-block; margin-top: 10px; font-family: var(--mono); font-size: 13px; font-weight: 500; }
+  .go::after { content: " \2197"; }
 
   .scroller { display: grid; grid-auto-flow: column; gap: 12px; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: thin; }
   .scroller > * { scroll-snap-align: start; }
@@ -115,13 +120,21 @@
     <a class="brand" href="/" title="Go to my portfolio" aria-label="Harsha Kalbalia, go to my portfolio"><span class="badge">HK</span>Harsha Kalbalia</a>
     <h1>Work samples</h1>
   </header>
+  <p class="ctx">Things I wrote, designed and hosted at OLake, an open source data ingestion tool, and The Money Club, a fintech.</p>
 
   <section aria-labelledby="h-mc">
     <div class="sh"><h2 id="h-mc"><span>01</span>The Money Club</h2><div class="nav" data-for="pages"><button type="button" data-dir="-1" aria-label="Previous pages">&larr;</button><button type="button" data-dir="1" aria-label="Next pages">&rarr;</button></div></div>
     <div class="card mc">
-      <div class="pad">
-        <h3><a href="https://moneyclubber.com" target="_blank" rel="noopener">Website copy and brochure</a></h3>
-        <p>A fintech brochure built around Umesh, one of the 400 million Indians banks find hard to lend to.</p>
+      <div class="pad split">
+        <div>
+          <h3><a href="https://moneyclubber.com" target="_blank" rel="noopener">Website</a></h3>
+          <p>I wrote the copy for moneyclubber.com.</p>
+          <a class="go" href="https://moneyclubber.com" target="_blank" rel="noopener">Visit website</a>
+        </div>
+        <div>
+          <h3>Brochure</h3>
+          <p>Built around Umesh, one of the 400 million Indians banks find hard to lend to.</p>
+        </div>
       </div>
       <div class="scroller pages" id="pages" aria-label="Brochure pages">
         <button type="button" class="pg" data-i="0" aria-label="View page 1 full size"><img src="assets/img/moneyclub-brochure-p1-900.webp" alt="Brochure page 1: cover" width="900" height="1274" decoding="async"></button>
@@ -140,10 +153,12 @@
       <article class="card pad">
         <h3><a href="https://olake.hashnode.dev/how-insurance-tech-startup-automated-300-reports-with-datazip" target="_blank" rel="noopener">48 Hours to 1 Minute</a></h3>
         <p>Case study I co-wrote on an insurance tech company that cut report time from 48 hours to one minute.</p>
+        <a class="go" href="https://olake.hashnode.dev/how-insurance-tech-startup-automated-300-reports-with-datazip" target="_blank" rel="noopener">Read case study</a>
       </article>
       <article class="card pad">
         <h3><a href="https://olake.io/docs/fusion/core/use-cases/" target="_blank" rel="noopener">OLake Fusion use cases</a></h3>
         <p>Product docs on the three problems Fusion solves for Iceberg tables.</p>
+        <a class="go" href="https://olake.io/docs/fusion/core/use-cases/" target="_blank" rel="noopener">Read docs</a>
       </article>
     </div>
   </section>
