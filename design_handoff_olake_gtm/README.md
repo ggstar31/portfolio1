@@ -26,7 +26,7 @@ Content column: `max-width: 1100px; margin: 0 auto; padding: 0 40px` (TL;DR uses
 - 880px column, 72px below hero.
 - Card: bg #1E1426, border 1px rgba(255,255,255,0.09), radius 18px, padding 36px 42px.
 - Header row: "TL;DR" (Poppins 600, 11.5px, letter-spacing 0.22em, uppercase, #FF8A6B) + hairline filling the row (`height: 1px; background: linear-gradient(90deg, rgba(255,107,74,0.4), rgba(255,255,255,0.06))`).
-- Body 16.5px/1.75 #DCCFE3; key numbers ($100K to $500K ARR, 1,500+ GitHub stars, 6K+ MQLs, 700+ community members, 30+ clients in production, 55+ POCs) in white 600. Copy verbatim from reference.
+- Body 16.5px/1.75 #DCCFE3; key numbers ($100K to $500K ARR, 1,500+ GitHub stars, 6K+ MQLs, 700+ community members, 200+ sync jobs run monthly across the UI and CLI, 55+ POCs) in white 600. Copy verbatim from reference.
 
 ### 3. Workstreams: three vertical cards
 - Kicker "WORKSTREAMS" (same kicker style as hero, margin-bottom 30px).
